@@ -1,0 +1,108 @@
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.pdb
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSupport.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSystem.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.14.0.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.Visitors.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.Designers.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.TestXRef.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.LabelEditor.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\System.Windows.Interactivity.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.CompareTool.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.IconResources.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.StateMachine.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Framework.BestPracticeFixerExtensions.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AXCreateDeployablePackageBase.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Design.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Interop.12.0.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Aga.Controls.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\XmlDiffPatch.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.AXInstallationInfo.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Design.xml
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Interop.12.0.xml
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.AddinResources.resources
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csproj.GenerateResource.Cache
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.dll
+c:\users\admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb
+C:\Users\Admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\envdte.dll
+C:\Users\Admind405823167\documents\visual studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\envdte.xml
+C:\Users\Admind405823167\Documents\Visual Studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Xpp.Support.dll
+C:\Users\Admind405823167\Documents\Visual Studio 2015\Projects\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.pdb
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\envdte.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Xpp.Support.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSupport.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSystem.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.14.0.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.Visitors.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.Designers.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.TestXRef.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.LabelEditor.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.CompareTool.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.IconResources.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.StateMachine.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Framework.BestPracticeFixerExtensions.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AXCreateDeployablePackageBase.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Design.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Interop.12.0.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Aga.Controls.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\XmlDiffPatch.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.AXInstallationInfo.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\envdte.xml
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Design.xml
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Interop.12.0.xml
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.AddinResources.resources
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csproj.GenerateResource.Cache
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.dll
+C:\Users\Admind405823167\Documents\Github\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.pdb
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\envdte.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Xpp.Support.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSupport.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSystem.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.14.0.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.Visitors.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.Designers.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.TestXRef.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.LabelEditor.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.CompareTool.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.IconResources.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.StateMachine.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Framework.BestPracticeFixerExtensions.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AXCreateDeployablePackageBase.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Design.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Interop.12.0.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Aga.Controls.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\XmlDiffPatch.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.AXInstallationInfo.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\envdte.xml
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Design.xml
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Interop.12.0.xml
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.AddinResources.resources
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csproj.GenerateResource.Cache
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.dll
+C:\Users\Admind405823167\Source\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb
