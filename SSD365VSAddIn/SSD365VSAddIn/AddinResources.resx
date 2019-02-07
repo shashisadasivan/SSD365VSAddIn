@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ClassExtensionCreatorDesignContextMenuAddInCaption" xml:space="preserve">
-    <value>Create extension (SS D365)</value>
+  <data name="CreateCodeExtension" xml:space="preserve">
+    <value>Create code extension (SS D365)</value>
   </data>
   <data name="CreateExtension" xml:space="preserve">
     <value>Create extension (SS D365)</value>

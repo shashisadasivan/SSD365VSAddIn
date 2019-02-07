@@ -1,5 +1,4 @@
-﻿using Microsoft.Dynamics.AX.Metadata.MetaModel;
-using Microsoft.Dynamics.Framework.Tools.Extensibility;
+﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
 using System;
@@ -9,19 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SSD365VSAddIn.SecurityDuty
+namespace SSD365VSAddIn.ExtensionCommand
 {
     /// <summary>
-    /// Creates a Security Duty extension for a given Security Duty
+    /// Creates a Extension from given object
     /// </summary>
     [Export(typeof(Microsoft.Dynamics.Framework.Tools.Extensibility.IDesignerMenu))] // IDesignerMenu
     // If you need to specify any other element, change this AutomationNodeType value.
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
-    class SecurityDutyExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
+    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IClass))]
+    class CreateExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
-        private const string addinName = "SSD365VSAddIn.SecurityDutyExtensionCreatorDesignContextMenuAddIn";
+        private const string addinName = "SSD365VSAddIn.CreateExtensionCreatorDesignContextMenuAddIn";
         #endregion
 
         #region Properties
@@ -43,7 +43,7 @@ namespace SSD365VSAddIn.SecurityDuty
         {
             get
             {
-                return SecurityDutyExtensionCreatorDesignContextMenuAddIn.addinName;
+                return CreateExtensionCreatorDesignContextMenuAddIn.addinName;
             }
         }
         #endregion
@@ -59,7 +59,11 @@ namespace SSD365VSAddIn.SecurityDuty
             {
                 if (e.SelectedElement is ISecurityDuty)
                 {
-                    SecurityDutyExtensionCreatorDesignContextMenuAddIn.CreateDutyExtension(e.SelectedElement as ISecurityDuty);
+                    SecurityDuty.SecurityDutyExtensionCreatorDesignContextMenuAddIn.CreateDutyExtension(e.SelectedElement as ISecurityDuty);
+                }
+                else if(e.SelectedElement is IClass)
+                {
+                    // Enable on the attribute and call method here
                 }
 
             }
@@ -69,28 +73,5 @@ namespace SSD365VSAddIn.SecurityDuty
             }
         }
         #endregion
-
-
-        public static string CreateDutyExtension(ISecurityDuty securityDuty)
-        {
-            var name = securityDuty.Name + Common.Constants._EXTENSION;
-            name = Common.CommonUtil.GetNextNameSecurityDutyExtension(name);
-
-            var duty = new AxSecurityDutyExtension() { Name = name };
-
-            // Find current model
-            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
-
-            //Create menu item in the right model
-            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-            var metaModelService = metaModelProviders.CurrentMetaModelService;
-
-            
-
-            // Addd to project
-            Common.CommonUtil.AddElementToProject(duty);
-
-            return duty.Name;
-        }
     }
 }

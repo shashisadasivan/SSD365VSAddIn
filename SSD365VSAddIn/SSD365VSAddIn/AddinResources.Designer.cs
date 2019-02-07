@@ -61,11 +61,11 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create extension (SS D365).
+        ///   Looks up a localized string similar to Create code extension (SS D365).
         /// </summary>
-        internal static string ClassExtensionCreatorDesignContextMenuAddInCaption {
+        internal static string CreateCodeExtension {
             get {
-                return ResourceManager.GetString("ClassExtensionCreatorDesignContextMenuAddInCaption", resourceCulture);
+                return ResourceManager.GetString("CreateCodeExtension", resourceCulture);
             }
         }
         

@@ -36,7 +36,7 @@
         {
             get
             {
-                return AddinResources.ClassExtensionCreatorDesignContextMenuAddInCaption;
+                return AddinResources.CreateCodeExtension;
             }
         }
 
@@ -117,5 +117,6 @@
             }
         }
         #endregion
+        
     }
 }

@@ -59,6 +59,8 @@
     <Compile Include="ClassesUtil\ClassExtensionCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="Common\CommonUtil.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="ExtensionCommand\CreateExtensionCreatorDesignContextMenuAddIn.cs" />
+    <Compile Include="ExtensionCommand\IClass.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
