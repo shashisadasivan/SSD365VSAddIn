@@ -70,6 +70,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create extension (SS D365).
+        /// </summary>
+        internal static string CreateExtension {
+            get {
+                return ResourceManager.GetString("CreateExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SS D365 VSAddIn .
         /// </summary>
         internal static string DesignerAddinCaption {

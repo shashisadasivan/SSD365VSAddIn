@@ -68,6 +68,7 @@
       <DependentUpon>AddinResources.resx</DependentUpon>
     </Compile>
     <Compile Include="SecurityDuty\SecurityDutyCreator.cs" />
+    <Compile Include="SecurityDuty\SecurityDutyExtensionCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityDuty\SecurityDutyInquireCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityDuty\SecurityDutyMaintainCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityPrivilege\SecurityPrivilegeCreatorMenuAddIn.cs" />
