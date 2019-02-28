@@ -1,5 +1,7 @@
 ﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Classes;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
 using System;
 using System.Collections.Generic;
@@ -17,7 +19,8 @@ namespace SSD365VSAddIn.ExtensionCommand
     // If you need to specify any other element, change this AutomationNodeType value.
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
-    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IClass))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
+    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IClassItem))]
     class CreateExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -61,7 +64,12 @@ namespace SSD365VSAddIn.ExtensionCommand
                 {
                     SecurityDuty.SecurityDutyExtensionCreatorDesignContextMenuAddIn.CreateDutyExtension(e.SelectedElement as ISecurityDuty);
                 }
-                else if(e.SelectedElement is IClass)
+                else if (e.SelectedElement is ITable)
+                {
+                    Tables.TableHelper.CreateTableExtension(e.SelectedElement as ITable);
+                    // Enable on the attribute and call method here
+                }
+                else if(e.SelectedElement is IClassItem)
                 {
                     // Enable on the attribute and call method here
                 }

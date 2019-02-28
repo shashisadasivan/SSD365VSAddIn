@@ -59,10 +59,11 @@
     <Compile Include="ClassesUtil\ClassExtensionCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="Common\CommonUtil.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\D365Helper.cs" />
     <Compile Include="ExtensionCommand\CreateExtensionCreatorDesignContextMenuAddIn.cs" />
-    <Compile Include="ExtensionCommand\IClass.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
+    <Compile Include="MainMenuAddIns\SettingsMainMenuAddIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AddinResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -74,6 +75,7 @@
     <Compile Include="SecurityDuty\SecurityDutyInquireCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityDuty\SecurityDutyMaintainCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityPrivilege\SecurityPrivilegeCreatorMenuAddIn.cs" />
+    <Compile Include="Tables\TableHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddinResources.resx">

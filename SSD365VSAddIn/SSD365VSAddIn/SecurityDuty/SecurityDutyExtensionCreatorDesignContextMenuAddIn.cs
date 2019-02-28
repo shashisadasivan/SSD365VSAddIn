@@ -85,10 +85,11 @@ namespace SSD365VSAddIn.SecurityDuty
             var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
             var metaModelService = metaModelProviders.CurrentMetaModelService;
 
-            
+            //TODO: how do we create an extension object ?
+            //metaModelService.CreateSecurityDuty(duty, modelSaveInfo);
 
             // Addd to project
-            Common.CommonUtil.AddElementToProject(duty);
+            //Common.CommonUtil.AddElementToProject(duty);
 
             return duty.Name;
         }

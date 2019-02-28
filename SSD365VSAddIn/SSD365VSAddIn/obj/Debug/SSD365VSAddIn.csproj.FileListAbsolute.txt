@@ -111,8 +111,6 @@ C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\envdte.dll
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.dll
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Xpp.Support.dll
-C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSupport.dll
-C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.ProjectSystem.dll
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Debugger.Interop.14.0.dll
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.AX.Metadata.Visitors.dll
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll
@@ -137,8 +135,8 @@ C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Design.xml
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.Shell.Interop.12.0.xml
-C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.AddinResources.resources
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csproj.GenerateResource.Cache
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.dll
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb
+C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache

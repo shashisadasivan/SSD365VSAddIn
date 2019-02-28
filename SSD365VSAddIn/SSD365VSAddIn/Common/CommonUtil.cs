@@ -126,5 +126,25 @@ namespace SSD365VSAddIn.Common
 
             return objectName;
         }
+
+        internal static string GetNextTableExtension(string name)
+        {
+            string objectName = name;
+
+            // Find current model
+            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            // Create a class with the same name + _Extension and add it to the project
+            // ClassName
+            int numFound = 0;
+            while (metaModelService.GetTableExtension(objectName) != null)
+            {
+                numFound++;
+                objectName = name + numFound.ToString();
+            }
+
+            return objectName;
+        }
     }
 }

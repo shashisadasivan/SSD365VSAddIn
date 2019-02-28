@@ -12,5 +12,6 @@ namespace SSD365VSAddIn.Common
         public const string VIEW = "View";
         public const string MAINTAIN = "Maintain";
         public const string _EXTENSION = "_Extension";
+        public const string DotEXTENSION = ".Extension";
     }
 }

@@ -138,4 +138,7 @@
   <data name="SecurityPrivilegeCreatorMenuAddInCaption" xml:space="preserve">
     <value>Create Maintain and view Privilege (SS D365)</value>
   </data>
+  <data name="SettingsMainMenuCaption" xml:space="preserve">
+    <value>SS D365 AddIn Settings</value>
+  </data>
 </root>

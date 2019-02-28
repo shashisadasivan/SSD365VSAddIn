@@ -122,5 +122,14 @@ namespace SSD365VSAddIn {
                 return ResourceManager.GetString("SecurityPrivilegeCreatorMenuAddInCaption", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SS D365 AddIn Settings.
+        /// </summary>
+        internal static string SettingsMainMenuCaption {
+            get {
+                return ResourceManager.GetString("SettingsMainMenuCaption", resourceCulture);
+            }
+        }
     }
 }

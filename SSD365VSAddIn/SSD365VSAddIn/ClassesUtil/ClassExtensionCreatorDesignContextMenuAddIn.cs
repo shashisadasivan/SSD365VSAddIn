@@ -12,6 +12,7 @@
     using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Classes;
     using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
     using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews;
+    using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 
     /// <summary>
     /// Creates class extension for a given class
@@ -22,6 +23,7 @@
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IClassItem))]
     [DesignerMenuExportMetadata(AutomationNodeType =typeof(ITable))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntityView))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
     class ClassExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -91,6 +93,10 @@
                     else if(selectedElement is IClassItem)
                     {
                         intrinsicStr = "classStr";
+                    }
+                    else if(selectedElement is IForm)
+                    {
+                        intrinsicStr = "formStr";
                     }
 
                     Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass = new AxClass()
