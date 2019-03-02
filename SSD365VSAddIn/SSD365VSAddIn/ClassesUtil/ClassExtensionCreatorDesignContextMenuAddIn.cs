@@ -109,12 +109,6 @@
 
                     metaModelService.CreateClass(extensionClass, modelSaveInfo);
                     Common.CommonUtil.AddElementToProject(extensionClass);
-
-                    //var classx = metaModelService.GetClass("DXC_LedgerJournalEntity_Extension");
-                    //int x = 10;
-
-                    
-                    
                 }
             }
             catch (Exception ex)

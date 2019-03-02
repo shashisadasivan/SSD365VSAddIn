@@ -60,19 +60,21 @@ namespace SSD365VSAddIn.ExtensionCommand
         {
             try
             {
-                if (e.SelectedElement is ISecurityDuty)
-                {
-                    SecurityDuty.SecurityDutyExtensionCreatorDesignContextMenuAddIn.CreateDutyExtension(e.SelectedElement as ISecurityDuty);
-                }
-                else if (e.SelectedElement is ITable)
-                {
-                    Tables.TableHelper.CreateTableExtension(e.SelectedElement as ITable);
-                    // Enable on the attribute and call method here
-                }
-                else if(e.SelectedElement is IClassItem)
-                {
-                    // Enable on the attribute and call method here
-                }
+                //TODO: this does not work yet
+                CoreUtility.DisplayError("Not implemented yet");
+                //if (e.SelectedElement is ISecurityDuty)
+                //{
+                //    SecurityDuty.SecurityDutyExtensionCreatorDesignContextMenuAddIn.CreateDutyExtension(e.SelectedElement as ISecurityDuty);
+                //}
+                //else if (e.SelectedElement is ITable)
+                //{
+                //    Tables.TableHelper.CreateTableExtension(e.SelectedElement as ITable);
+                //    // Enable on the attribute and call method here
+                //}
+                //else if(e.SelectedElement is IClassItem)
+                //{
+                //    // Enable on the attribute and call method here
+                //}
 
             }
             catch (Exception ex)

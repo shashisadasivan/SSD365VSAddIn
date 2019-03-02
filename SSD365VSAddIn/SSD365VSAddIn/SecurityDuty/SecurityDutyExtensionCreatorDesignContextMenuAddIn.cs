@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace SSD365VSAddIn.SecurityDuty
 {
+    /*
     /// <summary>
     /// Creates a Security Duty extension for a given Security Duty
     /// </summary>
@@ -94,4 +95,5 @@ namespace SSD365VSAddIn.SecurityDuty
             return duty.Name;
         }
     }
+    */
 }
