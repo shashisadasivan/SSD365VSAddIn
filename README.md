@@ -1,2 +1,2 @@
 # SSD365VSAddIn
-VS addin for D365 FO
+Visual studio addin for dynamics 365 finance operations
