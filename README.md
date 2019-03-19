@@ -1,4 +1,4 @@
-# Visual studio add for dynamics 365 finance operations
+# Visual studio add for dynamics 365 finance and operations
 Extensions to enhance the development experience, mostly keyboardless
 
 # How to install the extension
