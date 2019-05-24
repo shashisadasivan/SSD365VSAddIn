@@ -144,4 +144,7 @@
   <data name="SettingsMainMenuCaption" xml:space="preserve">
     <value>SS D365 AddIn Settings</value>
   </data>
+  <data name="TableFormCreatorMenuAddIn" xml:space="preserve">
+    <value>Create Form (SS D365)</value>
+  </data>
 </root>

@@ -76,6 +76,7 @@
     <Compile Include="SecurityDuty\SecurityDutyInquireCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityDuty\SecurityDutyMaintainCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityPrivilege\SecurityPrivilegeCreatorMenuAddIn.cs" />
+    <Compile Include="Tables\TableFormCreatorMenuAddIn.cs" />
     <Compile Include="Tables\TableHelper.cs" />
   </ItemGroup>
   <ItemGroup>

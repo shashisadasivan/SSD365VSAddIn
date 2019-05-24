@@ -140,5 +140,14 @@ namespace SSD365VSAddIn {
                 return ResourceManager.GetString("SettingsMainMenuCaption", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Form (SS D365).
+        /// </summary>
+        internal static string TableFormCreatorMenuAddIn {
+            get {
+                return ResourceManager.GetString("TableFormCreatorMenuAddIn", resourceCulture);
+            }
+        }
     }
 }
