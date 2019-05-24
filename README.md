@@ -25,4 +25,7 @@ Right click a Table, Class, Data entity, Form to create a class extension for it
 ## Create Maintain and Inquire Privilege from Menu item
 
 ## Create Display menu item from a Form
-Open the form, right click the Form name (left of designer) and select the addin "Create display menu item (SS D365)"
+Open the form, right click the Form name (left of designer) and select the AddIn "Create display menu item (SS D365)"
+
+## Create Form from a Table
+open the table, Right click the Table name in the designer and select the AddIn "Create Form (SS D365)"
