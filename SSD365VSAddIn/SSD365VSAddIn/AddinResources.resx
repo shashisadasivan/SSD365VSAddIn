@@ -126,6 +126,9 @@
   <data name="DesignerAddinCaption" xml:space="preserve">
     <value>SS D365 VSAddIn </value>
   </data>
+  <data name="FormsUtilMenuItemAddin" xml:space="preserve">
+    <value>Creade display menu item (SS D365)</value>
+  </data>
   <data name="MainMenuAddInCaption" xml:space="preserve">
     <value>Main Menu caption for SSD365VSAddIn AddIn</value>
   </data>

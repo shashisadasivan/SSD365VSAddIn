@@ -88,6 +88,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creade display menu item (SS D365).
+        /// </summary>
+        internal static string FormsUtilMenuItemAddin {
+            get {
+                return ResourceManager.GetString("FormsUtilMenuItemAddin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Main Menu caption for SSD365VSAddIn AddIn.
         /// </summary>
         internal static string MainMenuAddInCaption {

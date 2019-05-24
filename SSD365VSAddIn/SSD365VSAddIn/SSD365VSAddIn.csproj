@@ -61,6 +61,7 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\D365Helper.cs" />
     <Compile Include="ExtensionCommand\CreateExtensionCreatorDesignContextMenuAddIn.cs" />
+    <Compile Include="Forms\FormsUtilMenuItemAddin.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
     <Compile Include="MainMenuAddIns\SettingsMainMenuAddIn.cs" />
