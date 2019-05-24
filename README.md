@@ -1,5 +1,6 @@
 # Visual studio add for dynamics 365 finance and operations
-Extensions to enhance the development experience, mostly keyboardless
+Extensions to enhance the development experience, mostly with just the mouse.
+These can only be done from the designer windows of the source objects
 
 # How to install the extension
 Powershell & DLL's script located in OutputDlls folder
