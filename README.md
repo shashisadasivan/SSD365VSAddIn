@@ -23,3 +23,6 @@ Right click a Table, Class, Data entity, Form to create a class extension for it
 ## Create Maintain Security Duty from Privilege
 
 ## Create Maintain and Inquire Privilege from Menu item
+
+## Create Display menu item from a Form
+Open the form, right click the Form name (left of designer) and select the addin "Create display menu item (SS D365)"
