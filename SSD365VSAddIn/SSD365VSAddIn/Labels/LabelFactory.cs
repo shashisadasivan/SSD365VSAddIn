@@ -53,9 +53,15 @@ namespace SSD365VSAddIn.Labels
 
         public override void ApplyLabel()
         {
-            this.iTable.Label = LabelHelper.FindOrCreateLabel(this.iTable.Label);
-            this.iTable.DeveloperDocumentation = LabelHelper.FindOrCreateLabel(this.iTable.DeveloperDocumentation);
+            //TODO: check if table is in current model
+            var table = Common.CommonUtil.GetModelSaveService().GetTable(this.iTable.Name); 
+            if (table != null)
+            {
+                this.iTable.Label = LabelHelper.FindOrCreateLabel(this.iTable.Label);
+                this.iTable.DeveloperDocumentation = LabelHelper.FindOrCreateLabel(this.iTable.DeveloperDocumentation);
+            }
+            //TODO: apply label for child elements (fields, groups)
+            
         }
-
     }
 }

@@ -105,14 +105,21 @@ namespace SSD365VSAddIn.Common
             CoreUtility.DisplayInfo(message);
         }
 
+        internal static IMetaModelProviders GetMetaModelProviders()
+        {
+            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
+
+            return metaModelProviders;
+        }
+
+
         internal static IMetaModelService GetModelSaveService()
         {
             // Find current model
-            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
+            //var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 
-           // Get the model servivce to save the element in //Create menu item in the right model
-            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-            var metaModelService = metaModelProviders.CurrentMetaModelService;
+            // Get the model servivce to save the element in //Create menu item in the right model
+            var metaModelService = CommonUtil.GetMetaModelProviders().CurrentMetaModelService;
 
             return metaModelService;
         }

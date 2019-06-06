@@ -44,8 +44,26 @@ namespace SSD365VSAddIn.SecurityDuty
             Common.CommonUtil.AddElementToProject(duty);
 
             return duty.Name;
+        }
 
+        public static string CreateDutyExtension(ISecurityDuty duty)
+        {
+            var securityDutyExtensionName = Common.CommonUtil.GetNextNameSecurityDutyExtension(duty.Name + Common.Constants.DotEXTENSION);
 
+            var extSecDuty = new AxSecurityDutyExtension() { Name = securityDutyExtensionName };
+            // var secDuty = new AxSecurityDuty() { Name = securityDutyExtensionName };
+            //var ex = new AxSecurityDutyExtension() { Name = securityDutyExtensionName };
+
+            //TODO: NO way to create security duty extension
+            Common.CommonUtil.GetMetaModelProviders()
+                .CurrentMetadataProvider
+                .SecurityDutyExtensions
+                .Create(extSecDuty, Common.CommonUtil.GetCurrentModelSaveInfo());
+
+            // Add this to the project
+            Common.CommonUtil.AddElementToProject(extSecDuty);
+
+            return securityDutyExtensionName;
         }
     }
 }

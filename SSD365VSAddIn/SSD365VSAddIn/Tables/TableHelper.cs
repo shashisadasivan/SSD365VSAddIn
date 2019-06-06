@@ -17,23 +17,23 @@ namespace SSD365VSAddIn.Tables
             var name = table.Name + Common.Constants.DotEXTENSION;
             name = Common.CommonUtil.GetNextTableExtension(name);
 
-            var axTableExtension = new AxTableExtension() { Name = name };
-
             // Find current model
-            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
-
             //Create menu item in the right model
             var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-            var metaModelService = metaModelProviders.CurrentMetaModelService;
 
-            //TODO: how do we create an extension object ?
-            // metaModelService.CreateTable(axTableExtension);
-            
-            // Addd to project
-            //TODO: this isint working and throws an error on the front end
-            // Common.CommonUtil.AddElementToProject(axTableExtension);
 
-            return axTableExtension.Name;
+            //Create an extension object ? // TODO: no method to create extenion of table
+            var axExtension = new AxTableExtension() { Name = name };
+            //var tableExts = metaModelProviders.CurrentMetadataProvider.TableExtensions.Common.CommonUtil.GetCurrentModel().Name);
+
+            Common.CommonUtil.GetMetaModelProviders()
+                .CurrentMetadataProvider
+                .TableExtensions.Create(axExtension, Common.CommonUtil.GetCurrentModelSaveInfo());
+
+            // Add to project
+            Common.CommonUtil.AddElementToProject(axExtension);
+
+            return name;
         }
     }
 }

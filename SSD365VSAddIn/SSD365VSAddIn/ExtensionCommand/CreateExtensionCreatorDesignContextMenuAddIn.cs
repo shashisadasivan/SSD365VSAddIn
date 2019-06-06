@@ -20,7 +20,6 @@ namespace SSD365VSAddIn.ExtensionCommand
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
-    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IClassItem))]
     class CreateExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -60,21 +59,18 @@ namespace SSD365VSAddIn.ExtensionCommand
         {
             try
             {
-                //TODO: this does not work yet
-                CoreUtility.DisplayError("Not implemented yet");
-                //if (e.SelectedElement is ISecurityDuty)
-                //{
-                //    SecurityDuty.SecurityDutyExtensionCreatorDesignContextMenuAddIn.CreateDutyExtension(e.SelectedElement as ISecurityDuty);
-                //}
-                //else if (e.SelectedElement is ITable)
-                //{
-                //    Tables.TableHelper.CreateTableExtension(e.SelectedElement as ITable);
-                //    // Enable on the attribute and call method here
-                //}
-                //else if(e.SelectedElement is IClassItem)
-                //{
-                //    // Enable on the attribute and call method here
-                //}
+                if (e.SelectedElement is ISecurityDuty)
+                {
+                    SecurityDuty.SecurityDutyCreator.CreateDutyExtension(e.SelectedElement as ISecurityDuty);
+                }
+                else if (e.SelectedElement is ITable)
+                {
+                    Tables.TableHelper.CreateTableExtension(e.SelectedElement as ITable);
+                }
+                else
+                {
+                    CoreUtility.DisplayError("Not implemented yet");
+                }
 
             }
             catch (Exception ex)
