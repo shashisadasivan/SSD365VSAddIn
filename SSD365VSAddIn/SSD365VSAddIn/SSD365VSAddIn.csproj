@@ -121,7 +121,7 @@
   <PropertyGroup>
     <PostBuildEvent>echo "----"
 echo "--&gt; Copy to Outputdlls"
-copy $(TargetPath) $(ProjectDir)OutputDlls\$(TargetFileName)
+copy $(TargetPath) $(ProjectDir)..\..\OutputDlls\$(TargetFileName)
 echo "&lt;-- Copy Complete"</PostBuildEvent>
   </PropertyGroup>
 </Project>

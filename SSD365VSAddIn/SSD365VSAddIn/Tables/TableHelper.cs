@@ -22,7 +22,7 @@ namespace SSD365VSAddIn.Tables
             var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
 
 
-            //Create an extension object ? // TODO: no method to create extenion of table
+            //Create an extension object
             var axExtension = new AxTableExtension() { Name = name };
             //var tableExts = metaModelProviders.CurrentMetadataProvider.TableExtensions.Common.CommonUtil.GetCurrentModel().Name);
 

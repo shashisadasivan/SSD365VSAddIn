@@ -17,6 +17,7 @@ namespace SSD365VSAddIn.Labels
     // If you need to specify any other element, change this AutomationNodeType value.
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITableExtension))]
     class LabelCreatorMainMenuAddIn : DesignerMenuBase
     {
         #region Member variables
