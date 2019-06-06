@@ -43,6 +43,10 @@
     <Reference Include="Microsoft.Dynamics.AX.Xpp.Support">
       <HintPath>K:\AosService\PackagesLocalDirectory\Bin\Microsoft.Dynamics.AX.Xpp.Support.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.LabelEditor, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\mwezuqwf.0b1\Microsoft.Dynamics.Framework.Tools.LabelEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSupport">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\kosxvwgk.orw\Microsoft.Dynamics.Framework.Tools.ProjectSupport.dll</HintPath>
     </Reference>
@@ -62,6 +66,9 @@
     <Compile Include="Common\D365Helper.cs" />
     <Compile Include="ExtensionCommand\CreateExtensionCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="Forms\FormsUtilMenuItemAddin.cs" />
+    <Compile Include="Labels\LabelCreatorMainMenuAddIn.cs" />
+    <Compile Include="Labels\LabelFactory.cs" />
+    <Compile Include="Labels\LabelHelper.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
     <Compile Include="MainMenuAddIns\SettingsMainMenuAddIn.cs" />

@@ -40,6 +40,16 @@ namespace SSD365VSAddIn.Common
         }
 
         /// <summary>
+        /// Current VS Application Context
+        /// </summary>
+        /// <returns>VSApplicationContext</returns>
+        internal static Microsoft.Dynamics.Framework.Tools.Labels.VSApplicationContext GetVSApplicationContext()
+        {
+            var context = new Microsoft.Dynamics.Framework.Tools.Labels.VSApplicationContext(CommonUtil.DTE.DTE);
+            return context;
+        }
+
+        /// <summary>
         /// Current model
         /// </summary>
         /// <returns>ModelInfo</returns>

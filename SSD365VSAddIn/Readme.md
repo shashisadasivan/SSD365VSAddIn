@@ -15,6 +15,11 @@ Right click a Table, Class, Data entity, Form to create a class extension for it
 ## Create Extensions
 *No implemented yet.* At the moment I havent found any way of creating extension objects
 
+## Create labels for Table Element
+Right click Table design and choose Create label for properties.
+This will be extended for other element types and also fields within the Table.
+Currently this will add the label to the first label file (all languages) of the current model 
+
 ## Create Inquire Security Duty from Privilege
 
 ## Create Maintain Security Duty from Privilege

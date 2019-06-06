@@ -129,6 +129,9 @@
   <data name="FormsUtilMenuItemAddin" xml:space="preserve">
     <value>Creade display menu item (SS D365)</value>
   </data>
+  <data name="LabelCreatorMainMenuAddIn" xml:space="preserve">
+    <value>Create label for properties (SS D365)</value>
+  </data>
   <data name="MainMenuAddInCaption" xml:space="preserve">
     <value>Main Menu caption for SSD365VSAddIn AddIn</value>
   </data>
@@ -142,7 +145,7 @@
     <value>Create Maintain and view Privilege (SS D365)</value>
   </data>
   <data name="SettingsMainMenuCaption" xml:space="preserve">
-    <value>SS D365 AddIn Settings</value>
+    <value>SS D365 AddIn Settings (SS D365)</value>
   </data>
   <data name="TableFormCreatorMenuAddIn" xml:space="preserve">
     <value>Create Form (SS D365)</value>
