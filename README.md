@@ -25,10 +25,13 @@ This will be extended for other element types and also fields within the Table.
 Currently this will add the label to the first label file (all languages) of the current model 
 
 ## Create Inquire Security Duty from Privilege
+Right privilege in designer mode and select "Create Inquire Security duty (SS D365)"
 
 ## Create Maintain Security Duty from Privilege
+Right privilege in designer mode and select "Create Maintain Security duty (SS D365)"
 
 ## Create Maintain and Inquire Privilege from Menu item
+Right privilege in designer mode and select "Create Maintain and view Privilege (SS D365)"
 
 ## Create Display menu item from a Form
 Open the form, right click the Form name (left of designer) and select the AddIn "Create display menu item (SS D365)"
