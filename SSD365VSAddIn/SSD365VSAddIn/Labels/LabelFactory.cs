@@ -21,6 +21,10 @@ namespace SSD365VSAddIn.Labels
             {
                 labelFactory = new LabelFactory_Table();
             }
+            else if(selectedElement  is ITableExtension)
+            {
+                labelFactory = new LabelFactory_TableExtension();
+            }
             // add additional elseifs here
             else
             {
@@ -55,7 +59,6 @@ namespace SSD365VSAddIn.Labels
         public override void ApplyLabel()
         {
             //check if table is in current model
-
             var tableExists = Common.CommonUtil.GetMetaModelProviders()
                                 .CurrentMetadataProvider
                                 .Tables.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
@@ -75,8 +78,37 @@ namespace SSD365VSAddIn.Labels
                 {
                     this.iTable.DeveloperDocumentation = label;
                 }
+
+                // Apply label on fields
+                var enumerator = this.iTable.BaseFields.GetEnumerator();
+                while (enumerator.MoveNext())
+                {
+                    var baseField = enumerator.Current as IBaseField;
+                    label = LabelHelper.FindOrCreateLabel(baseField.Label);
+                    if (label.Equals(baseField.Label) == false)
+                    {
+                        baseField.Label = label;
+                    }
+
+                    label = LabelHelper.FindOrCreateLabel(baseField.HelpText);
+                    if (label.Equals(baseField.HelpText) == false)
+                    {
+                        baseField.HelpText = label;
+                    }
+                }
+
+                // Apply label for groups
+                var fieldGrpEnumerator = this.iTable.FieldGroups.GetEnumerator();
+                while (fieldGrpEnumerator.MoveNext())
+                {
+                    var fieldGroup = fieldGrpEnumerator.Current as IFieldGroup;
+                    label = LabelHelper.FindOrCreateLabel(fieldGroup.Label);
+                    if (label.Equals(fieldGroup.Label) == false)
+                    {
+                        fieldGroup.Label = label;
+                    }
+                }
             }
-            //TODO: apply label for child elements (fields, groups)
             
         }
     }
@@ -92,12 +124,40 @@ namespace SSD365VSAddIn.Labels
                                 .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
                                 .Where(t => t.Equals(this.iTableExtension.Name))
                                 .FirstOrDefault();
-            if(String.IsNullOrEmpty(tableExists) == false)
+            if (String.IsNullOrEmpty(tableExists) == false)
             {
                 // this extension is in the current model
                 //TODO: get the fields for this extension table
-                
+                var enumerator = iTableExtension.BaseFields.VisualChildren.GetEnumerator();
+                while(enumerator.MoveNext())
+                {
+                    var baseField = enumerator.Current as IBaseField;
+                    var label = LabelHelper.FindOrCreateLabel(baseField.Label);
+                    if(label.Equals(baseField.Label) == false)
+                    {
+                        baseField.Label = label;
+                    }
+
+                    label = LabelHelper.FindOrCreateLabel(baseField.HelpText);
+                    if (label.Equals(baseField.HelpText) == false)
+                    {
+                        baseField.HelpText = label;
+                    }
+                }
+
+                //Apply label for fieldGroups
+                var fieldGrpEnumerator = this.iTableExtension.FieldGroups.GetEnumerator();
+                while (fieldGrpEnumerator.MoveNext())
+                {
+                    var fieldGroup = fieldGrpEnumerator.Current as IFieldGroup;
+                    var label = LabelHelper.FindOrCreateLabel(fieldGroup.Label);
+                    if (label.Equals(fieldGroup.Label) == false)
+                    {
+                        fieldGroup.Label = label;
+                    }
+                }
             }
+            
             throw new NotImplementedException();
         }
 

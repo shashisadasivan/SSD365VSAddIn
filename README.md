@@ -20,7 +20,7 @@ Right click a Table, Class, Data entity, Form to create a class extension for it
 Create extensions for tables and Security Duty
 
 ## Create labels for Table Element
-Right click Table design and choose Create label for properties.
+Right click Table design and choose Create label for properties (Field, FieldGroups)
 This will be extended for other element types and also fields within the Table.
 Currently this will add the label to the first label file (all languages) of the current model 
 
