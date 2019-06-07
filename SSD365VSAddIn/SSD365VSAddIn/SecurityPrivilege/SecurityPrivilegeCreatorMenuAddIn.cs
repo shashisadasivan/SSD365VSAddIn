@@ -60,7 +60,6 @@
             Microsoft.Dynamics.AX.Metadata.Core.MetaModel.EntryPointType entryPointType;
             try
             {
-                // TODO: Do your magic for your add-in
                 // we will create 2 security privileges for the menu item with the same name + Maintain,  +View
                 var selectedMenuItem = e.SelectedElement as IMenuItem;
                 if (selectedMenuItem != null)

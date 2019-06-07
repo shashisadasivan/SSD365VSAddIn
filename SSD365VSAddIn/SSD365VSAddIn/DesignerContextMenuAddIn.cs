@@ -12,10 +12,10 @@
     using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 
     ///// <summary>
-    ///// TODO: Say a few words about what your AddIn is going to do
+    ///// 
     ///// </summary>
     //[Export(typeof(IDesignerMenu))]
-    //// TODO: This addin will show when user right clicks on a form root node or table root node. 
+    //// This addin will show when user right clicks on a form root node or table root node. 
     //// If you need to specify any other element, change this AutomationNodeType value.
     //// You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     ////[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
@@ -58,7 +58,7 @@
     //    {
     //        try
     //        {
-    //            // TODO: Do your magic for your add-in
+    //            // Do your magic for your add-in
     //        }
     //        catch (Exception ex)
     //        {

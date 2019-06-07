@@ -54,7 +54,7 @@ namespace SSD365VSAddIn.SecurityDuty
             // var secDuty = new AxSecurityDuty() { Name = securityDutyExtensionName };
             //var ex = new AxSecurityDutyExtension() { Name = securityDutyExtensionName };
 
-            //TODO: NO way to create security duty extension
+            //create security duty extension
             Common.CommonUtil.GetMetaModelProviders()
                 .CurrentMetadataProvider
                 .SecurityDutyExtensions

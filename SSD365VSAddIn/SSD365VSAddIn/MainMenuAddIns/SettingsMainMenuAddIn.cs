@@ -54,7 +54,7 @@ namespace SSD365VSAddIn.MainMenuAddIns
     //    {
     //        try
     //        {
-    //            // TODO: Do your magic for your add-in
+    //            // Do your magic for your add-in
                 
     //        }
     //        catch (Exception ex)

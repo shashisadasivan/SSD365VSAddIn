@@ -11,7 +11,7 @@
 
 
     ///// <summary>
-    ///// TODO: Say a few words about what your AddIn is going to do
+    ///// 
     ///// </summary>
     //[Export(typeof(IMainMenu))]
     //public class MainMenuAddIn : MainMenuBase
@@ -54,7 +54,7 @@
     //    {
     //        try
     //        {
-    //            // TODO: Do your magic for your add-in
+    //            // Do your magic for your add-in
     //        }
     //        catch (Exception ex)
     //        {

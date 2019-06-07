@@ -127,7 +127,7 @@ namespace SSD365VSAddIn.Labels
             if (String.IsNullOrEmpty(tableExists) == false)
             {
                 // this extension is in the current model
-                //TODO: get the fields for this extension table
+                // get the fields for this extension table
                 var enumerator = iTableExtension.BaseFields.VisualChildren.GetEnumerator();
                 while(enumerator.MoveNext())
                 {
