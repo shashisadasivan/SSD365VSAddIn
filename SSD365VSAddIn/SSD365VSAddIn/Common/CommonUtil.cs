@@ -95,6 +95,7 @@ namespace SSD365VSAddIn.Common
             }
         }
 
+
         /// <summary>
         /// Display any logs to the user
         /// This shows as Modal dialogs, so keep bunch all messages into 1 message if possible

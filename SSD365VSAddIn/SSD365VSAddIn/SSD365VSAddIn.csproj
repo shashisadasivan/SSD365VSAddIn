@@ -60,6 +60,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddToProject\AddToProjectMenuAddIn.cs" />
     <Compile Include="ClassesUtil\ClassExtensionCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="Common\CommonUtil.cs" />
     <Compile Include="Common\Constants.cs" />
@@ -92,12 +93,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="OutputDlls\SSD365VSAddIn.dll" />
     <Content Include="Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="OutputDlls\CopyDLLsToExtensionFolder.ps1" />
-    <None Include="OutputDlls\Readme.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(INETROOT)\Source\Frameworks\DevToolsVS12\common\Microsoft.Dynamics.Framework.Tools.Extensibility.Targets" Condition=" '$(INETROOT)' != '' " />

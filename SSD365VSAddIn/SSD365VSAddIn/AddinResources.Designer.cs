@@ -61,6 +61,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add to Project (SS D365).
+        /// </summary>
+        internal static string AddToProjectMenuAddIn {
+            get {
+                return ResourceManager.GetString("AddToProjectMenuAddIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create code extension (SS D365).
         /// </summary>
         internal static string CreateCodeExtension {
