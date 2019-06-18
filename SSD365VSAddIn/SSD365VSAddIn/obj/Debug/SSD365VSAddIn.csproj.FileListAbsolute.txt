@@ -150,7 +150,6 @@ C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.Designers.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.TestXRef.dll
-C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.LabelEditor.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\System.Windows.Interactivity.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Microsoft.Dynamics.Framework.Tools.CompareTool.dll
