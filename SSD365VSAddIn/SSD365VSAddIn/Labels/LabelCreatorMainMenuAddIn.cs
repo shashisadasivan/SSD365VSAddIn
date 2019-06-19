@@ -1,4 +1,5 @@
 ﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
 using System;
@@ -18,6 +19,8 @@ namespace SSD365VSAddIn.Labels
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITableExtension))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
+    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItemExtension))]
     class LabelCreatorMainMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -65,14 +68,6 @@ namespace SSD365VSAddIn.Labels
 
                     LabelFactory labelFactory = LabelFactory.construct(selectedItem);
                     labelFactory.ApplyLabel();
-
-                    //if (selectedMenuItem is ITable)
-                    //{
-                    //    ITable axTable = selectedMenuItem as ITable;
-                    //    this.createLabelsTable(axTable);
-                    //}
-                    //else
-                    //    return;
                 }
             }
             catch (Exception ex)

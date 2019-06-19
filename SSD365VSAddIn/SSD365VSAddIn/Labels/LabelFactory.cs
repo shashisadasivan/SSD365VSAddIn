@@ -1,5 +1,6 @@
 ﻿using Microsoft.Dynamics.AX.Metadata.MetaModel;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,10 @@ namespace SSD365VSAddIn.Labels
             else if(selectedElement  is ITableExtension)
             {
                 labelFactory = new LabelFactory_TableExtension();
+            }
+            else if(selectedElement is IMenuItem || selectedElement is IMenuItemExtension)
+            {
+                labelFactory = new LabelFactory_IMenuItem();
             }
             // add additional elseifs here
             else
@@ -158,12 +163,109 @@ namespace SSD365VSAddIn.Labels
                 }
             }
             
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override void setElementType(IRootElement selectedElement)
         {
             this.iTableExtension = selectedElement as ITableExtension;
+        }
+    }
+
+    public class LabelFactory_IMenuItem : LabelFactory
+    {
+        private IMenuItem iMenuItem;
+        //private IMenuItemExtension iMenuItemExtension;
+
+        public override void ApplyLabel()
+        {
+            string menuItemExists = String.Empty;
+
+            // Check if this menu item / extension exists in the current model
+            if (this.iMenuItem != null)
+            {
+                if (this.iMenuItem is IMenuItemAction)
+                {
+                    menuItemExists = Common.CommonUtil.GetMetaModelProviders()
+                                           .CurrentMetadataProvider
+                                           .MenuItemActions
+                                           .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                           .Where(t => t.Equals(this.iMenuItem.Name))
+                                           .FirstOrDefault();
+                }
+                else if (this.iMenuItem is IMenuItemDisplay)
+                {
+                    menuItemExists = Common.CommonUtil.GetMetaModelProviders()
+                                           .CurrentMetadataProvider
+                                           .MenuItemDisplays
+                                           .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                           .Where(t => t.Equals(this.iMenuItem.Name))
+                                           .FirstOrDefault();
+                }
+                else if (this.iMenuItem is IMenuItemOutput)
+                {
+                    menuItemExists = Common.CommonUtil.GetMetaModelProviders()
+                                           .CurrentMetadataProvider
+                                           .MenuItemOutputs
+                                           .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                           .Where(t => t.Equals(this.iMenuItem.Name))
+                                           .FirstOrDefault();
+                }
+            }
+            /*
+            else if(iMenuItemExtension != null)
+            {
+                if (this.iMenuItemExtension is IMenuItemActionExtension)
+                {
+                    menuItemExists = Common.CommonUtil.GetMetaModelProviders()
+                                           .CurrentMetadataProvider
+                                           .MenuItemActionExtensions
+                                           .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                           .Where(t => t.Equals(this.iMenuItem.Name))
+                                           .FirstOrDefault();
+                }
+                else if (this.iMenuItemExtension is IMenuItemDisplayExtension)
+                {
+                    menuItemExists = Common.CommonUtil.GetMetaModelProviders()
+                                           .CurrentMetadataProvider
+                                           .MenuItemDisplayExtensions
+                                           .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                           .Where(t => t.Equals(this.iMenuItem.Name))
+                                           .FirstOrDefault();
+                }
+                else if (this.iMenuItemExtension is IMenuItemOutputExtension)
+                {
+                    menuItemExists = Common.CommonUtil.GetMetaModelProviders()
+                                           .CurrentMetadataProvider
+                                           .MenuItemOutputExtensions
+                                           .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                           .Where(t => t.Equals(this.iMenuItem.Name))
+                                           .FirstOrDefault();
+                }
+            }*/
+
+            string label = String.Empty;
+            if (String.IsNullOrEmpty(menuItemExists) == false)
+            {
+                if(this.iMenuItem != null)
+                {
+                    label = LabelHelper.FindOrCreateLabel(this.iMenuItem.Label);
+                    if (label.Equals(this.iMenuItem.Label) == false)
+                        this.iMenuItem.Label = label;
+
+                    label = LabelHelper.FindOrCreateLabel(this.iMenuItem.HelpText);
+                    if (label.Equals(this.iMenuItem.HelpText) == false)
+                        this.iMenuItem.HelpText = label;
+                }
+            }
+        }
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            //if (selectedElement is IMenuItem)
+                this.iMenuItem = selectedElement as IMenuItem;
+            //else if (selectedElement is IMenuItemExtension)
+            //    this.iMenuItemExtension = selectedElement as IMenuItemExtension;
         }
     }
 }
