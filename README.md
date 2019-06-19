@@ -20,10 +20,21 @@ Right click a Table, Class, Data entity, Form to create a class extension for it
 ## Create Extensions
 Create extensions for tables and Security Duty
 
-## Create labels for Table Element
-Right click Table design and choose Create label for properties (Field, FieldGroups)
-This will be extended for other element types and also fields within the Table.
+## Create Labels
+Right click the element and choose Create label for properties (Fields, FieldGroups)
 Currently this will add the label to the first label file (all languages) of the current model 
+* Table / Table Extensions
+
+Labels updated for Table label, developer documentation, Field Labels, Field Help text, Field group
+* Menu item
+
+Label updated for Label and help text
+* Security Duty - To be implemented
+* Security Privilege - To be implemented
+* Security Role - To be implemented
+* Forms - To be implemented
+* EDT - To be implemented
+* Base enums - To be implemented
 
 ## Create Inquire Security Duty from Privilege
 Right privilege in designer mode and select "Create Inquire Security duty (SS D365)"
