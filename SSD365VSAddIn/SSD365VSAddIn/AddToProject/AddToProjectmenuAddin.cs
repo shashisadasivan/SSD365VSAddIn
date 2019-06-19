@@ -83,6 +83,7 @@ namespace SSD365VSAddIn.AddToProject
             var vsProject = Common.CommonUtil.GetCurrentProject();
             if (vsProject != null)
             {
+                //TODO: Bug https://github.com/shashisadasivan/SSD365VSAddIn/issues/1
                 vsProject.AddModelElementsToProject(new List<MetadataReference>()
                 {
                     new MetadataReference(namedElement.Name, namedElement.GetType())
