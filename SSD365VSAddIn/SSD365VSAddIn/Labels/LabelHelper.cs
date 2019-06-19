@@ -105,7 +105,7 @@ namespace SSD365VSAddIn.Labels
                 if (labelController.Exists(labelId) == false
                     && labelController.Exists(labelText) == false) // the label text may be an Id by itself
                 {
-                    labelController.Insert(labelId, labelText, String.Empty);
+                    labelController.Insert(labelId, labelText, null);
                     labelController.Save();
 
                     // Construct a label reference to go into the label property
@@ -118,7 +118,7 @@ namespace SSD365VSAddIn.Labels
                             && !labelFileToAdd.Language.Equals(labelFile.Language))
                         {
                             LabelEditorController labelControllerToAdd = factory.GetOrCreateLabelController(labelFileToAdd, Common.CommonUtil.GetVSApplicationContext());
-                            labelControllerToAdd.Insert(labelId, labelText, String.Empty);
+                            labelControllerToAdd.Insert(labelId, labelText, null);
                             labelControllerToAdd.Save();
                         }
                     }
