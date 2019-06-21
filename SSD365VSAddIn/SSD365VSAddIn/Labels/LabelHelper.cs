@@ -1,9 +1,12 @@
 ﻿using Microsoft.Dynamics.AX.Metadata.MetaModel;
 using Microsoft.Dynamics.Framework.Tools.Labels;
 using System;
+//using System.Collections;
 using System.Collections.Generic;
+//using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SSD365VSAddIn.Labels
@@ -77,16 +80,16 @@ namespace SSD365VSAddIn.Labels
             {
                 // Construct a label id that will be unique
                 //string labelId = $"{elementName}{propertyName}";
-                // CamelCase this
-
-                //string labelId = labelText.Replace(" ", "") // remove spaces
-                //                           .Replace("%", "P") // Replace %1 with P1 or %2 with P2 etc
-                //                           .Replace("_", ""); // Underscores to be removed
 
                 string labelId = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(labelText)
                                     .Replace(" ", "") // remove spaces
                                     .Replace("%", "P") // Replace %1 with P1 or %2 with P2 etc
                                     .Replace("_", "");
+                if (Regex.IsMatch(labelId.Substring(0, 1), @"\d")) // label id cannot start with a number
+                {
+                    labelId = "Label" + labelId;
+                }
+                labelId = Regex.Replace(labelId, "[^a-zA-Z0-9]", ""); // no special chars in the label id
                 // Get the label factory
                 LabelControllerFactory factory = new LabelControllerFactory();
 
@@ -101,7 +104,7 @@ namespace SSD365VSAddIn.Labels
 
                 // Make sure the label doesn't exist.
                 // What will you do if it does?
-                var labelsx = labelController.Labels.ToList();
+                //var labelsx = labelController.Labels.ToList();
                 if (labelController.Exists(labelId) == false
                     && labelController.Exists(labelText) == false) // the label text may be an Id by itself
                 {
@@ -143,7 +146,7 @@ namespace SSD365VSAddIn.Labels
             //var labelFileId
             labelContent.LabelFileId = LabelHelper.GetLabelFileId(labelIdText);
             labelContent.LabelId = labelContent.LabelIdForProperty.Substring(labelContent.LabelIdForProperty.IndexOf(":") + 1);
-            
+
             // Get the label factory
             LabelControllerFactory factory = new LabelControllerFactory();
 
@@ -172,7 +175,6 @@ namespace SSD365VSAddIn.Labels
             return labelContent;
         }
 
-
         private static string GetLabelFileId(string labelId)
         {
             if (labelId.StartsWith("@") == false
@@ -182,6 +184,17 @@ namespace SSD365VSAddIn.Labels
             string labelFileId = labelId.Substring(1, labelId.IndexOf(":", 0) - 1);
 
             return labelFileId;
+
+        }
+
+        private static void CreateLabel(AxLabelFile labelFile, string labelId, string labelText)
+        {
+            // Get the label factory
+            LabelControllerFactory factory = new LabelControllerFactory();
+
+            LabelEditorController labelControllerToAdd = factory.GetOrCreateLabelController(labelFile, Common.CommonUtil.GetVSApplicationContext());
+            labelControllerToAdd.Insert(labelId, labelText, null);
+            labelControllerToAdd.Save();
 
         }
     }
