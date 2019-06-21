@@ -50,6 +50,15 @@ namespace SSD365VSAddIn.Labels
         public abstract void setElementType(IRootElement selectedElement);
 
         public abstract void ApplyLabel();
+
+        public string GetLabel(string label)
+        {
+            string labelId = LabelHelper.FindOrCreateLabel(label);
+            if (labelId.Equals(label) == false)
+                return labelId;
+
+            return label;
+        }
     }
 
     public class LabelFactory_Table : LabelFactory
@@ -72,34 +81,17 @@ namespace SSD365VSAddIn.Labels
 
             if (string.IsNullOrEmpty(tableExists) == false)
             {
-                var label = LabelHelper.FindOrCreateLabel(this.iTable.Label);
-                if (label.Equals(this.iTable.Label) == false)
-                {
-                    this.iTable.Label = label;
-                }
-
-                label = LabelHelper.FindOrCreateLabel(this.iTable.DeveloperDocumentation);
-                if (label.Equals(this.iTable.Label) == false)
-                {
-                    this.iTable.DeveloperDocumentation = label;
-                }
+                this.iTable.Label = this.GetLabel(this.iTable.Label);
+                this.iTable.DeveloperDocumentation = this.GetLabel(this.iTable.DeveloperDocumentation);
 
                 // Apply label on fields
                 var enumerator = this.iTable.BaseFields.GetEnumerator();
                 while (enumerator.MoveNext())
                 {
                     var baseField = enumerator.Current as IBaseField;
-                    label = LabelHelper.FindOrCreateLabel(baseField.Label);
-                    if (label.Equals(baseField.Label) == false)
-                    {
-                        baseField.Label = label;
-                    }
 
-                    label = LabelHelper.FindOrCreateLabel(baseField.HelpText);
-                    if (label.Equals(baseField.HelpText) == false)
-                    {
-                        baseField.HelpText = label;
-                    }
+                    baseField.Label = this.GetLabel(baseField.Label);
+                    baseField.HelpText = this.GetLabel(baseField.HelpText);
                 }
 
                 // Apply label for groups
@@ -107,11 +99,7 @@ namespace SSD365VSAddIn.Labels
                 while (fieldGrpEnumerator.MoveNext())
                 {
                     var fieldGroup = fieldGrpEnumerator.Current as IFieldGroup;
-                    label = LabelHelper.FindOrCreateLabel(fieldGroup.Label);
-                    if (label.Equals(fieldGroup.Label) == false)
-                    {
-                        fieldGroup.Label = label;
-                    }
+                    fieldGroup.Label = this.GetLabel(fieldGroup.Label);
                 }
             }
             
@@ -137,17 +125,9 @@ namespace SSD365VSAddIn.Labels
                 while(enumerator.MoveNext())
                 {
                     var baseField = enumerator.Current as IBaseField;
-                    var label = LabelHelper.FindOrCreateLabel(baseField.Label);
-                    if(label.Equals(baseField.Label) == false)
-                    {
-                        baseField.Label = label;
-                    }
-
-                    label = LabelHelper.FindOrCreateLabel(baseField.HelpText);
-                    if (label.Equals(baseField.HelpText) == false)
-                    {
-                        baseField.HelpText = label;
-                    }
+                    baseField.Label = this.GetLabel(baseField.Label);
+                    baseField.HelpText = this.GetLabel(baseField.HelpText);
+                   
                 }
 
                 //Apply label for fieldGroups
@@ -155,15 +135,9 @@ namespace SSD365VSAddIn.Labels
                 while (fieldGrpEnumerator.MoveNext())
                 {
                     var fieldGroup = fieldGrpEnumerator.Current as IFieldGroup;
-                    var label = LabelHelper.FindOrCreateLabel(fieldGroup.Label);
-                    if (label.Equals(fieldGroup.Label) == false)
-                    {
-                        fieldGroup.Label = label;
-                    }
+                    fieldGroup.Label = this.GetLabel(fieldGroup.Label);
                 }
             }
-            
-            //throw new NotImplementedException();
         }
 
         public override void setElementType(IRootElement selectedElement)
@@ -249,20 +223,15 @@ namespace SSD365VSAddIn.Labels
             {
                 if(this.iMenuItem != null)
                 {
-                    label = LabelHelper.FindOrCreateLabel(this.iMenuItem.Label);
-                    if (label.Equals(this.iMenuItem.Label) == false)
-                        this.iMenuItem.Label = label;
-
-                    label = LabelHelper.FindOrCreateLabel(this.iMenuItem.HelpText);
-                    if (label.Equals(this.iMenuItem.HelpText) == false)
-                        this.iMenuItem.HelpText = label;
+                    this.iMenuItem.Label = this.GetLabel(this.iMenuItem.Label);
+                    this.iMenuItem.HelpText = this.GetLabel(this.iMenuItem.HelpText);
                 }
             }
         }
 
         public override void setElementType(IRootElement selectedElement)
         {
-            //if (selectedElement is IMenuItem)
+            if (selectedElement is IMenuItem)
                 this.iMenuItem = selectedElement as IMenuItem;
             //else if (selectedElement is IMenuItemExtension)
             //    this.iMenuItemExtension = selectedElement as IMenuItemExtension;
