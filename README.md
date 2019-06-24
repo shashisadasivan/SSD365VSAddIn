@@ -1,4 +1,4 @@
-# Visual studio add for dynamics 365 finance and operations
+# Visual studio add-in for dynamics 365 finance and operations
 Extensions to enhance the development experience, mostly with just the mouse.
 These can only be done from the designer windows of the source objects
 
