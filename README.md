@@ -49,4 +49,9 @@ Right privilege in designer mode and select "Create Maintain and view Privilege 
 Open the form, right click the Form name (left of designer) and select the AddIn "Create display menu item (SS D365)"
 
 ## Create Form from a Table
-open the table, Right click the Table name in the designer and select the AddIn "Create Form (SS D365)"
+Open the table, Right click the Table name in the designer and select the AddIn "Create Form (SS D365)"
+
+## Add element to the current project
+Open an element in designer mode, Right click and select "Add to Project (SS D365)"
+This will add the element to the current project as long as the element belongs to the project
+
