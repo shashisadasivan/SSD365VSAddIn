@@ -1,5 +1,6 @@
 ﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Classes;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
@@ -20,6 +21,7 @@ namespace SSD365VSAddIn.ExtensionCommand
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
     class CreateExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -66,6 +68,10 @@ namespace SSD365VSAddIn.ExtensionCommand
                 else if (e.SelectedElement is ITable)
                 {
                     Tables.TableHelper.CreateTableExtension(e.SelectedElement as ITable);
+                }
+                else if (e.SelectedElement is IForm)
+                {
+                    Forms.FormHelper.CreateExtension(e.SelectedElement as IForm);
                 }
                 else
                 {
