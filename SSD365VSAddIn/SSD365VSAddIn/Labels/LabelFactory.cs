@@ -266,28 +266,6 @@ namespace SSD365VSAddIn.Labels
                 this.iForm.FormDesign.Caption = this.GetLabel(this.iForm.FormDesign.Caption);
 
                 this.RunEnumerator(this.iForm.FormDesign.VisualChildren);
-                // TODO: apply for form labels #2
-                /*
-                
-
-                // Apply label on fields
-                var enumerator = this.iForm.BaseFields.GetEnumerator();
-                while (enumerator.MoveNext())
-                {
-                    var baseField = enumerator.Current as IBaseField;
-
-                    baseField.Label = this.GetLabel(baseField.Label);
-                    baseField.HelpText = this.GetLabel(baseField.HelpText);
-                }
-
-                // Apply label for groups
-                var fieldGrpEnumerator = this.iForm.FieldGroups.GetEnumerator();
-                while (fieldGrpEnumerator.MoveNext())
-                {
-                    var fieldGroup = fieldGrpEnumerator.Current as IFieldGroup;
-                    fieldGroup.Label = this.GetLabel(fieldGroup.Label);
-                }
-                */
             }
 
         }
@@ -323,14 +301,9 @@ namespace SSD365VSAddIn.Labels
                         formStringControl.Label = this.GetLabel(formStringControl.Label);
                         // nothing in the grid to change any text for
                     }
-                    // quick filter control ?// other types of controls ?
+                    // quick filter control ? - is only recognized as a FormControl
+                    // TODO: #2 other types of controls ?
 
-                    // Deal with the children of this control
-                    //if(formControl.FormControlWithChildren != null
-                    //    && formControl.FormControlWithChildren.FormControls != null)
-                    //{
-                    //    this.RunEnumerator(formControl.FormControls as System.Collections.IEnumerable);
-                    //}
                     if (formControl is IFormControlWithChildren)
                     {
                         var formControlWithChildren = formControl as IFormControlWithChildren;
