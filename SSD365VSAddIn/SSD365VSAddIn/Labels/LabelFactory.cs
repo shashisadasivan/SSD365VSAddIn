@@ -1,5 +1,6 @@
 ﻿using Microsoft.Dynamics.AX.Metadata.MetaModel;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using System;
@@ -29,6 +30,10 @@ namespace SSD365VSAddIn.Labels
             else if(selectedElement is IMenuItem || selectedElement is IMenuItemExtension)
             {
                 labelFactory = new LabelFactory_IMenuItem();
+            }
+            else if (selectedElement is IForm)
+            {
+                labelFactory = new LabelFactory_Form();
             }
             // add additional elseifs here
             else
@@ -235,6 +240,108 @@ namespace SSD365VSAddIn.Labels
                 this.iMenuItem = selectedElement as IMenuItem;
             //else if (selectedElement is IMenuItemExtension)
             //    this.iMenuItemExtension = selectedElement as IMenuItemExtension;
+        }
+    }
+
+    public class LabelFactory_Form : LabelFactory
+    {
+        IForm iForm;
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            this.iForm = selectedElement as IForm;
+        }
+
+        public override void ApplyLabel()
+        {
+            //check if table is in current model
+            var tableExists = Common.CommonUtil.GetMetaModelProviders()
+                                .CurrentMetadataProvider
+                                .Tables.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                .Where(t => t.Equals(this.iForm.Name))
+                                .FirstOrDefault();
+
+            if (string.IsNullOrEmpty(tableExists) == false)
+            {
+                this.iForm.FormDesign.Caption = this.GetLabel(this.iForm.FormDesign.Caption);
+
+                this.RunEnumerator(this.iForm.FormDesign.VisualChildren);
+                // TODO: apply for form labels #2
+                /*
+                
+
+                // Apply label on fields
+                var enumerator = this.iForm.BaseFields.GetEnumerator();
+                while (enumerator.MoveNext())
+                {
+                    var baseField = enumerator.Current as IBaseField;
+
+                    baseField.Label = this.GetLabel(baseField.Label);
+                    baseField.HelpText = this.GetLabel(baseField.HelpText);
+                }
+
+                // Apply label for groups
+                var fieldGrpEnumerator = this.iForm.FieldGroups.GetEnumerator();
+                while (fieldGrpEnumerator.MoveNext())
+                {
+                    var fieldGroup = fieldGrpEnumerator.Current as IFieldGroup;
+                    fieldGroup.Label = this.GetLabel(fieldGroup.Label);
+                }
+                */
+            }
+
+        }
+
+        private void RunEnumerator(System.Collections.IEnumerable formControls)
+        {
+            foreach (var item in formControls)
+            {
+                var formControl = item as IFormControl;
+                if(formControl != null)
+                {
+                    formControl.HelpText = this.GetLabel(formControl.HelpText); // most elements has a help text
+                    
+                    if (formControl is IFormActionPaneControl)
+                    {
+                        var formActionPaneControl = formControl as IFormActionPaneControl;
+                        formActionPaneControl.Caption = this.GetLabel(formActionPaneControl.Caption);
+                    }
+                    else if(formControl is IFormGroupControl)
+                    {
+                        var formGroupControl = formControl as IFormGroupControl;
+                        formGroupControl.Caption = this.GetLabel(formGroupControl.Caption);
+                    }
+                    else if (formControl is IFormGridControl)
+                    {
+                        var formGridControl = formControl as IFormGridControl;
+                        // nothing in the grid to change any text for
+                    }
+                    else if (formControl is IFormStringControl)
+                    {
+                        var formStringControl = formControl as IFormStringControl;
+                        formStringControl.Text = this.GetLabel(formStringControl.Text);
+                        formStringControl.Label = this.GetLabel(formStringControl.Label);
+                        // nothing in the grid to change any text for
+                    }
+                    // quick filter control ?// other types of controls ?
+
+                    // Deal with the children of this control
+                    //if(formControl.FormControlWithChildren != null
+                    //    && formControl.FormControlWithChildren.FormControls != null)
+                    //{
+                    //    this.RunEnumerator(formControl.FormControls as System.Collections.IEnumerable);
+                    //}
+                    if (formControl is IFormControlWithChildren)
+                    {
+                        var formControlWithChildren = formControl as IFormControlWithChildren;
+                        if (formControlWithChildren != null && formControlWithChildren.FormControls != null)
+                        {
+                            this.RunEnumerator(formControlWithChildren.FormControls);
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

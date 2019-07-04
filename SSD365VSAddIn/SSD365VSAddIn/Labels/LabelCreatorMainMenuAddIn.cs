@@ -1,4 +1,5 @@
 ﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
@@ -21,6 +22,7 @@ namespace SSD365VSAddIn.Labels
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITableExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
     //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItemExtension))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
     class LabelCreatorMainMenuAddIn : DesignerMenuBase
     {
         #region Member variables
