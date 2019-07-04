@@ -31,7 +31,7 @@ namespace SSD365VSAddIn.Labels
 
             IList<string> labelFiles = metaModelProviders.CurrentMetadataProvider.LabelFiles.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name);
 
-            var labelFileName = labelFiles.First();
+            var labelFileName = labelFiles.FirstOrDefault();
             if (labelFileName != null)
             {
                 var labelFile = metaModelProvider.GetLabelFile(labelFileName);
@@ -55,6 +55,10 @@ namespace SSD365VSAddIn.Labels
 
                     }
                 }
+            }
+            else
+            {
+                throw new Exception("No Labels found in current model");
             }
             return labelFilesToUpdate;
             //IList<String> labelFileNames = metaModelProvider.GetLabelFileNames();
@@ -110,6 +114,7 @@ namespace SSD365VSAddIn.Labels
                 {
                     labelController.Insert(labelId, labelText, null);
                     labelController.Save();
+                    Common.CommonUtil.AddElementToProject(labelFile);
 
                     // Construct a label reference to go into the label property
                     // newLabelId = $"@{labelFile.LabelFileId}:{labelId}";
@@ -123,6 +128,7 @@ namespace SSD365VSAddIn.Labels
                             LabelEditorController labelControllerToAdd = factory.GetOrCreateLabelController(labelFileToAdd, Common.CommonUtil.GetVSApplicationContext());
                             labelControllerToAdd.Insert(labelId, labelText, null);
                             labelControllerToAdd.Save();
+                            Common.CommonUtil.AddElementToProject(labelFileToAdd);
                         }
                     }
                 }
