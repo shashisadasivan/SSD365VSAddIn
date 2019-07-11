@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Drawing" />
@@ -84,6 +85,7 @@
     <Compile Include="SecurityDuty\SecurityDutyInquireCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityDuty\SecurityDutyMaintainCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityPrivilege\SecurityPrivilegeCreatorMenuAddIn.cs" />
+    <Compile Include="ShowTheLabel\ShowtheLabelMenuAddIn.cs" />
     <Compile Include="Tables\TableFormCreatorMenuAddIn.cs" />
     <Compile Include="Tables\TableHelper.cs" />
   </ItemGroup>

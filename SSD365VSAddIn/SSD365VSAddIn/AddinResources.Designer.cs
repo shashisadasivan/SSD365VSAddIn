@@ -160,6 +160,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show the label (SS D365).
+        /// </summary>
+        internal static string ShowTheLabelMenuAddIn {
+            get {
+                return ResourceManager.GetString("ShowTheLabelMenuAddIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Form (SS D365).
         /// </summary>
         internal static string TableFormCreatorMenuAddIn {

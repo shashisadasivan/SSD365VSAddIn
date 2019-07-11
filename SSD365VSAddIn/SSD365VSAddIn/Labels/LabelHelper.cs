@@ -138,6 +138,55 @@ namespace SSD365VSAddIn.Labels
             return newLabelId;
         }
 
+        public static LabelContent FindLabelGlobally(string labelIdText)
+        {
+            //string labelId = String.Empty;
+            LabelContent labelContent = new LabelContent() { LabelIdForProperty = labelIdText };
+
+            if (labelIdText.StartsWith("@") == false)
+            {
+                return labelContent;
+            }
+
+            //var labelFileId
+            labelContent.LabelFileId = LabelHelper.GetLabelFileId(labelIdText);
+            labelContent.LabelId = labelContent.LabelIdForProperty.Substring(labelContent.LabelIdForProperty.IndexOf(":") + 1);
+
+            // Get the label factory
+            LabelControllerFactory factory = new LabelControllerFactory();
+
+            // Get the label edit controller
+            AxLabelFile labelFile = null;
+            if (String.IsNullOrEmpty(labelContent.LabelFileId) == false)
+            {
+                labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(labelContent.LabelFileId);
+
+            }
+            else
+            {
+                var labelFiles = LabelHelper.GetLabelFiles();
+
+                labelFile = labelFiles
+                                        .Where(l => l.LabelFileId.Equals(labelContent.LabelFileId, StringComparison.InvariantCultureIgnoreCase))
+                                        .First();
+            }
+            if (labelFile != null)
+            {
+                LabelEditorController labelController = factory.GetOrCreateLabelController(labelFile, Common.CommonUtil.GetVSApplicationContext());
+                labelController.LabelSearchOption = SearchOption.MatchExactly;
+                labelController.IsMatchExactly = true;
+
+
+                var label = labelController.Labels.Where(l => l.ID.Equals(labelContent.LabelId, StringComparison.InvariantCultureIgnoreCase))
+                                    .First();
+                //if (label != null)
+                {
+                    labelContent.LabelDescription = label.Description;
+                    labelContent.LabelText = label.Text;
+                }
+            }
+            return labelContent;
+        }
 
         public static LabelContent FindLabel(string labelIdText)
         {
@@ -183,6 +232,12 @@ namespace SSD365VSAddIn.Labels
 
         private static string GetLabelFileId(string labelId)
         {
+            if(labelId.StartsWith("@") && labelId.Contains(":") == false)
+            {
+                // this is a label like @SYS123456
+                var labelid = labelId.Substring(1, 3) + "_en-US"; // this is a drawback as only the US files are available e.g. SYS_en-US under ApplicationPlatform
+                return labelid;
+            }
             if (labelId.StartsWith("@") == false
                 || labelId.Contains(":") == false)
                 return String.Empty;

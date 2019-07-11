@@ -26,3 +26,10 @@ Currently this will add the label to the first label file (all languages) of the
 
 ## Create Maintain and Inquire Privilege from Menu item
 
+## Show the Label
+Show the label of an element regardless if the label is defined on this element or its extended data type
+Right click an element and select **Show the Label (SS D365)**
+This will show the label and the help text of the element
+Currenty works for 
+  - Extended data types (shows the label and the help text)
+

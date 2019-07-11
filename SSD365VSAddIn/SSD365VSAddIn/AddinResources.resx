@@ -150,6 +150,9 @@
   <data name="SettingsMainMenuCaption" xml:space="preserve">
     <value>SS D365 AddIn Settings (SS D365)</value>
   </data>
+  <data name="ShowTheLabelMenuAddIn" xml:space="preserve">
+    <value>Show the label (SS D365)</value>
+  </data>
   <data name="TableFormCreatorMenuAddIn" xml:space="preserve">
     <value>Create Form (SS D365)</value>
   </data>
