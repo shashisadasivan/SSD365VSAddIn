@@ -70,8 +70,6 @@ namespace SSD365VSAddIn.ShowTheLabel
                         edtLabelInfo.DecypherLabels();
                         System.Windows.Forms.MessageBox.Show("Label: " + edtLabelInfo.Label + Environment.NewLine + "Help: " + edtLabelInfo.HelpLabel);
                     }            
-                    //LabelFactory labelFactory = LabelFactory.construct(selectedItem);
-                    //labelFactory.ApplyLabel();
                 }
             }
             catch (Exception ex)
@@ -98,25 +96,40 @@ namespace SSD365VSAddIn.ShowTheLabel
             }
 
             if(labelInfo.RequiresDigging() == true
-                && String.IsNullOrEmpty(edtBase.Extends) == false)
+                && (String.IsNullOrEmpty(edtBase.Extends) == false
+                    || edtBase is AxEdtEnum)
+                )
             {
                 // if there is a extended data type to this then move it to the next one
-
                 var edtExt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(edtBase.Extends);
-
-                //IEdtBase extendedEdt = null;
-                //foreach (IEdtBase edtExtended in edtBase.ExtendsValues)
-                //{
-                //    if (edtExtended.Name.Equals(edtBase.Name, StringComparison.InvariantCultureIgnoreCase))
-                //    {
-                //        extendedEdt = edtExtended;
-                //        break;
-                //    }
-                //}
-
                 if (edtExt != null)
                 {
                     labelInfo = this.getEdtBaseLabel(edtExt, labelInfo);
+                }
+                else if (edtExt == null)
+                {
+                    
+                    // if this is null then chances are that this extends an enum
+                    if(edtBase is AxEdtEnum)
+                    {
+                        AxEdtEnum edtBaseEnum = edtBase as AxEdtEnum;
+                        var axEnum = Common.CommonUtil.GetModelSaveService().GetEnum(edtBaseEnum.EnumType);
+                        if (axEnum != null)
+                        {
+                            if (String.IsNullOrEmpty(labelInfo.Label) == true
+                                            && String.IsNullOrEmpty(axEnum.Label) == false)
+                            {
+                                // find the label here
+                                labelInfo.Label = axEnum.Label;
+                            }
+                            if (String.IsNullOrEmpty(labelInfo.HelpLabel) == true
+                                && String.IsNullOrEmpty(axEnum.HelpText) == false)
+                            {
+                                // find the help label here
+                                labelInfo.HelpLabel = axEnum.HelpText;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -142,7 +155,12 @@ namespace SSD365VSAddIn.ShowTheLabel
 
             public void DecypherLabels()
             {
-                if(this.Label.StartsWith("@"))
+                if (String.IsNullOrEmpty(this.Label))
+                    this.Label = string.Empty;
+                if (String.IsNullOrEmpty(this.HelpLabel))
+                    this.HelpLabel = string.Empty;
+
+                if (this.Label.StartsWith("@"))
                 {
                     var labelContent = Labels.LabelHelper.FindLabelGlobally(this.Label);
                     if (String.IsNullOrEmpty(labelContent.LabelText) == false)
