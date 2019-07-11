@@ -160,7 +160,12 @@ namespace SSD365VSAddIn.Labels
             if (String.IsNullOrEmpty(labelContent.LabelFileId) == false)
             {
                 labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(labelContent.LabelFileId);
-
+                if (labelFile == null)
+                {
+                    var fileName = Common.CommonUtil.GetModelSaveService().GetLabelFileNames()
+                        .Where(l => l.StartsWith(labelContent.LabelFileId) && l.Contains("en-")).FirstOrDefault();
+                    labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(fileName);
+                }
             }
             else
             {

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Dynamics.AX.Metadata.MetaModel;
 using Microsoft.Dynamics.Framework.Tools.Extensibility;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.BaseTypes;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace SSD365VSAddIn.ShowTheLabel
     /// </summary>
     [Export(typeof(IDesignerMenu))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IEdtBase))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables.BaseField))]
     class ShowTheLabelMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -58,18 +61,27 @@ namespace SSD365VSAddIn.ShowTheLabel
             //Microsoft.Dynamics.AX.Metadata.Core.MetaModel.EntryPointType entryPointType;
             try
             {
-                var selectedItem = e.SelectedElement as Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.IRootElement;
+                var selectedItem = e.SelectedElement as INamedElement;
                 if (selectedItem != null)
                 {
-                    var metadataType = selectedItem.GetMetadataType();
+                    //var metadataType = selectedItem.GetMetadataType();
+
+                    EdtLabelInfo edtLabelInfo = new EdtLabelInfo();
 
                     if(selectedItem is IEdtBase)
                     {
                         var axEdt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(selectedItem.Name); 
-                        var edtLabelInfo = this.getEdtBaseLabel(axEdt, new EdtLabelInfo());
-                        edtLabelInfo.DecypherLabels();
-                        System.Windows.Forms.MessageBox.Show("Label: " + edtLabelInfo.Label + Environment.NewLine + "Help: " + edtLabelInfo.HelpLabel);
-                    }            
+                        edtLabelInfo = this.getEdtBaseLabel(axEdt, edtLabelInfo);
+                    }       
+                    else if(selectedItem is BaseField)
+                    {
+                        var axBaseField = selectedItem as BaseField;
+                        edtLabelInfo = this.getTableFieldLabel(axBaseField, edtLabelInfo);
+                    }
+
+
+                    edtLabelInfo.DecypherLabels();
+                    System.Windows.Forms.MessageBox.Show("Label: " + edtLabelInfo.Label + Environment.NewLine + "Help: " + edtLabelInfo.HelpLabel);
                 }
             }
             catch (Exception ex)
@@ -79,6 +91,55 @@ namespace SSD365VSAddIn.ShowTheLabel
         }
 
         #endregion
+
+        protected EdtLabelInfo getTableFieldLabel(BaseField tableField, EdtLabelInfo labelInfo)
+        {
+
+            if (String.IsNullOrEmpty(labelInfo.Label) == true
+                && String.IsNullOrEmpty(tableField.Label) == false)
+            {
+                // find the label here
+                labelInfo.Label = tableField.Label;
+            }
+            if (String.IsNullOrEmpty(labelInfo.HelpLabel) == true
+                && String.IsNullOrEmpty(tableField.HelpText) == false)
+            {
+                // find the help label here
+                labelInfo.HelpLabel = tableField.HelpText;
+            }
+
+            if (labelInfo.RequiresDigging()
+                && String.IsNullOrEmpty(tableField.ExtendedDataType) == false)
+            {
+                AxEdt axEdt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(tableField.ExtendedDataType);
+                labelInfo = this.getEdtBaseLabel(axEdt, labelInfo);
+            }
+
+            if (labelInfo.RequiresDigging()
+                && tableField is FieldEnum )
+            {
+                FieldEnum tableFieldEnum = tableField as FieldEnum;
+
+                var axEnum = Common.CommonUtil.GetModelSaveService().GetEnum(tableFieldEnum.EnumType);
+                if (axEnum != null)
+                {
+                    if (String.IsNullOrEmpty(labelInfo.Label) == true
+                                    && String.IsNullOrEmpty(axEnum.Label) == false)
+                    {
+                        // find the label here
+                        labelInfo.Label = axEnum.Label;
+                    }
+                    if (String.IsNullOrEmpty(labelInfo.HelpLabel) == true
+                        && String.IsNullOrEmpty(axEnum.HelpText) == false)
+                    {
+                        // find the help label here
+                        labelInfo.HelpLabel = axEnum.HelpText;
+                    }
+                }
+            }
+
+            return labelInfo;
+        }
 
         protected EdtLabelInfo getEdtBaseLabel(AxEdt edtBase, EdtLabelInfo labelInfo)
         {

@@ -62,3 +62,5 @@ Right click an element and select **Show the Label (SS D365)**
 This will show the label and the help text of the element
 Currenty works for 
   - Extended data types (shows the label and the help text)
+  - Table field
+
