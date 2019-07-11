@@ -15,7 +15,7 @@ The powershell script **CopyDLLsToExtensionFolder.ps1** included will copy all t
 
 ## Create Code extension
 Right click a Table, Class, Data entity, Form to create a class extension for it
-![Create class extension](https://github.com/shashisadasivan/SSD365VSAddIn/wiki/Create-Class-Extension)
+[Create class extension](https://github.com/shashisadasivan/SSD365VSAddIn/wiki/Create-Class-Extension)
 
 ## Create Extensions
 Create extensions for tables and Security Duty
