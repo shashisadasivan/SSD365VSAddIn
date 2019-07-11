@@ -38,22 +38,22 @@ Label updated for Label and help text
 * Base enums - To be implemented
 
 ## Create Inquire Security Duty from Privilege
-Right privilege in designer mode and select "Create Inquire Security duty (SS D365)"
+Right privilege in designer mode and select **Create Inquire Security duty (SS D365)**
 
 ## Create Maintain Security Duty from Privilege
-Right privilege in designer mode and select "Create Maintain Security duty (SS D365)"
+Right privilege in designer mode and select **Create Maintain Security duty (SS D365)**
 
 ## Create Maintain and Inquire Privilege from Menu item
-Right privilege in designer mode and select "Create Maintain and view Privilege (SS D365)"
+Right privilege in designer mode and select **Create Maintain and view Privilege (SS D365)**
 
 ## Create Display menu item from a Form
-Open the form, right click the Form name (left of designer) and select the AddIn "Create display menu item (SS D365)"
+Open the form, right click the Form name (left of designer) and select the AddIn **Create display menu item (SS D365)**
 
 ## Create Form from a Table
-Open the table, Right click the Table name in the designer and select the AddIn "Create Form (SS D365)"
+Open the table, Right click the Table name in the designer and select the AddIn **Create Form (SS D365)**
 
 ## Add element to the current project
-Open an element in designer mode, Right click and select "Add to Project (SS D365)"
+Open an element in designer mode, Right click and select **Add to Project (SS D365)**
 This will add the element to the current project as long as the element belongs to the project
 
 ## Show the Label
