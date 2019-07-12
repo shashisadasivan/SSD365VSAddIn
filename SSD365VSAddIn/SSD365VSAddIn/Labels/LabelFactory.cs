@@ -2,6 +2,7 @@
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,10 @@ namespace SSD365VSAddIn.Labels
             else if (selectedElement is IForm)
             {
                 labelFactory = new LabelFactory_Form();
+            }
+            else if (selectedElement is ISecurityDuty)
+            {
+                labelFactory = new LabelFactory_ISecurityDuty();
             }
             // add additional elseifs here
             else
@@ -315,6 +320,31 @@ namespace SSD365VSAddIn.Labels
 
                 }
             }
+        }
+    }
+
+    public class LabelFactory_ISecurityDuty : LabelFactory
+    {
+        private ISecurityDuty iSecurityDuty;
+        //private IMenuItemExtension iMenuItemExtension;
+
+        public override void ApplyLabel()
+        {
+            var securityDutyexists = Common.CommonUtil.GetMetaModelProviders()
+                                        .CurrentMetadataProvider
+                                        .SecurityDuties.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                        .Where(t => t.Equals(this.iSecurityDuty.Name))
+                                        .FirstOrDefault();
+            if(String.IsNullOrEmpty(securityDutyexists) == false)
+            {
+                this.iSecurityDuty.Label = this.GetLabel(this.iSecurityDuty.Label);
+                this.iSecurityDuty.Description = this.GetLabel(this.iSecurityDuty.Description);
+            }
+        }
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            this.iSecurityDuty = selectedElement as ISecurityDuty;
         }
     }
 }

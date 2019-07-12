@@ -3,6 +3,7 @@ Extensions to enhance the development experience, mostly with just the mouse.
 These can only be done from the designer windows of the source objects
 
 # How to install the extension
+
 Powershell & DLL's script located in OutputDlls folder
 
 The powershell script **CopyDLLsToExtensionFolder.ps1** included will copy all the DLL files in the current folder to the Visual studio extension folder. *Requires to be run in Administrator mode*.
@@ -32,7 +33,7 @@ Labels updated for Table label, developer documentation, Field Labels, Field Hel
 * Menu item
 
 Label updated for Label and help text
-* Security Duty - To be implemented
+* Security Duty
 * Security Privilege - To be implemented
 * Security Role - To be implemented
 * Forms - To be implemented
