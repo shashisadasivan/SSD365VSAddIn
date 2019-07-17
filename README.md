@@ -38,9 +38,9 @@ Label updated for Label and help text
 * Security Duty
 * Security Privilege
 * Security Role
-* Forms - To be implemented
+* Forms - Partially done
 * EDT
-* Base enums - To be implemented
+* Base enums
 
 ## Create Inquire Security Duty from Privilege
 Right privilege in designer mode and select **Create Inquire Security duty (SS D365)**

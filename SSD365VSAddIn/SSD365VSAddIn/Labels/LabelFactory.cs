@@ -53,6 +53,10 @@ namespace SSD365VSAddIn.Labels
             {
                 labelFactory = new LabelFactory_IEdtBase();
             }
+            else if (selectedElement is IBaseEnum)
+            {
+                labelFactory = new LabelFactory_IBaseEnum();
+            }
             // add additional elseifs here
             else
             {
