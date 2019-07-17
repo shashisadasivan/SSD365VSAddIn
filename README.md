@@ -30,6 +30,8 @@ Right click the element and choose Create label for properties (Fields, FieldGro
 Currently this will add the label to the first label file (all languages) of the current model 
 * Table / Table Extensions
 
+[![Add labels to a Table](http://img.youtube.com/vi/Kv_dlCehPI4/0.jpg)](https://www.youtube.com/watch?v=Kv_dlCehPI4)
+
 Labels updated for Table label, developer documentation, Field Labels, Field Help text, Field group
 * Menu item
 
