@@ -24,6 +24,8 @@ If($ExtensionDir.Length -gt 0) {
     $AddinExtensionDir = "$ExtensionDir\AddinExtensions"
     #Write-Output $AddinExtensionDir
     Get-ChildItem -Path ".\*.dll" | ForEach-Object {
+		#Unblock the Dll's (they get blocked when downloaded)
+		Unblock-File $_.Name
         #Copy the DLL's in the given directory
         $fileName = $_.Name
         Copy-Item -Path $_.Name -Destination "$AddinExtensionDir\$fileName"
