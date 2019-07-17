@@ -37,7 +37,7 @@ Labels updated for Table label, developer documentation, Field Labels, Field Hel
 Label updated for Label and help text
 * Security Duty
 * Security Privilege
-* Security Role - To be implemented
+* Security Role
 * Forms - To be implemented
 * EDT - To be implemented
 * Base enums - To be implemented
