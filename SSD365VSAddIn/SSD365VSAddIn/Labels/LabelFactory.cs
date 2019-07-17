@@ -1,5 +1,6 @@
 ﻿using Microsoft.Dynamics.AX.Metadata.MetaModel;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.BaseTypes;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
@@ -47,6 +48,10 @@ namespace SSD365VSAddIn.Labels
             else if (selectedElement is ISecurityRole)
             {
                 labelFactory = new LabelFactory_ISecurityRole();
+            }
+            else if (selectedElement is IEdtBase)
+            {
+                labelFactory = new LabelFactory_IEdtBase();
             }
             // add additional elseifs here
             else

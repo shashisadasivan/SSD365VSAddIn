@@ -1,4 +1,5 @@
 ﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.BaseTypes;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
@@ -27,6 +28,7 @@ namespace SSD365VSAddIn.Labels
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityPrivilege))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityRole))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IEdtBase))]
     class LabelCreatorMainMenuAddIn : DesignerMenuBase
     {
         #region Member variables

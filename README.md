@@ -39,7 +39,7 @@ Label updated for Label and help text
 * Security Privilege
 * Security Role
 * Forms - To be implemented
-* EDT - To be implemented
+* EDT
 * Base enums - To be implemented
 
 ## Create Inquire Security Duty from Privilege

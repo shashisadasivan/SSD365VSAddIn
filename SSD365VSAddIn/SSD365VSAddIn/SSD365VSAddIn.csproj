@@ -71,6 +71,7 @@
     <Compile Include="Forms\FormsUtilMenuItemAddin.cs" />
     <Compile Include="Labels\LabelCreatorMainMenuAddIn.cs" />
     <Compile Include="Labels\LabelFactory.cs" />
+    <Compile Include="Labels\LabelFactory_IEdtBase.cs" />
     <Compile Include="Labels\LabelHelper.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
