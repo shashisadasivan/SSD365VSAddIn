@@ -11,7 +11,6 @@ The powershell script **CopyDLLsToExtensionFolder.ps1** included will copy all t
   - Run a powershell shell script in admin mode
   - Navigate the folder where this powershell script exists
   - Make sure all the DLL's that need to be copied are in the same folder
-  - Right click the DLL > Select properties > Make sure the DLL is unblocked (otherwise the system will not allow this dll to run)
   - Close all instances of Visual studio
   - call .\CopyDLLsToExtensionFolder.ps1
 
