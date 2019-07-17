@@ -36,7 +36,7 @@ Labels updated for Table label, developer documentation, Field Labels, Field Hel
 
 Label updated for Label and help text
 * Security Duty
-* Security Privilege - To be implemented
+* Security Privilege
 * Security Role - To be implemented
 * Forms - To be implemented
 * EDT - To be implemented

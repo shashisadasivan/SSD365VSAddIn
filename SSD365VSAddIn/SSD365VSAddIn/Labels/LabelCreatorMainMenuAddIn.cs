@@ -25,6 +25,7 @@ namespace SSD365VSAddIn.Labels
     //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItemExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityPrivilege))]
     class LabelCreatorMainMenuAddIn : DesignerMenuBase
     {
         #region Member variables

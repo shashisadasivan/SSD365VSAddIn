@@ -40,6 +40,10 @@ namespace SSD365VSAddIn.Labels
             {
                 labelFactory = new LabelFactory_ISecurityDuty();
             }
+            else if (selectedElement is ISecurityPrivilege)
+            {
+                labelFactory = new LabelFactory_ISecurityPrivilege();
+            }
             // add additional elseifs here
             else
             {
@@ -347,4 +351,28 @@ namespace SSD365VSAddIn.Labels
             this.iSecurityDuty = selectedElement as ISecurityDuty;
         }
     }
+
+    public class LabelFactory_ISecurityPrivilege : LabelFactory
+    {
+        private ISecurityPrivilege iSecurityPrev;
+
+        public override void ApplyLabel()
+        {
+            var securityDutyexists = Common.CommonUtil.GetMetaModelProviders()
+                                        .CurrentMetadataProvider
+                                        .SecurityPrivileges.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                        .Where(t => t.Equals(this.iSecurityPrev.Name))
+                                        .FirstOrDefault();
+            if (String.IsNullOrEmpty(securityDutyexists) == false)
+            {
+                this.iSecurityPrev.Label = this.GetLabel(this.iSecurityPrev.Label);
+                this.iSecurityPrev.Description = this.GetLabel(this.iSecurityPrev.Description);
+            }
+        }
+        public override void setElementType(IRootElement selectedElement)
+        {
+            this.iSecurityPrev = selectedElement as ISecurityPrivilege;
+        }
+    }
+
 }
