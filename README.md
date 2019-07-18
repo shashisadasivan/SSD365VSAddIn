@@ -33,8 +33,6 @@ Currently this will add the label to the first label file (all languages) of the
 
 Labels updated for Table label, developer documentation, Field Labels, Field Help text, Field group
 * Menu item
-
-Label updated for Label and help text
 * Security Duty
 * Security Privilege
 * Security Role
