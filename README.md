@@ -17,6 +17,24 @@ These can only be done from the designer windows of the source objects
   
 # How to install the extension
 
+**Updated installation instructions** works for non admin users
+- Download the dll file from the folder
+- Create a new folder e.g. c:\D365CustomAddIns
+- Copy the dll file into the folder above
+- Close Visual studio & edit the file: C:\Users\<currentUser>\Documents\Visual Studio 2015\Settings\DefaultConfig.xml
+- Edit the following to the xml file
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<DynamicsDevConfig xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/dynamics/2012/03/development/configuration">
+	<AddInPaths xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+		<d2p1:string>C:\D365CustomAddins</d2p1:string>
+	</AddInPaths>
+ 
+</DynamicsDevConfig>
+```
+**Note**: remove the i:nil="true" from the AddInPath tag
+
+**For admin users** you can chose to use the above or the one as per below
 [![Install VS Add in](http://img.youtube.com/vi/4qPndob4SHk/0.jpg)](http://www.youtube.com/watch?v=4qPndob4SHk)
 
 Powershell & DLL's script located in OutputDlls folder
