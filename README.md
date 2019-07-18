@@ -2,7 +2,21 @@
 Extensions to enhance the development experience, mostly with just the mouse.
 These can only be done from the designer windows of the source objects
 
+* [How to install the extension](#how-to-install-the-extension)
+* [Features](#features)
+  * [Create Code extension](#create-code-extension)
+  * [Create Extensions](#create-extensions)
+  * [Create Labels](#create-labels)
+  * [Create Inquire Security Duty from Privilege](#create-inquire-security-duty-from-privilege)
+  * [Create Maintain Security Duty from Privilege](#create-maintain-security-duty-from-privilege)
+  * [Create Maintain and Inquire Privilege from Menu item](#create-maintain-and-inquire-privilege-from-menu-item)
+  * [Create Display menu item from a Form](#create-display-menu-item-from-a-form)
+  * [Create Form from a Table](#create-form-from-a-table)
+  * [Add element to the current project](#add-element-to-the-current-project)
+  * [Show the Label](#show-the-label)
+  
 # How to install the extension
+
 [![Install VS Add in](http://img.youtube.com/vi/4qPndob4SHk/0.jpg)](http://www.youtube.com/watch?v=4qPndob4SHk)
 
 Powershell & DLL's script located in OutputDlls folder
