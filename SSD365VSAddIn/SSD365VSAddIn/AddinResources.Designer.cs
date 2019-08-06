@@ -70,6 +70,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Convert to SysOperation - Experimental (SSD365).
+        /// </summary>
+        internal static string ConvertToSysOperation {
+            get {
+                return ResourceManager.GetString("ConvertToSysOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create code extension (SS D365).
         /// </summary>
         internal static string CreateCodeExtension {

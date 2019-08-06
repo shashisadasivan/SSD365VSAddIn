@@ -14,6 +14,7 @@ These can only be done from the designer windows of the source objects
   * [Create Form from a Table](#create-form-from-a-table)
   * [Add element to the current project](#add-element-to-the-current-project)
   * [Show the Label](#show-the-label)
+  * [Convert RunBaseBatch to SysOperation](#convert-runbasebatch-to-sysoperation)
   
 # How to install the extension
 
@@ -98,4 +99,9 @@ This will show the label and the help text of the element
 Currenty works for 
   - Extended data types (shows the label and the help text)
   - Table field
+
+## Convert RunBaseBatch to SysOperation
+This is an experimental feature
+Converts a existing class which implements a RunBaseBatch to SysOperation.
+Currently creates a contract class for the given RunBaseBatch class based on the dialog method
 

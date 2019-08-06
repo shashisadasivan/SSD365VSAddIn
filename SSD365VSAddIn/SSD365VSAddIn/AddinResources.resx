@@ -120,6 +120,10 @@
   <data name="AddToProjectMenuAddIn" xml:space="preserve">
     <value>Add to Project (SS D365)</value>
   </data>
+  <data name="ConvertToSysOperation" xml:space="preserve">
+    <value>Convert to SysOperation - Experimental (SSD365)</value>
+    <comment>Experimental</comment>
+  </data>
   <data name="CreateCodeExtension" xml:space="preserve">
     <value>Create code extension (SS D365)</value>
   </data>
