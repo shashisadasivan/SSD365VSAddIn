@@ -165,6 +165,26 @@ namespace SSD365VSAddIn.Common
             return objectName;
         }
 
+        internal static string GetNextBaseEnumExtension(string name)
+        {
+            string objectName = name;
+
+            // Find current model
+            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            // Create a class with the same name + _Extension and add it to the project
+            // ClassName
+            int numFound = 0;
+            while (metaModelService.GetEnumExtension(objectName) != null)
+            {
+                numFound++;
+                objectName = name + numFound.ToString();
+            }
+
+            return objectName;
+        }
+
         internal static string GetNextFormExtension(string name)
         {
             string objectName = name;
