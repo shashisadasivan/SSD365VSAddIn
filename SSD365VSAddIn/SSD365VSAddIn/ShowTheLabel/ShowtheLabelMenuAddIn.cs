@@ -115,10 +115,10 @@ namespace SSD365VSAddIn.ShowTheLabel
                 labelInfo.HelpLabel = tableField.HelpText;
             }
 
-            if(labelInfo.RequiresDigging()
-                )
+            if(labelInfo.RequiresDigging())
             {
-
+                // This means we need to find the underlying table / field and find the label from there
+                
             }
             //if (labelInfo.RequiresDigging()
             //    && String.IsNullOrEmpty(tableField.ExtendedDataType) == false)
