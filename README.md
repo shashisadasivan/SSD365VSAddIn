@@ -73,6 +73,12 @@ Labels updated for Table label, developer documentation, Field Labels, Field Hel
 * EDT
 * Base enums
 
+## Create labels in code
+This will create labels in the methods for the following elements
+* Class methods
+* Data entity methods
+* Table methods
+
 ## Create Inquire Security Duty from Privilege
 Right privilege in designer mode and select **Create Inquire Security duty (SS D365)**
 
