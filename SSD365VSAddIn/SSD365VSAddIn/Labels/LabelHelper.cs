@@ -17,6 +17,15 @@ namespace SSD365VSAddIn.Labels
     /// </summary>
     class LabelHelper
     {
+        public static void GetLabelLanguages(string labelFileId)
+        {
+
+        }
+
+        /// <summary>
+        /// Gets a list of labels in the current model (without the language)
+        /// </summary>
+        /// <returns>String list of label ids</returns>
         public static IList<AxLabelFile> GetLabelFiles()
         {
             List<AxLabelFile> labelFilesToUpdate = new List<AxLabelFile>();

@@ -142,6 +142,9 @@
   <data name="MainMenuAddInCaption" xml:space="preserve">
     <value>Main Menu caption for SSD365VSAddIn AddIn</value>
   </data>
+  <data name="ModelSettings" xml:space="preserve">
+    <value>Model settings (SS D365)</value>
+  </data>
   <data name="SecurityDutyInquireCreatorDesignContextMenuAddInCaption" xml:space="preserve">
     <value>Create Inquire Security duty (SS D365)</value>
   </data>

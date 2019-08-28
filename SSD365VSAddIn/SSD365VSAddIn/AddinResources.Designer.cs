@@ -133,6 +133,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Model settings (SS D365).
+        /// </summary>
+        internal static string ModelSettings {
+            get {
+                return ResourceManager.GetString("ModelSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Inquire Security duty (SS D365).
         /// </summary>
         internal static string SecurityDutyInquireCreatorDesignContextMenuAddInCaption {

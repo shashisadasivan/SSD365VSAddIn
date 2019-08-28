@@ -142,8 +142,11 @@ C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\
 C:\Users\Admind405823167\Source\Repos\D365_VS_ADDIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.pdb
+C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Newtonsoft.Json.dll
+C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Newtonsoft.Json.xml
+C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.AddinResources.resources
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csproj.GenerateResource.Cache
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb
-C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
+C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.Settings.ModelSettingsUI.resources
