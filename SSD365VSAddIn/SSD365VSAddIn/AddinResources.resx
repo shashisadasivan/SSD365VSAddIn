@@ -136,6 +136,9 @@
   <data name="FormsUtilMenuItemAddin" xml:space="preserve">
     <value>Creade display menu item (SS D365)</value>
   </data>
+  <data name="LabelCodeCreatedMainMenuAddIn" xml:space="preserve">
+    <value>Create label in code (SS D365)</value>
+  </data>
   <data name="LabelCreatorMainMenuAddIn" xml:space="preserve">
     <value>Create label for properties (SS D365)</value>
   </data>
