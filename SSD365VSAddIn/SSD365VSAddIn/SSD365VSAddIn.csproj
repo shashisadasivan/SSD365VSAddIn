@@ -59,6 +59,10 @@
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\hsbpvpjt.yof\Microsoft.Dynamics.Framework.Tools.ProjectSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -96,6 +100,15 @@
     <Compile Include="SecurityDuty\SecurityDutyInquireCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityDuty\SecurityDutyMaintainCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="SecurityPrivilege\SecurityPrivilegeCreatorMenuAddIn.cs" />
+    <Compile Include="Settings\FetchSettings.cs" />
+    <Compile Include="Settings\ModelSettings.cs" />
+    <Compile Include="Settings\ModelSettingsMainMenuAddIn.cs" />
+    <Compile Include="Settings\ModelSettingsUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\ModelSettingsUI.Designer.cs">
+      <DependentUpon>ModelSettingsUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShowTheLabel\ShowtheLabelMenuAddIn.cs" />
     <Compile Include="Tables\TableFormCreatorMenuAddIn.cs" />
     <Compile Include="Tables\TableHelper.cs" />
@@ -105,9 +118,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AddinResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\ModelSettingsUI.resx">
+      <DependentUpon>ModelSettingsUI.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\SSD365VSAddIn.Settings.ModelSettings.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(INETROOT)\Source\Frameworks\DevToolsVS12\common\Microsoft.Dynamics.Framework.Tools.Extensibility.Targets" Condition=" '$(INETROOT)' != '' " />
@@ -119,18 +139,19 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="AfterBuildAction" Condition="'$(BuildingInsideVisualStudio)'=='true'" AfterTargets="AfterBuild">
-    <ItemGroup>
-      <OutputFiles Include="$(MSBuildProjectDirectory)\$(OutputPath)\**\*.*" />
-    </ItemGroup>
-    <Message Text="Copying @(OutputFiles)" Importance="high" />
-    <Copy SourceFiles="@(OutputFiles)" DestinationFiles="@(OutputFiles->'$(DynamicsVSToolsHintPath)\AddinExtensions\%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Message Text="Copying finished" Importance="high" />
-  </Target>
+  <!-- <Target Name="AfterBuildAction" Condition="'$(BuildingInsideVisualStudio)'=='true'" AfterTargets="AfterBuild"> -->
+    <!-- <ItemGroup> -->
+      <!-- <OutputFiles Include="$(MSBuildProjectDirectory)\$(OutputPath)\**\*.*" /> -->
+    <!-- </ItemGroup> -->
+    <!-- <Message Text="Copying @(OutputFiles)" Importance="high" /> -->
+    <!-- <Copy SourceFiles="@(OutputFiles)" DestinationFiles="@(OutputFiles->'$(DynamicsVSToolsHintPath)\AddinExtensions\%(RecursiveDir)%(Filename)%(Extension)')" /> -->
+    <!-- <Message Text="Copying finished" Importance="high" /> -->
+  <!-- </Target> -->
   <PropertyGroup>
     <PostBuildEvent>echo "----"
 echo "--&gt; Copy to Outputdlls"
-copy $(TargetPath) $(ProjectDir)..\..\OutputDlls\$(TargetFileName)
+echo "Copy all DLLs"
+copy $(TargetDir)\*.dll $(ProjectDir)..\..\OutputDlls\
 echo "&lt;-- Copy Complete"</PostBuildEvent>
   </PropertyGroup>
 </Project>
