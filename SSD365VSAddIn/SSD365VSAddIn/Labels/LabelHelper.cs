@@ -22,6 +22,20 @@ namespace SSD365VSAddIn.Labels
 
         }
 
+        public IList<AxLabelFile> GetLabelFilesSettings()
+        {
+            List<AxLabelFile> labelFilesToUpdate = new List<AxLabelFile>();
+
+            Settings.FetchSettings.FindOrCreateSettings().LabelsToUpdate.ForEach(
+                labelFileName =>
+                {
+                    var axLabelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(labelFileName);
+                    labelFilesToUpdate.Add(axLabelFile);
+                });
+
+            return labelFilesToUpdate;
+        }
+
         /// <summary>
         /// Gets a list of labels in the current model (without the language)
         /// </summary>
