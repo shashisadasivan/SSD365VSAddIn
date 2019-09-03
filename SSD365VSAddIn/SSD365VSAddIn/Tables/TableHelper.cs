@@ -14,7 +14,7 @@ namespace SSD365VSAddIn.Tables
     {
         public static string CreateTableExtension(ITable table)
         {
-            var name = table.Name + Common.Constants.DotEXTENSION;
+            var name = table.Name;// + Common.Constants.DotEXTENSION;
             name = Common.CommonUtil.GetNextTableExtension(name);
 
             // Find current model

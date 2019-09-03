@@ -42,6 +42,7 @@ namespace SSD365VSAddIn.Settings
         {
             this.textPrefix.Text = modelSettings.Prefix;
             this.textSuffix.Text = modelSettings.Suffix;
+            this.textExtensionName.Text = modelSettings.Extension;
 
             // make sure that the label files selected are still valid
             var selectedLabels = this.modelSettings.LabelsToUpdate.Intersect(this.labelFiles.Select(l => l.Name))
@@ -62,6 +63,7 @@ namespace SSD365VSAddIn.Settings
         {
             modelSettings.Prefix = this.textPrefix.Text;
             modelSettings.Suffix = this.textSuffix.Text;
+            modelSettings.Extension = this.textExtensionName.Text;
 
             //Add languages to update
             modelSettings.LabelsToUpdate.Clear();

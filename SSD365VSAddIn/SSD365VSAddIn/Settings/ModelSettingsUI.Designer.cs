@@ -45,6 +45,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.textExtensionName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +112,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.listBoxLangAvailable);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(2, 116);
+            this.panel1.Location = new System.Drawing.Point(2, 166);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(465, 227);
             this.panel1.TabIndex = 10;
@@ -184,7 +186,7 @@
             // 
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnOk);
-            this.panel2.Location = new System.Drawing.Point(2, 362);
+            this.panel2.Location = new System.Drawing.Point(2, 412);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(465, 42);
             this.panel2.TabIndex = 11;
@@ -210,13 +212,31 @@
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // textExtensionName
+            // 
+            this.textExtensionName.Location = new System.Drawing.Point(160, 107);
+            this.textExtensionName.Name = "textExtensionName";
+            this.textExtensionName.Size = new System.Drawing.Size(107, 20);
+            this.textExtensionName.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Extension name";
+            // 
             // ModelSettingsUI
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(468, 407);
+            this.ClientSize = new System.Drawing.Size(468, 459);
+            this.Controls.Add(this.textExtensionName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textSuffix);
@@ -258,5 +278,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox textExtensionName;
+        private System.Windows.Forms.Label label2;
     }
 }

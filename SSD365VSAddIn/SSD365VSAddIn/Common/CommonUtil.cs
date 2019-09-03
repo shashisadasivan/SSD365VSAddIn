@@ -125,6 +125,33 @@ namespace SSD365VSAddIn.Common
             return metaModelService;
         }
 
+        private static string GetCodeExtensionName(string name, int number)
+        {
+            string className = name;
+            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+            if (number > 0)
+            {
+                className = modelSettings.Prefix + name + modelSettings.Suffix + number.ToString() + Constants._EXTENSION;
+            }
+            else
+            {
+                className = modelSettings.Prefix + name + modelSettings.Suffix + Constants._EXTENSION;
+            }
+            return className;
+        }
+        private static string GetObjectExtensionName(string name, int number)
+        {
+            string extName = name;
+            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+            extName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension;// + numFound.ToString();
+            if(number > 0)
+            {
+                extName += number.ToString();
+            }
+
+            return extName;
+        }
+
         internal static string GetNextNameSecurityDutyExtension(string name)
         {
             string objectName = name;
@@ -147,7 +174,8 @@ namespace SSD365VSAddIn.Common
 
         internal static string GetNextTableExtension(string name)
         {
-            string objectName = name;
+            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+            string objectName = GetObjectExtensionName(name, 0);
 
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
@@ -159,7 +187,8 @@ namespace SSD365VSAddIn.Common
             while (metaModelService.GetTableExtension(objectName) != null)
             {
                 numFound++;
-                objectName = name + numFound.ToString();
+                objectName = GetObjectExtensionName(name, numFound);
+                //objectName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension + numFound.ToString();
             }
 
             return objectName;
@@ -167,7 +196,8 @@ namespace SSD365VSAddIn.Common
 
         internal static string GetNextBaseEnumExtension(string name)
         {
-            string objectName = name;
+            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+            string objectName = GetObjectExtensionName(name, 0);
 
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
@@ -179,7 +209,8 @@ namespace SSD365VSAddIn.Common
             while (metaModelService.GetEnumExtension(objectName) != null)
             {
                 numFound++;
-                objectName = name + numFound.ToString();
+                objectName = GetObjectExtensionName(name, numFound);
+                //objectName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension + numFound.ToString();
             }
 
             return objectName;
@@ -187,7 +218,8 @@ namespace SSD365VSAddIn.Common
 
         internal static string GetNextFormExtension(string name)
         {
-            string objectName = name;
+            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+            string objectName = GetObjectExtensionName(name, 0);
 
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
@@ -199,10 +231,28 @@ namespace SSD365VSAddIn.Common
             while (metaModelService.GetFormExtension(objectName) != null)
             {
                 numFound++;
-                objectName = name + numFound.ToString();
+                objectName = GetObjectExtensionName(name, 0);
+                //objectName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension + numFound.ToString();
             }
 
             return objectName;
+        }
+
+        internal static string GetNextClassExtensionName(string name)
+        {
+            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            string className = GetCodeExtensionName(name, 0);
+            int numClassesFound = 0;
+            while (metaModelService.GetClass(className) != null)
+            {
+                numClassesFound++;
+                className = GetCodeExtensionName(name, numClassesFound);
+                //className = modelSettings.Prefix + name + modelSettings.Suffix + numClassesFound.ToString() + Constants._EXTENSION;
+            }
+
+            return className;
         }
     }
 }

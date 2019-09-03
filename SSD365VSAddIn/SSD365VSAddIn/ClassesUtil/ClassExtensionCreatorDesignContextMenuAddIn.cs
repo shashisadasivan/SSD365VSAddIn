@@ -75,14 +75,17 @@
 
                     // Create a class with the same name + _Extension and add it to the project
                     // ClassName
-                    string baseClassName = selectedElement.Name + "_Extension";
-                    string className = baseClassName;
-                    int numClassesFound = 0;
-                    while (metaModelService.GetClass(className) != null)
-                    {
-                        numClassesFound++;
-                        className = baseClassName + numClassesFound.ToString();
-                    }
+                    //string baseClassName = selectedElement.Name + "_Extension";
+                    //string className = baseClassName;
+                    //int numClassesFound = 0;
+                    //while (metaModelService.GetClass(className) != null)
+                    //{
+                    //    numClassesFound++;
+                    //    className = baseClassName + numClassesFound.ToString();
+                    //}
+
+                    string className = Common.CommonUtil.GetNextClassExtensionName(selectedElement.Name);
+
 
                     string intrinsicStr = String.Empty;
                     if(selectedElement is ITable

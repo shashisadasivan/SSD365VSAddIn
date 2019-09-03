@@ -4,6 +4,7 @@ These can only be done from the designer windows of the source objects
 
 * [How to install the extension](#how-to-install-the-extension)
 * [Features](#features)
+  * [
   * [Create Code extension](#create-code-extension)
   * [Create Extensions](#create-extensions)
   * [Create Labels](#create-labels)
@@ -48,6 +49,11 @@ The powershell script **CopyDLLsToExtensionFolder.ps1** included will copy all t
   - call .\CopyDLLsToExtensionFolder.ps1
 
 # Features
+
+## Settings based object creation
+Create settings per Model from the main menu Dynamics D365 > AddIns > Model Settings (SS D365)
+The files are stored in the same folder where the DLL's are referenced by visual studio.
+The labels to update are in the settings form, so that not all languages are updated. (possible bug when multiple file id are used)
 
 ## Create Code extension
 Right click a Table, Class, Data entity, Form to create a class extension for it

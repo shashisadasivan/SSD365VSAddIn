@@ -14,7 +14,7 @@ namespace SSD365VSAddIn.DataTypes
     {
         public static string CreateExtension(IBaseEnum baseEnum)
         {
-            var name = baseEnum.Name + Common.Constants.DotEXTENSION;
+            var name = baseEnum.Name; // + Common.Constants.DotEXTENSION;
             name = Common.CommonUtil.GetNextBaseEnumExtension(name);
 
             // Find current model

@@ -43,6 +43,7 @@ namespace SSD365VSAddIn.Settings
             JsonSerializer serializer = new JsonSerializer();
             serializer.Converters.Add(new JavaScriptDateTimeConverter());
             serializer.NullValueHandling = NullValueHandling.Ignore;
+            serializer.Formatting = Formatting.Indented;
 
             using (var sw = new StreamWriter(filePath))
             {

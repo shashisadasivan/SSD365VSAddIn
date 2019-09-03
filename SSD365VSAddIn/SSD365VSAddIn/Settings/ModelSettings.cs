@@ -13,6 +13,7 @@ namespace SSD365VSAddIn.Settings
         public string Prefix { get; set; } = String.Empty;
 
         public string Suffix { get; set; } = String.Empty;
+        public string Extension { get; set; } = "Extension";
 
         public List<String> LabelsToUpdate { get; set; } = new List<string>();
     }
