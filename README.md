@@ -4,7 +4,7 @@ These can only be done from the designer windows of the source objects
 
 * [How to install the extension](#how-to-install-the-extension)
 * [Features](#features)
-  * [
+  * [Settings based object creation](#settings-based-object-creation)
   * [Create Code extension](#create-code-extension)
   * [Create Extensions](#create-extensions)
   * [Create Labels](#create-labels)
