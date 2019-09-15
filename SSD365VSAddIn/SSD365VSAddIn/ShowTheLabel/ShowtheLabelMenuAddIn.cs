@@ -63,7 +63,7 @@ namespace SSD365VSAddIn.ShowTheLabel
             //Microsoft.Dynamics.AX.Metadata.Core.MetaModel.EntryPointType entryPointType;
             try
             {
-                var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+                //var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
                 var selectedItem = e.SelectedElement as INamedElement;
                 if (selectedItem != null)
                 {
