@@ -48,6 +48,15 @@ namespace SSD365VSAddIn.SecurityDuty
 
         public static string CreateDutyExtension(ISecurityDuty duty)
         {
+            var existingSecDutyExt = SecurityDuty.SecurityDutyHelper.GetExtensionObject(duty);
+            if(existingSecDutyExt != null)
+            {
+                // We already have an exisisting security duty extension, so just add this to the project
+                // Add this to the project
+                Common.CommonUtil.AddElementToProject(existingSecDutyExt);
+                return existingSecDutyExt.Name;
+            }
+
             var securityDutyExtensionName = Common.CommonUtil.GetNextNameSecurityDutyExtension(duty.Name + Common.Constants.DotEXTENSION);
 
             var extSecDuty = new AxSecurityDutyExtension() { Name = securityDutyExtensionName };
