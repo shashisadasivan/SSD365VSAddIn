@@ -143,8 +143,9 @@ namespace SSD365VSAddIn.Common
         {
             string extName = name;
             var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
-            extName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension;// + numFound.ToString();
-            if(number > 0)
+            //extName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension;// + numFound.ToString();
+            extName = name + Constants.DOT + modelSettings.Extension;// + numFound.ToString();
+            if (number > 0)
             {
                 extName += number.ToString();
             }
