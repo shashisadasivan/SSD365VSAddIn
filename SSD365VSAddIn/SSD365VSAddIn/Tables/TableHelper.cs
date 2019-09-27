@@ -14,6 +14,15 @@ namespace SSD365VSAddIn.Tables
     {
         public static string CreateTableExtension(ITable table)
         {
+            AxTableExtension axExtension;
+            axExtension = TableHelper.GetFirstExtension(table.Name);
+            if(axExtension != null)
+            {
+                // Add existing extension to project & quit
+                Common.CommonUtil.AddElementToProject(axExtension);
+                return axExtension.Name;
+            }
+
             var name = table.Name;// + Common.Constants.DotEXTENSION;
             name = Common.CommonUtil.GetNextTableExtension(name);
 
@@ -23,7 +32,7 @@ namespace SSD365VSAddIn.Tables
 
 
             //Create an extension object
-            var axExtension = new AxTableExtension() { Name = name };
+            axExtension = new AxTableExtension() { Name = name };
             //var tableExts = metaModelProviders.CurrentMetadataProvider.TableExtensions.Common.CommonUtil.GetCurrentModel().Name);
 
             Common.CommonUtil.GetMetaModelProviders()
@@ -34,6 +43,25 @@ namespace SSD365VSAddIn.Tables
             Common.CommonUtil.AddElementToProject(axExtension);
 
             return name;
+        }
+
+        public static AxTableExtension GetFirstExtension(string name)
+        {
+            // Find current model
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            var extensionName = metaModelService.GetTableExtensionNames()
+                                    .ToList()
+                                    .Where(tableExtName => tableExtName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
+                                    .FirstOrDefault();
+            
+            if(String.IsNullOrEmpty(extensionName) == false)
+            {
+                var extension = metaModelService.GetTableExtension(extensionName);
+                return extension;
+            }
+
+            return null;
         }
     }
 }
