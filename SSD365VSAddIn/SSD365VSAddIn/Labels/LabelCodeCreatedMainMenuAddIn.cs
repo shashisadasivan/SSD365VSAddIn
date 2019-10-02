@@ -174,6 +174,24 @@ namespace SSD365VSAddIn.Labels
                 }
             }
 
+            if(!isCommented)
+            {
+                //check if this is in a code block
+                var prevCodeBlockOpen = sourceCode.LastIndexOf(@"/*", currQuoteIndex, StringComparison.InvariantCultureIgnoreCase);
+                
+                if (prevCodeBlockOpen >= 0)
+                {
+                    string textBetween = sourceCode.Substring(prevCodeBlockOpen + 2, (currQuoteIndex - (prevCodeBlockOpen + 2)));
+                    //var prevCodeBlockClose = sourceCode.LastIndexOf(@"*/", currQuoteIndex, StringComparison.InvariantCultureIgnoreCase);
+                    var prevCodeBlockClose = textBetween.LastIndexOf(@"*/", 0);
+                    if (prevCodeBlockClose <= 0  // Could not fix the end block
+                        || prevCodeBlockClose > currQuoteIndex) // end block is after the current quote index (we shouldnt need this ever)
+                    {
+                        isCommented = true;
+                    }
+                }
+            }
+
             return isCommented;
         }
         public string GetLabel(string label)
