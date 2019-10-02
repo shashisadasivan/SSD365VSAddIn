@@ -129,7 +129,8 @@ namespace SSD365VSAddIn.Labels
                 {
                     int nextQuoteIdx = result.IndexOf("\"", currentQuoteIdx + 1);
                     string labelValue = result.Substring(currentQuoteIdx + 1, (nextQuoteIdx - currentQuoteIdx - 1));
-                    if(labelValue.StartsWith("@") == false)
+                    if(labelValue.StartsWith("@") == false 
+                        && this.IsCommented(sourceCode, currentQuoteIdx) == false)
                     {
                         // this is a string value we need to convert into a label
                         var labelId = this.GetLabel(labelValue);
@@ -150,6 +151,31 @@ namespace SSD365VSAddIn.Labels
             return result;
         }
 
+        /// <summary>
+        /// Checks if the current line of the specified index is a comment
+        /// </summary>
+        /// <param name="sourceCode">entire source code</param>
+        /// <param name="currQuoteIndex">The current index of the Quote</param>
+        /// <returns>True if the line is commented</returns>
+        protected bool IsCommented(string sourceCode, int currQuoteIndex)
+        {
+            bool isCommented = false;
+
+            var prevLineBreak = sourceCode.LastIndexOf("\r\n", currQuoteIndex, StringComparison.InvariantCultureIgnoreCase);
+            if (prevLineBreak >= 0)
+            {
+                string textBetween = sourceCode.Substring(prevLineBreak + 2, (currQuoteIndex - prevLineBreak));
+                // search for a comment between prevLineBreak & currQuoteIndex
+                //var commentIndex = sourceCode.IndexOf(@"//", currQuoteIndex + 1, (currQuoteIndex - prevLineBreak + 1));
+                var commentIndex = textBetween.IndexOf(@"//", 0);
+                if(commentIndex > 0)
+                {
+                    isCommented = true;
+                }
+            }
+
+            return isCommented;
+        }
         public string GetLabel(string label)
         {
             string labelId = LabelHelper.FindOrCreateLabel(label);
