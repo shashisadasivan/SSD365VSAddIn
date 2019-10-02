@@ -14,6 +14,15 @@ namespace SSD365VSAddIn.DataTypes
     {
         public static string CreateExtension(IBaseEnum baseEnum)
         {
+            AxEnumExtension axExtension;
+            axExtension = BaseEnumHelper.GetFirstExtension(baseEnum.Name);
+            if (axExtension != null)
+            {
+                // Add existing extension to project & quit
+                Common.CommonUtil.AddElementToProject(axExtension);
+                return axExtension.Name;
+            }
+
             var name = baseEnum.Name; // + Common.Constants.DotEXTENSION;
             name = Common.CommonUtil.GetNextBaseEnumExtension(name);
 
@@ -23,7 +32,7 @@ namespace SSD365VSAddIn.DataTypes
 
 
             //Create an extension object
-            var axExtension = new AxEnumExtension() { Name = name };
+            axExtension = new AxEnumExtension() { Name = name };
             //var tableExts = metaModelProviders.CurrentMetadataProvider.TableExtensions.Common.CommonUtil.GetCurrentModel().Name);
 
             Common.CommonUtil.GetMetaModelProviders()
@@ -34,6 +43,25 @@ namespace SSD365VSAddIn.DataTypes
             Common.CommonUtil.AddElementToProject(axExtension);
 
             return name;
+        }
+
+        public static AxEnumExtension GetFirstExtension(string name)
+        {
+            // Find current model
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            var extensionName = metaModelService.GetEnumExtensionNames()
+                                    .ToList()
+                                    .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
+                                    .FirstOrDefault();
+
+            if (String.IsNullOrEmpty(extensionName) == false)
+            {
+                var extension = metaModelService.GetEnumExtension(extensionName);
+                return extension;
+            }
+
+            return null;
         }
     }
 }
