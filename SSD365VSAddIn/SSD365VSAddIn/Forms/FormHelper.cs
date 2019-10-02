@@ -36,5 +36,25 @@ namespace SSD365VSAddIn.Forms
 
             return name;
         }
+
+        //public static AxFormExtension GetFirstExtension(string name)
+        //{
+        //    // Find current model
+        //    var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+        //    var extensionName = metaModelService
+        //                              No method to get all form extensions :(
+        //                            .ToList()
+        //                            .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
+        //                            .FirstOrDefault();
+
+        //    if (String.IsNullOrEmpty(extensionName) == false)
+        //    {
+        //        var extension = metaModelService.GetTableExtension(extensionName);
+        //        return extension;
+        //    }
+
+        //    return null;
+        //}
     }
 }
