@@ -56,7 +56,7 @@ namespace SSD365VSAddIn.Forms
         /// <param name="e">The context of the VS tools and metadata</param>
         public override void OnClick(AddinDesignerEventArgs e)
         {
-            Microsoft.Dynamics.AX.Metadata.Core.MetaModel.EntryPointType entryPointType;
+            //Microsoft.Dynamics.AX.Metadata.Core.MetaModel.EntryPointType entryPointType;
             try
             {
                 // we will create 2 security privileges for the menu item with the same name + Maintain,  +View

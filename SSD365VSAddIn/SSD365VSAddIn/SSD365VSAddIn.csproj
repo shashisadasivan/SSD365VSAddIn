@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="AddToProject\AddToProjectMenuAddIn.cs" />
     <Compile Include="ClassesUtil\ClassExtensionCreatorDesignContextMenuAddIn.cs" />
+    <Compile Include="ClassesUtil\ClassHelper.cs" />
     <Compile Include="ClassesUtil\ConvertToSysOperationMenuAddIn.cs" />
     <Compile Include="Common\CommonUtil.cs" />
     <Compile Include="Common\Constants.cs" />

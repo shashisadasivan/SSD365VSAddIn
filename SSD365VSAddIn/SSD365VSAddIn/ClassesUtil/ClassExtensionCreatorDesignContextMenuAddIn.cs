@@ -71,7 +71,7 @@
                     var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
                     var metaModelService = Common.CommonUtil.GetModelSaveService();
 
-                    var metadataType = selectedElement.GetMetadataType() ;
+                    //var metadataType = selectedElement.GetMetadataType() ;
 
                     // Create a class with the same name + _Extension and add it to the project
                     // ClassName
@@ -101,14 +101,20 @@
                     {
                         intrinsicStr = "formStr";
                     }
+                    Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass;
 
-                    Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass = new AxClass()
+                    string extensionOfStr = $"ExtensionOf({intrinsicStr}({selectedElement.Name}))";
+                    // Find an existing class where the extension is already used
+                    extensionClass = ClassHelper.GetExistingExtensionClass(selectedElement.Name, extensionOfStr);
+                    if (extensionClass == null)
                     {
-                        Name = className
-                    };
+                        extensionClass = new AxClass()
+                        {
+                            Name = className
+                        };
 
-                    extensionClass.SourceCode.Declaration = $"[ExtensionOf({intrinsicStr}({selectedElement.Name}))]\npublic final class {className}\n{{\n\n}}";
-
+                        extensionClass.SourceCode.Declaration = $"[{extensionOfStr}]\npublic final class {className}\n{{\n\n}}";
+                    }
 
                     metaModelService.CreateClass(extensionClass, modelSaveInfo);
                     Common.CommonUtil.AddElementToProject(extensionClass);
