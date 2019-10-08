@@ -232,7 +232,7 @@ namespace SSD365VSAddIn.Common
             while (metaModelService.GetFormExtension(objectName) != null)
             {
                 numFound++;
-                objectName = GetObjectExtensionName(name, 0);
+                objectName = GetObjectExtensionName(name, numFound);
                 //objectName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension + numFound.ToString();
             }
 
