@@ -106,6 +106,7 @@
     <Compile Include="Common\CommonUtil.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\D365Helper.cs" />
+    <Compile Include="DataEntity\DataEntityHelper.cs" />
     <Compile Include="DataTypes\BaseEnumHelper.cs" />
     <Compile Include="ExtensionCommand\CreateExtensionCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="Forms\FormHelper.cs" />
