@@ -46,43 +46,25 @@ namespace SSD365VSAddIn.Forms
 
         public static AxFormExtension GetFirstExtension(string name)
         {
-            //TODO: There is no GetFormExtensions() method, so will need to get an alternative way of doing this.
             // Find current model
             var metaModelService = Common.CommonUtil.GetModelSaveService();
-            var formNames = metaModelService.GetFormNames().ToList()
-                                .Where(frmName => frmName.ToLowerInvariant().Contains(name.ToLower())).ToList();
-            //if(String.IsNullOrEmpty(formName) == false)
-            if(formNames != null)
+
+            var extensionName = metaModelService.MetadataProvider.FormExtensions.GetPrimaryKeys().ToList()
+                                    .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
+                                    .FirstOrDefault();
+            //var extensionName = metaModelService
+            //                          No method to get all form extensions: (
+            //                        .ToList()
+            //                        .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
+            //                        .FirstOrDefault();
+
+            if (String.IsNullOrEmpty(extensionName) == false)
             {
-                foreach (var formName in formNames)
-                {
-                    var form = metaModelService.GetFormExtension(formName);
-                    if (form != null)
-                    {
-                        return form;
-                    }
-                }
+                var extension = metaModelService.GetFormExtension(extensionName);
+                return extension;
             }
+
             return null;
         }
-        //public static AxFormExtension GetFirstExtension(string name)
-        //{
-        //    // Find current model
-        //    var metaModelService = Common.CommonUtil.GetModelSaveService();
-
-        //    var extensionName = metaModelService
-        //                              No method to get all form extensions: (
-        //                            .ToList()
-        //                            .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
-        //                            .FirstOrDefault();
-
-        //    if (String.IsNullOrEmpty(extensionName) == false)
-        //    {
-        //        var extension = metaModelService.GetTableExtension(extensionName);
-        //        return extension;
-        //    }
-
-        //    return null;
-        //}
     }
 }
