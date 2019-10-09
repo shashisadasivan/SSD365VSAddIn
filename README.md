@@ -15,6 +15,7 @@ These can only be done from the designer windows of the source objects
   * [Create Form from a Table](#create-form-from-a-table)
   * [Add element to the current project](#add-element-to-the-current-project)
   * [Show the Label](#show-the-label)
+  * [Create EDT from table field](#create-edt-from-table-field)
   * [Convert RunBaseBatch to SysOperation](#convert-runbasebatch-to-sysoperation)
   
 # How to install the extension
@@ -111,6 +112,10 @@ This will show the label and the help text of the element
 Currenty works for 
   - Extended data types (shows the label and the help text)
   - Table field
+
+## Create EDT from table field
+Right click a field on the table and select **Create EDT (SS D365)**
+This will create a EDT of that type, move the label & help label from the field to the EDT, apply the EDT name to the Field Extended data type property. ***(Currently under implementation under issue #17)***
 
 ## Convert RunBaseBatch to SysOperation
 This is an experimental feature
