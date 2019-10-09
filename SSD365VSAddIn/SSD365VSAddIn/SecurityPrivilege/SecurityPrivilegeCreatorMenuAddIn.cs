@@ -110,7 +110,8 @@
             string label = selectedDataEntity.Label;
             if (label.StartsWith("@"))
             {
-                label = Labels.LabelHelper.FindLabel(label).LabelText;
+                //label = Labels.LabelHelper.FindLabel(label).LabelText;
+                label = Labels.LabelHelper.FindLabelGlobally(label).LabelText;
             }
 
             if (suffix.Equals("Maintain"))
@@ -171,7 +172,7 @@
             string label = selectedMenuItem.Label;
             if(label.StartsWith("@"))
             {
-                label = Labels.LabelHelper.FindLabel(label).LabelText;
+                label = Labels.LabelHelper.FindLabelGlobally(label).LabelText;
             }
             
             if(suffix.Equals("Maintain"))

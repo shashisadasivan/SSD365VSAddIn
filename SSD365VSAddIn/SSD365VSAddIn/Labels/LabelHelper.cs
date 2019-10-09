@@ -189,6 +189,8 @@ namespace SSD365VSAddIn.Labels
             AxLabelFile labelFile = null;
             if (String.IsNullOrEmpty(labelContent.LabelFileId) == false)
             {
+                // Issue with finding label file (as it seems its searching for the label file in the current model)
+                // TODO: #23 Search for Global label file 
                 labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(labelContent.LabelFileId);
                 if (labelFile == null)
                 {
@@ -223,6 +225,7 @@ namespace SSD365VSAddIn.Labels
             return labelContent;
         }
 
+        [Obsolete("Use FindLabelGlobally instead", false)]
         public static LabelContent FindLabel(string labelIdText)
         {
             //string labelId = String.Empty;
@@ -270,7 +273,7 @@ namespace SSD365VSAddIn.Labels
             if(labelId.StartsWith("@") && labelId.Contains(":") == false)
             {
                 // this is a label like @SYS123456
-                var labelid = labelId.Substring(1, 3) + "_en-US"; // this is a drawback as only the US files are available e.g. SYS_en-US under ApplicationPlatform
+                var labelid = labelId.Substring(1, 3) + "_en-US"; //TODO: how to change it from en-us? // this is a drawback as only the US files are available e.g. SYS_en-US under ApplicationPlatform
                 return labelid;
             }
             if (labelId.StartsWith("@") == false
