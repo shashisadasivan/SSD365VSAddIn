@@ -50,7 +50,7 @@ Right click a Table, Class, Data entity, Form to create a class extension for it
 [Create class extension](https://github.com/shashisadasivan/SSD365VSAddIn/wiki/Create-Class-Extension)
 
 ## Create Extensions
-Create extensions for tables, Forms, Base Enums and Security Duty
+Create extensions for Tables, Data entities, Forms, Base Enums and Security Duty
 
 ## Create Labels
 Right click the element and choose Create label for properties (Fields, FieldGroups)
