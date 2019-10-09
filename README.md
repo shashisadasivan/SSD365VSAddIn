@@ -35,7 +35,8 @@ These can only be done from the designer windows of the source objects
  
 </DynamicsDevConfig>
 ```
-**Note**: remove the i:nil="true" from the AddInPath tag
+**Note**: This AddIn works based offf the settings of your model. Create / Open a project and select **Dynamics 365 > Addins > Model settings (SS D365)** this will create a settings file for this model required for the operation of most of the features
+
 
 # Features
 
