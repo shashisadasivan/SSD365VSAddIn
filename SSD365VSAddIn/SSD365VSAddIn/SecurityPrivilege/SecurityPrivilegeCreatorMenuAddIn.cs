@@ -105,7 +105,31 @@
                             : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrant.ConstructGrantRead(),
                     Name = selectedDataEntity.Name
                 });
-            
+
+            // Assign the correct label on this by addint maintain or view in the label, copy the base label from the menu item
+            string label = selectedDataEntity.Label;
+            if (label.StartsWith("@"))
+            {
+                label = Labels.LabelHelper.FindLabel(label).LabelText;
+            }
+
+            if (suffix.Equals("Maintain"))
+            {
+                label = "Maintain " + label;
+            }
+            else if (suffix.Equals("View"))
+            {
+                label = "View " + label;
+            }
+            // Convert to camel case
+            if (String.IsNullOrEmpty(label) == false)
+            {
+                char[] a = label.ToLowerInvariant().ToCharArray();
+                a[0] = char.ToUpperInvariant(a[0]);
+                label = new String(a);
+            }
+            axSecurityPriv.Label = label;
+
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 
