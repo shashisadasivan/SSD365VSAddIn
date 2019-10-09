@@ -37,18 +37,6 @@ These can only be done from the designer windows of the source objects
 ```
 **Note**: remove the i:nil="true" from the AddInPath tag
 
-**For admin users** you can chose to use the above or the one as per below
-[![Install VS Add in](http://img.youtube.com/vi/4qPndob4SHk/0.jpg)](http://www.youtube.com/watch?v=4qPndob4SHk)
-
-Powershell & DLL's script located in OutputDlls folder
-
-The powershell script **CopyDLLsToExtensionFolder.ps1** included will copy all the DLL files in the current folder to the Visual studio extension folder. *Requires to be run in Administrator mode*.
-  - Run a powershell shell script in admin mode
-  - Navigate the folder where this powershell script exists
-  - Make sure all the DLL's that need to be copied are in the same folder
-  - Close all instances of Visual studio
-  - call .\CopyDLLsToExtensionFolder.ps1
-
 # Features
 
 ## Settings based object creation
