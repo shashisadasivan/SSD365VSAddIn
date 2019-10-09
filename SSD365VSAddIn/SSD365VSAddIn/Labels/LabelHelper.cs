@@ -149,7 +149,14 @@ namespace SSD365VSAddIn.Labels
                             && !labelFileToAdd.Language.Equals(labelFile.Language))
                         {
                             LabelEditorController labelControllerToAdd = factory.GetOrCreateLabelController(labelFileToAdd, Common.CommonUtil.GetVSApplicationContext());
-                            labelControllerToAdd.Insert(labelId, labelText, null);
+                            labelControllerToAdd.Labels.Add(new Label(
+                                labelControllerToAdd.CurrentLabelFile,
+                                string.IsNullOrEmpty(labelId) ? labelControllerToAdd.LabelIDCache.NewLabelID() : labelId,
+                                labelText, 
+                                String.Empty, // Comment
+                                LabelState.Init
+                                ));
+                            //labelControllerToAdd.Insert(labelId, labelText, null);
                             labelControllerToAdd.Save();
                             Common.CommonUtil.AddElementToProject(labelFileToAdd);
                         }
