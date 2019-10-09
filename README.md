@@ -21,7 +21,7 @@ These can only be done from the designer windows of the source objects
 # How to install the extension
 
 **Updated installation instructions** works for non admin users
-- Download all the dll files from the folder
+- Download all the dll files from the folder OutputDlls
 - Create a new folder e.g. c:\D365CustomAddIns
 - Copy the dll files downloaded into the new folder created
 - Close Visual studio & edit the file: C:\Users\<currentUser>\Documents\Visual Studio 2015\Settings\DefaultConfig.xml
