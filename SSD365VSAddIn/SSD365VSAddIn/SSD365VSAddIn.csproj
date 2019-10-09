@@ -141,6 +141,7 @@
       <DependentUpon>ModelSettingsUI.cs</DependentUpon>
     </Compile>
     <Compile Include="ShowTheLabel\ShowtheLabelMenuAddIn.cs" />
+    <Compile Include="Tables\TableFieldEDTCreatorMenuAddIn.cs" />
     <Compile Include="Tables\TableFormCreatorMenuAddIn.cs" />
     <Compile Include="Tables\TableHelper.cs" />
   </ItemGroup>

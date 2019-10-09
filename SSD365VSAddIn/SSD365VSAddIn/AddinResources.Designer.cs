@@ -196,6 +196,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create EDT (SS D365).
+        /// </summary>
+        internal static string TableFieldEDTCreatorMenuAddIn {
+            get {
+                return ResourceManager.GetString("TableFieldEDTCreatorMenuAddIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Form (SS D365).
         /// </summary>
         internal static string TableFormCreatorMenuAddIn {

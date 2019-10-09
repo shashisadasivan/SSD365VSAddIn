@@ -163,6 +163,9 @@
   <data name="ShowTheLabelMenuAddIn" xml:space="preserve">
     <value>Show the label (SS D365)</value>
   </data>
+  <data name="TableFieldEDTCreatorMenuAddIn" xml:space="preserve">
+    <value>Create EDT (SS D365)</value>
+  </data>
   <data name="TableFormCreatorMenuAddIn" xml:space="preserve">
     <value>Create Form (SS D365)</value>
   </data>
