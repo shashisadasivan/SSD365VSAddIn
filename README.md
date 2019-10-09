@@ -21,7 +21,7 @@ These can only be done from the designer windows of the source objects
 # How to install the extension
 
 **Updated installation instructions** works for non admin users
-- Download all the dll files from the folder
+- Download all the dll files from the folder [OutputDlls](OutputDlls)
 - Create a new folder e.g. c:\D365CustomAddIns
 - Copy the dll files downloaded into the new folder created
 - Close Visual studio & edit the file: C:\Users\<currentUser>\Documents\Visual Studio 2015\Settings\DefaultConfig.xml
@@ -35,7 +35,8 @@ These can only be done from the designer windows of the source objects
  
 </DynamicsDevConfig>
 ```
-**Note**: remove the i:nil="true" from the AddInPath tag
+**Note**: This AddIn works based off the settings of your model. Create / Open a project and select **Dynamics 365 > Addins > Model settings (SS D365)** this will create a settings file for this model required for the operation of most of the features
+
 
 # Features
 
