@@ -186,6 +186,78 @@ namespace SSD365VSAddIn.Labels
             LabelControllerFactory factory = new LabelControllerFactory();
 
             // Get the label edit controller
+            List<AxLabelFile> labelFiles = new List<AxLabelFile>();
+            // AxLabelFile labelFile = null;
+            if (String.IsNullOrEmpty(labelContent.LabelFileId) == false)
+            {
+                // Issue with finding label file (as it seems its searching for the label file in the current model)
+                // TODO: #23 Search for Global label file 
+                var labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(labelContent.LabelFileId);
+                if (labelFile == null)
+                {
+                    var fileNames = Common.CommonUtil.GetModelSaveService().GetLabelFileNames()
+                        .Where(l => l.StartsWith(labelContent.LabelFileId) && l.Contains("en-")).ToList();// && l.Contains("en-")).FirstOrDefault();
+                    fileNames.ForEach(labelFileFound =>
+                    {
+                        labelFiles.Add(Common.CommonUtil.GetModelSaveService().GetLabelFile(labelFileFound));
+                    });
+                    //labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(fileName);
+                }
+                else
+                {
+                    labelFiles.Add(labelFile);
+                }
+            }
+            else
+            {
+                labelFiles = LabelHelper.GetLabelFiles()
+                                    .Where(l => l.LabelFileId.Equals(labelContent.LabelFileId, StringComparison.InvariantCultureIgnoreCase)
+                                                && l.LabelFileId.Contains("en-"))
+                                    .ToList();
+
+                //labelFile = labelFiles
+                //                        .Where(l => l.LabelFileId.Equals(labelContent.LabelFileId, StringComparison.InvariantCultureIgnoreCase))
+                //                        .First();
+            }
+            if (labelFiles != null && labelFiles.Count() > 0)
+            {
+                foreach (var labelFile in labelFiles)
+                {
+                    LabelEditorController labelController = factory.GetOrCreateLabelController(labelFile, Common.CommonUtil.GetVSApplicationContext());
+                    labelController.LabelSearchOption = SearchOption.MatchExactly;
+                    labelController.IsMatchExactly = true;
+
+                    var label = labelController.Labels.Where(l => l.ID.Equals(labelContent.LabelId, StringComparison.InvariantCultureIgnoreCase))
+                                        .FirstOrDefault();
+                    if (label != null)
+                    {
+                        labelContent.LabelDescription = label.Description;
+                        labelContent.LabelText = label.Text;
+                        break;
+                    }
+                }
+            }
+            return labelContent;
+        }
+
+        public static LabelContent FindLabelGlobally_OLD(string labelIdText)
+        {
+            //string labelId = String.Empty;
+            LabelContent labelContent = new LabelContent() { LabelIdForProperty = labelIdText };
+
+            if (labelIdText.StartsWith("@") == false)
+            {
+                return labelContent;
+            }
+
+            //var labelFileId
+            labelContent.LabelFileId = LabelHelper.GetLabelFileId(labelIdText);
+            labelContent.LabelId = labelContent.LabelIdForProperty.Substring(labelContent.LabelIdForProperty.IndexOf(":") + 1);
+
+            // Get the label factory
+            LabelControllerFactory factory = new LabelControllerFactory();
+
+            // Get the label edit controller
             AxLabelFile labelFile = null;
             if (String.IsNullOrEmpty(labelContent.LabelFileId) == false)
             {
@@ -213,10 +285,10 @@ namespace SSD365VSAddIn.Labels
                 labelController.LabelSearchOption = SearchOption.MatchExactly;
                 labelController.IsMatchExactly = true;
 
-
+                var test = labelController.Labels.ToList();
                 var label = labelController.Labels.Where(l => l.ID.Equals(labelContent.LabelId, StringComparison.InvariantCultureIgnoreCase))
-                                    .First();
-                //if (label != null)
+                                    .FirstOrDefault();
+                if (label != null)
                 {
                     labelContent.LabelDescription = label.Description;
                     labelContent.LabelText = label.Text;
