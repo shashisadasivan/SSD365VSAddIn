@@ -191,7 +191,6 @@ namespace SSD365VSAddIn.Labels
             if (String.IsNullOrEmpty(labelContent.LabelFileId) == false)
             {
                 // Issue with finding label file (as it seems its searching for the label file in the current model)
-                // TODO: #23 Search for Global label file 
                 var labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(labelContent.LabelFileId);
                 if (labelFile == null)
                 {
@@ -262,7 +261,6 @@ namespace SSD365VSAddIn.Labels
             if (String.IsNullOrEmpty(labelContent.LabelFileId) == false)
             {
                 // Issue with finding label file (as it seems its searching for the label file in the current model)
-                // TODO: #23 Search for Global label file 
                 labelFile = Common.CommonUtil.GetModelSaveService().GetLabelFile(labelContent.LabelFileId);
                 if (labelFile == null)
                 {

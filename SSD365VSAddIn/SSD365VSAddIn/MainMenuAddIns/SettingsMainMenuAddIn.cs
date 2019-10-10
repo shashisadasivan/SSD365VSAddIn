@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 /// </summary>
 namespace SSD365VSAddIn.MainMenuAddIns
 {
-    //TODO: find a way to store settings
     //[Export(typeof(IMainMenu))]
     //public class SettingsMainMenuAddIn : MainMenuBase
     //{
