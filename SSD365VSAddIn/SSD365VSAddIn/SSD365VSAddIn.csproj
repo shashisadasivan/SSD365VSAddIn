@@ -36,6 +36,11 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte80.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Dynamics.AX.Metadata">
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\fn0lw5qw.olq\Microsoft.Dynamics.AX.Metadata.dll</HintPath>
       <Private>False</Private>
@@ -120,6 +125,7 @@
     <Compile Include="Labels\LabelHelper.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
+    <Compile Include="MainMenuAddIns\Build\BuildAddReferenceMainMenuAddIn.cs" />
     <Compile Include="MainMenuAddIns\SettingsMainMenuAddIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AddinResources.Designer.cs">

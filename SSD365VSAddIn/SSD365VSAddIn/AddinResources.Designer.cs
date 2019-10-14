@@ -61,6 +61,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add missing references - experimental (SS D365).
+        /// </summary>
+        internal static string AddMissingReferences {
+            get {
+                return ResourceManager.GetString("AddMissingReferences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add to Project (SS D365).
         /// </summary>
         internal static string AddToProjectMenuAddIn {
