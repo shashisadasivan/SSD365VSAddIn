@@ -119,4 +119,4 @@ Currently creates a contract class for the given RunBaseBatch class based on the
 ## Add missing references
 When you get an error in your project similar to: *The name 'ABCPercentA' does not denote a class, a table, or an extended data type*, then you can add the missing references with this addin.
 *Dynamics D365 > Add Ins > Add missing references - experimental (SS D365)*
-See Issue #24 on this progress
+See [Issue #24](https://github.com/shashisadasivan/SSD365VSAddIn/issues/24) on this progress
