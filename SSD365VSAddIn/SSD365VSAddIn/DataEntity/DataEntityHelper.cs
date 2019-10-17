@@ -24,7 +24,8 @@ namespace SSD365VSAddIn.DataEntity
             }
 
             var name = dataEntity.Name;// + Common.Constants.DotEXTENSION;
-            name = Common.CommonUtil.GetNextTableExtension(name);
+            name = Common.CommonUtil.GetNextDataEntityExtension(name);
+            //name = Common.CommonUtil.GetNextTableExtension(name);
 
             // Find current model
             //Create menu item in the right model
@@ -50,9 +51,30 @@ namespace SSD365VSAddIn.DataEntity
             // Find current model
             var metaModelService = Common.CommonUtil.GetModelSaveService();
             // Currently the metaModelService API doesnt have a method for GetDataEntityViewExtensions (however, decompiling the dll, i found that it uses the provider to get that data)
-            var extensionName = metaModelService.MetadataProvider.DataEntityViewExtensions.GetPrimaryKeys()
+            var extensionNames = metaModelService.MetadataProvider.DataEntityViewExtensions.GetPrimaryKeys()
                                     .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
-                                    .FirstOrDefault();
+                                    .ToList();
+
+            if (extensionNames == null)
+            {
+                return null;
+            }
+
+            var currentModel = Common.CommonUtil.GetCurrentModel();
+            foreach (var extName in extensionNames)
+            {
+                var extModels = metaModelService.GetDataEntityViewModelInfo(extName).ToList();
+                if (extModels != null)
+                {
+                    foreach (var model in extModels)
+                    {
+                        if (model.Module.Equals(currentModel.Module, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            return metaModelService.MetadataProvider.DataEntityViewExtensions.Read(extName);
+                        }
+                    }
+                }
+            }
             /*
             
             
@@ -61,13 +83,13 @@ namespace SSD365VSAddIn.DataEntity
                                     .Where(tableExtName => tableExtName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
                                     .FirstOrDefault();
             */
-            if (String.IsNullOrEmpty(extensionName) == false)
-            {
-                // Again this method for GetDataEntityViewExtension is not implemetned in the API
-                var extension = metaModelService.MetadataProvider.DataEntityViewExtensions.Read(extensionName);
-                //var extension = metaModelService.extension .GetTableExtension(extensionName);
-                return extension;
-            }
+            //if (String.IsNullOrEmpty(extensionName) == false)
+            //{
+            //    // Again this method for GetDataEntityViewExtension is not implemetned in the API
+            //    var extension = metaModelService.MetadataProvider.DataEntityViewExtensions.Read(extensionName);
+            //    //var extension = metaModelService.extension .GetTableExtension(extensionName);
+            //    return extension;
+            //}
 
             return null;
         }

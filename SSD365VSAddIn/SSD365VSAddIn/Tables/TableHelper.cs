@@ -50,16 +50,37 @@ namespace SSD365VSAddIn.Tables
             // Find current model
             var metaModelService = Common.CommonUtil.GetModelSaveService();
 
-            var extensionName = metaModelService.GetTableExtensionNames()
+            var extensionNames = metaModelService.GetTableExtensionNames()
                                     .ToList()
                                     .Where(tableExtName => tableExtName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
-                                    .FirstOrDefault();
-            
-            if(String.IsNullOrEmpty(extensionName) == false)
+                                    .ToList();
+
+            if(extensionNames == null)
             {
-                var extension = metaModelService.GetTableExtension(extensionName);
-                return extension;
+                return null;
             }
+
+            var currentModel = Common.CommonUtil.GetCurrentModel();
+
+            foreach (var extName in extensionNames)
+            {
+                var extModels = metaModelService.GetTableExtensionModelInfo(extName).ToList();
+                if (extModels != null)
+                {
+                    foreach (var model in extModels)
+                    {
+                        if (model.Module.Equals(currentModel.Module, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            return metaModelService.GetTableExtension(extName);
+                        }
+                    }
+                }
+            }
+            //if(String.IsNullOrEmpty(extensionName) == false)
+            //{
+            //    var extension = metaModelService.GetTableExtension(extensionName);
+            //    return extension;
+            //}
 
             return null;
         }

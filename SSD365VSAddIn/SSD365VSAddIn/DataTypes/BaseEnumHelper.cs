@@ -50,16 +50,37 @@ namespace SSD365VSAddIn.DataTypes
             // Find current model
             var metaModelService = Common.CommonUtil.GetModelSaveService();
 
-            var extensionName = metaModelService.GetEnumExtensionNames()
+            var extensionNames = metaModelService.GetEnumExtensionNames()
                                     .ToList()
                                     .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
-                                    .FirstOrDefault();
+                                    .ToList();
 
-            if (String.IsNullOrEmpty(extensionName) == false)
+            if (extensionNames == null)
             {
-                var extension = metaModelService.GetEnumExtension(extensionName);
-                return extension;
+                return null;
             }
+
+            var currentModel = Common.CommonUtil.GetCurrentModel();
+            foreach (var extName in extensionNames)
+            {
+                var extModels = metaModelService.GetEnumExtensionModelInfo(extName).ToList();
+                if (extModels != null)
+                {
+                    foreach (var model in extModels)
+                    {
+                        if (model.Module.Equals(currentModel.Module, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            return metaModelService.GetEnumExtension(extName);
+                        }
+                    }
+                }
+            }
+
+            //if (String.IsNullOrEmpty(extensionName) == false)
+            //{
+            //    var extension = metaModelService.GetEnumExtension(extensionName);
+            //    return extension;
+            //}
 
             return null;
         }

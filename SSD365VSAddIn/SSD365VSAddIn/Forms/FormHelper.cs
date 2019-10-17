@@ -49,19 +49,30 @@ namespace SSD365VSAddIn.Forms
             // Find current model
             var metaModelService = Common.CommonUtil.GetModelSaveService();
 
-            var extensionName = metaModelService.MetadataProvider.FormExtensions.GetPrimaryKeys().ToList()
+            var extensionNames = metaModelService.MetadataProvider.FormExtensions.GetPrimaryKeys().ToList()
                                     .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
-                                    .FirstOrDefault();
-            //var extensionName = metaModelService
-            //                          No method to get all form extensions: (
-            //                        .ToList()
-            //                        .Where(extName => extName.StartsWith(name, StringComparison.InvariantCultureIgnoreCase))
-            //                        .FirstOrDefault();
+                                    .ToList();
 
-            if (String.IsNullOrEmpty(extensionName) == false)
+
+            if (extensionNames == null)
             {
-                var extension = metaModelService.GetFormExtension(extensionName);
-                return extension;
+                return null;
+            }
+
+            var currentModel = Common.CommonUtil.GetCurrentModel();
+            foreach (var extName in extensionNames)
+            {
+                var extModels = metaModelService.GetFormExtensionModelInfo(extName).ToList();
+                if (extModels != null)
+                {
+                    foreach (var model in extModels)
+                    {
+                        if (model.Module.Equals(currentModel.Module, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            return metaModelService.GetFormExtension(extName);
+                        }
+                    }
+                }
             }
 
             return null;

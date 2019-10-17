@@ -48,6 +48,7 @@ namespace SSD365VSAddIn.SecurityDuty
 
         public static string CreateDutyExtension(ISecurityDuty duty)
         {
+            
             var existingSecDutyExt = SecurityDuty.SecurityDutyHelper.GetExtensionObject(duty);
             if(existingSecDutyExt != null)
             {
@@ -57,7 +58,7 @@ namespace SSD365VSAddIn.SecurityDuty
                 return existingSecDutyExt.Name;
             }
 
-            var securityDutyExtensionName = Common.CommonUtil.GetNextNameSecurityDutyExtension(duty.Name + Common.Constants.DotEXTENSION);
+            var securityDutyExtensionName = Common.CommonUtil.GetNextNameSecurityDutyExtension(duty.Name);
 
             var extSecDuty = new AxSecurityDutyExtension() { Name = securityDutyExtensionName };
             // var secDuty = new AxSecurityDuty() { Name = securityDutyExtensionName };

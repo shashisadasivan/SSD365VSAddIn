@@ -155,7 +155,7 @@ namespace SSD365VSAddIn.Common
 
         internal static string GetNextNameSecurityDutyExtension(string name)
         {
-            string objectName = name;
+            string objectName = GetObjectExtensionName(name, 0); ;
 
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
@@ -167,7 +167,7 @@ namespace SSD365VSAddIn.Common
             while (metaModelService.GetSecurityDutyExtension(objectName) != null)
             {
                 numFound++;
-                objectName = name + numFound.ToString();
+                objectName = GetObjectExtensionName(name, numFound);
             }
 
             return objectName;
@@ -175,7 +175,6 @@ namespace SSD365VSAddIn.Common
 
         internal static string GetNextTableExtension(string name)
         {
-            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
             string objectName = GetObjectExtensionName(name, 0);
 
             // Find current model
@@ -195,9 +194,29 @@ namespace SSD365VSAddIn.Common
             return objectName;
         }
 
+        internal static string GetNextDataEntityExtension(string name)
+        {
+            string objectName = GetObjectExtensionName(name, 0);
+
+            // Find current model
+            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            // Create a class with the same name + _Extension and add it to the project
+            // ClassName
+            int numFound = 0;
+            while (metaModelService.MetadataProvider.DataEntityViewExtensions.Read(objectName) != null)
+            {
+                numFound++;
+                objectName = GetObjectExtensionName(name, numFound);
+                //objectName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension + numFound.ToString();
+            }
+
+            return objectName;
+        }
+
         internal static string GetNextBaseEnumExtension(string name)
         {
-            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
             string objectName = GetObjectExtensionName(name, 0);
 
             // Find current model
