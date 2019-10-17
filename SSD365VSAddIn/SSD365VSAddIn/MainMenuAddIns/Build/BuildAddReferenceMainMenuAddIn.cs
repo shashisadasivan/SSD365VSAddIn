@@ -70,6 +70,7 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
             }
             if (ReferencesAdded.Count > 0)
             {
+                this.ReferencesAdded.Add("Rebuild the project to check further errors");
                 // show the list of references added
                 System.Windows.Forms.MessageBox.Show(
                     string.Join(Environment.NewLine, this.ReferencesAdded),

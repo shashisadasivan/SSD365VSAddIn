@@ -41,6 +41,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\..\..\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte80.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.Dynamics.AX.Metadata">
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\fn0lw5qw.olq\Microsoft.Dynamics.AX.Metadata.dll</HintPath>
       <Private>False</Private>
@@ -55,6 +56,10 @@
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.AutomationObjects">
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\fn0lw5qw.olq\Microsoft.Dynamics.Framework.Tools.AutomationObjects.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.BuildTasks">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\fn0lw5qw.olq\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.Configuration">
