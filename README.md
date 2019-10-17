@@ -107,7 +107,7 @@ Currenty works for
 
 ## Create EDT from table field
 Right click a field on the table and select **Create EDT (SS D365)**
-This will create a EDT of that type, move the label & help label from the field to the EDT, apply the EDT name to the Field Extended data type property. ***Currently under implementation under [Issue #17](https://github.com/shashisadasivan/SSD365VSAddIn/issues/17)***
+This will create a EDT of that type, move the label & help label from the field to the EDT, apply the EDT name to the Field Extended data type property.
 
 # Experimental features
 

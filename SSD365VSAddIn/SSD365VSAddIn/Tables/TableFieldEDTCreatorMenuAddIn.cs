@@ -1,4 +1,4 @@
-﻿using Microsoft.Dynamics.AX.Metadata.MetaModel;
+﻿//using Microsoft.Dynamics.AX.Metadata.MetaModel;
 using Microsoft.Dynamics.Framework.Tools.Extensibility;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
@@ -20,6 +20,14 @@ namespace SSD365VSAddIn.Tables
     //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IBaseField))] // once all the other types are created, then Change it to IBaseField
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldContainer))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldDate))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldEnum))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldGuid))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldInt))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldInt64))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldReal))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldString))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldTime))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFieldUtcDateTime))]
     class TableFieldEDTCreatorMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -92,7 +100,7 @@ namespace SSD365VSAddIn.Tables
             {
                 edtName = modelSettings.Prefix + edtName;
             }
-            AxEdt edtToCreate = null;
+            Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdt edtToCreate = null;
 
             if(baseField is IFieldContainer)
             {
@@ -102,6 +110,34 @@ namespace SSD365VSAddIn.Tables
             else if (baseField is IFieldDate)
             {
                 edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtDate();
+            }
+            else if (baseField is IFieldEnum)
+            {
+                edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtEnum();
+            }
+            else if (baseField is IFieldGuid)
+            {
+                edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtGuid();
+            }
+            else if (baseField is IFieldInt)
+            {
+                edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtInt();
+            }
+            else if (baseField is IFieldReal)
+            {
+                edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtReal();
+            }
+            else if (baseField is IFieldString)
+            {
+                edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtString();
+            }
+            else if (baseField is IFieldTime)
+            {
+                edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtTime();
+            }
+            else if (baseField is IFieldUtcDateTime)
+            {
+                edtToCreate = new Microsoft.Dynamics.AX.Metadata.MetaModel.AxEdtUtcDateTime();
             }
 
             this.copyProperties(baseField, edtToCreate);
