@@ -16,10 +16,10 @@ These can only be done from the designer windows of the source objects
   * [Add element to the current project](#add-element-to-the-current-project)
   * [Show the Label](#show-the-label)
   * [Create EDT from table field](#create-edt-from-table-field)
-  * [Convert RunBaseBatch to SysOperation](#convert-runbasebatch-to-sysoperation)
   
 * [Experimental features](#experimental-features)
   * [Add missing references](#add-missing-references)
+  * [Convert RunBaseBatch to SysOperation](#convert-runbasebatch-to-sysoperation)
   
 # How to install the extension
 
@@ -107,12 +107,7 @@ Currenty works for
 
 ## Create EDT from table field
 Right click a field on the table and select **Create EDT (SS D365)**
-This will create a EDT of that type, move the label & help label from the field to the EDT, apply the EDT name to the Field Extended data type property. ***(Currently under implementation under issue #17)***
-
-## Convert RunBaseBatch to SysOperation
-This is an experimental feature
-Converts a existing class which implements a RunBaseBatch to SysOperation.
-Currently creates a contract class for the given RunBaseBatch class based on the dialog method
+This will create a EDT of that type, move the label & help label from the field to the EDT, apply the EDT name to the Field Extended data type property. ***Currently under implementation under [Issue #17](https://github.com/shashisadasivan/SSD365VSAddIn/issues/17)***
 
 # Experimental features
 
@@ -120,3 +115,8 @@ Currently creates a contract class for the given RunBaseBatch class based on the
 When you get an error in your project similar to: *The name 'ABCPercentA' does not denote a class, a table, or an extended data type*, then you can add the missing references with this addin.
 *Dynamics D365 > Add Ins > Add missing references - experimental (SS D365)*
 See [Issue #24](https://github.com/shashisadasivan/SSD365VSAddIn/issues/24) on this progress
+
+## Convert RunBaseBatch to SysOperation
+This is an experimental feature
+Converts a existing class which implements a RunBaseBatch to SysOperation.
+Currently creates a contract class for the given RunBaseBatch class based on the dialog method
