@@ -1,4 +1,5 @@
 ﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.BaseTypes;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
@@ -22,6 +23,7 @@ namespace SSD365VSAddIn.Labels
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITableExtension))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntity))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
     //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItemExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]

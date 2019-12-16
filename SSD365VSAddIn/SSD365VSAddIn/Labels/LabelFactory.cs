@@ -29,6 +29,10 @@ namespace SSD365VSAddIn.Labels
             {
                 labelFactory = new LabelFactory_TableExtension();
             }
+            else if(selectedElement is IDataEntity)
+            {
+                labelFactory = new LabelFactory_DataEntity();
+            }
             else if(selectedElement is IMenuItem || selectedElement is IMenuItemExtension)
             {
                 labelFactory = new LabelFactory_IMenuItem();
@@ -440,4 +444,55 @@ namespace SSD365VSAddIn.Labels
         }
     }
 
+    public class LabelFactory_DataEntity : LabelFactory
+    {
+        IDataEntity iDateEntity;
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            this.iDateEntity = selectedElement as IDataEntity;
+        }
+
+        public override void ApplyLabel()
+        {
+            //check if table is in current model
+            var dataEntityExists = Common.CommonUtil.GetMetaModelProviders()
+                                .CurrentMetadataProvider
+                                .DataEntityViews.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                .Where(t => t.Equals(this.iDateEntity.Name))
+                                .FirstOrDefault();
+
+            if (string.IsNullOrEmpty(dataEntityExists) == false)
+            {
+                this.iDateEntity.Label = this.GetLabel(this.iDateEntity.Label);
+                this.iDateEntity.DeveloperDocumentation = this.GetLabel(this.iDateEntity.DeveloperDocumentation);
+
+                // Apply label on fields
+                var dataEntityView = this.iDateEntity as Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.DataEntityView;
+                if(dataEntityView != null)
+                {
+                    var fieldsEnum = dataEntityView.DataContractFields.VisualChildren.GetEnumerator();
+                    while (fieldsEnum.MoveNext())
+                    {
+                        var f = fieldsEnum.Current as Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.DataEntityViewField;
+                        if(f != null)
+                        {
+                            f.Label = this.GetLabel(f.Label);
+                        }
+                    }
+
+                    var groupsEnum = dataEntityView.DataContractFieldGroups.VisualChildren.GetEnumerator();
+                    while (groupsEnum.MoveNext())
+                    {
+                        var f = groupsEnum.Current as Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.FieldGroup;
+                        if(f != null)
+                        {
+                            f.Label = this.GetLabel(f.Label);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }
