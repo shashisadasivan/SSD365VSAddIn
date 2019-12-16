@@ -1,6 +1,7 @@
 ﻿using Microsoft.Dynamics.Framework.Tools.Extensibility;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.BaseTypes;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
@@ -24,6 +25,7 @@ namespace SSD365VSAddIn.Labels
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITableExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntity))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntityViewExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
     //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItemExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
