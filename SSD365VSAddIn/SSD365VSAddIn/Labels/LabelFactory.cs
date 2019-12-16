@@ -57,6 +57,10 @@ namespace SSD365VSAddIn.Labels
             {
                 labelFactory = new LabelFactory_IBaseEnum();
             }
+            else if (selectedElement is IConfigurationKey)
+            {
+                labelFactory = new LabelFactory_IConfigurationKey();
+            }
             // add additional elseifs here
             else
             {
@@ -85,6 +89,31 @@ namespace SSD365VSAddIn.Labels
                 return labelId;
 
             return label;
+        }
+    }
+
+    public class LabelFactory_IConfigurationKey : LabelFactory
+    {
+        IConfigurationKey iConfigKey;
+
+        public override void ApplyLabel()
+        {
+            var configKeyexists = Common.CommonUtil.GetMetaModelProviders()
+                                        .CurrentMetadataProvider
+                                        .ConfigurationKeys
+                                        .ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                        .Where(t => t.Equals(this.iConfigKey.Name))
+                                        .FirstOrDefault();
+            if (String.IsNullOrEmpty(configKeyexists) == false)
+            {
+                this.iConfigKey.Label = this.GetLabel(this.iConfigKey.Label);
+                this.iConfigKey.Description = this.GetLabel(this.iConfigKey.Description);
+            }
+        }
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            iConfigKey = selectedElement as IConfigurationKey;
         }
     }
 

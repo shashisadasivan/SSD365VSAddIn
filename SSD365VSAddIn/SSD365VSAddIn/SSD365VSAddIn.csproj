@@ -50,6 +50,10 @@
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\fn0lw5qw.olq\Microsoft.Dynamics.AX.Metadata.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.Dynamics.AX.Metadata.Patterns">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\fn0lw5qw.olq\Microsoft.Dynamics.AX.Metadata.Patterns.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.Dynamics.AX.Xpp.Support">
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\fn0lw5qw.olq\Microsoft.Dynamics.AX.Xpp.Support.dll</HintPath>
       <Private>False</Private>
@@ -121,6 +125,7 @@
     <Compile Include="DataTypes\BaseEnumHelper.cs" />
     <Compile Include="ExtensionCommand\CreateExtensionCreatorDesignContextMenuAddIn.cs" />
     <Compile Include="Forms\FormHelper.cs" />
+    <Compile Include="Forms\FormsFillPatternMenuItemAddIn.cs" />
     <Compile Include="Forms\FormsUtilMenuItemAddin.cs" />
     <Compile Include="Labels\LabelCodeCreatedMainMenuAddIn.cs" />
     <Compile Include="Labels\LabelCreatorMainMenuAddIn.cs" />
