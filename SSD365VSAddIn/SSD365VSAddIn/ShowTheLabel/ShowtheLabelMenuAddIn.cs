@@ -134,11 +134,13 @@ namespace SSD365VSAddIn.ShowTheLabel
 
             if(labelInfo.RequiresDigging())
             {
+                /*
                 if(field.DataEntityViewExtension != null)
                 {
-                    var extensionEntity = field.DataEntityViewExtension.RootElement as DataEntityView;
+                    var extensionEntity = field.DataEntityViewExtension.RootElement as DataEntityViewExtension;
                 }
-                else if (field is DataEntityViewUnmappedField)
+                else*/
+                if (field is DataEntityViewUnmappedField)
                 {
                     DataEntityViewUnmappedField unmapeddField = field as DataEntityViewUnmappedField;
                     AxEdt axEdt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(unmapeddField.ExtendedDataType);
@@ -164,17 +166,33 @@ namespace SSD365VSAddIn.ShowTheLabel
                     {
                         // Find the dataEntityView based on the name
                         var entityName = field.DataEntityViewExtension.Name;
-                        entityName = entityName.Substring(0, entityName.IndexOf(".") - 1);
+                        entityName = entityName.Substring(0, entityName.IndexOf("."));
                         var dataEntity = metaModelService.GetDataEntityView(entityName);
                         dataEntity.ViewMetadata.DataSources.ToList().ForEach(ds =>
                         {
-                            var ee = ds.DataSources.GetEnumerator();
-                            while (ee.MoveNext())
+                            if (ds.Name.Equals(mappedField.DataSource, StringComparison.InvariantCultureIgnoreCase))
                             {
-                                if (ee.Current.Name.Equals(mappedField.DataSource, StringComparison.InvariantCultureIgnoreCase))
+                                tableName = ds.Table;
+                            }
+                            else
+                            {
+                                var ee = ds.DataSources.GetEnumerator();
+                                while (ee.MoveNext())
                                 {
-                                    tableName = ee.Current.Table;
-                                    break;
+                                    tableName = this.findDataSoruceName_DataEntity(ee.Current, mappedField.DataSource);
+                                    if(String.IsNullOrEmpty(tableName) == false)
+                                    {
+                                        break;
+                                    }
+                                    //if (ee.Current.Name.Equals(mappedField.DataSource, StringComparison.InvariantCultureIgnoreCase))
+                                    //{   //TODO: what if there are even more nested data sources found ?
+                                    //    tableName = ee.Current.Table;
+                                    //    break;
+                                    //}
+                                    //else
+                                    //{
+                                        
+                                    //}
                                 }
                             }
                         });
@@ -373,6 +391,23 @@ namespace SSD365VSAddIn.ShowTheLabel
             }
 
             return labelInfo;
+        }
+
+        private string findDataSoruceName_DataEntity(AxQuerySimpleEmbeddedDataSource dataSource, string tableNameToFind)
+        {
+            if (dataSource.Name.Equals(tableNameToFind, StringComparison.InvariantCultureIgnoreCase))
+            {
+                return dataSource.Name;
+            }
+            else
+            {
+                var dsEnum = dataSource.DataSources.GetEnumerator();
+                while (dsEnum.MoveNext())
+                {
+                    return findDataSoruceName_DataEntity(dsEnum.Current, tableNameToFind);
+                }
+            }
+            return string.Empty;
         }
 
 
