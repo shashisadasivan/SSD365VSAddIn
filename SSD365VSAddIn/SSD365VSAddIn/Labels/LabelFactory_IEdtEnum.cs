@@ -34,4 +34,31 @@ namespace SSD365VSAddIn.Labels
             this.iBaseEnum = selectedElement as IBaseEnum;
         }
     }
+
+    internal class LabelFactory_IBaseEnumExtension : LabelFactory
+    {
+        private IBaseEnumExtension iBaseEnumExtension;
+
+        public override void ApplyLabel()
+        {
+            var edtEnumExtExists = Common.CommonUtil.GetMetaModelProviders()
+                                    .CurrentMetadataProvider
+                                    .EnumExtensions.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                    .Where(t => t.Equals(this.iBaseEnumExtension.Name))
+                                    .FirstOrDefault();
+            if (String.IsNullOrEmpty(edtEnumExtExists) == false)
+            {
+                foreach (var item in this.iBaseEnumExtension.BaseEnumValues)
+                {
+                    BaseEnumValue enumValue = item as BaseEnumValue;
+                    enumValue.Label = this.GetLabel(enumValue.Label);
+                }
+            }
+        }
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            this.iBaseEnumExtension = selectedElement as IBaseEnumExtension;
+        }
+    }
 }

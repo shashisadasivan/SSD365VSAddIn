@@ -20,7 +20,7 @@ namespace SSD365VSAddIn.Labels
 
         public static LabelFactory construct(IRootElement selectedElement)
         {
-            LabelFactory labelFactory;
+            LabelFactory labelFactory = null;
 
             if (selectedElement is ITable)
             {
@@ -65,6 +65,10 @@ namespace SSD365VSAddIn.Labels
             else if (selectedElement is IBaseEnum)
             {
                 labelFactory = new LabelFactory_IBaseEnum();
+            }
+            else if (selectedElement is IBaseEnumExtension)
+            {
+                labelFactory = new LabelFactory_IBaseEnumExtension();
             }
             else if (selectedElement is IConfigurationKey)
             {

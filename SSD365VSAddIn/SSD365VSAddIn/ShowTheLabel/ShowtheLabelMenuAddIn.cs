@@ -22,7 +22,8 @@ namespace SSD365VSAddIn.ShowTheLabel
     [Export(typeof(IDesignerMenu))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IEdtBase))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables.BaseField))]
-    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.IDataEntityViewField))] //TODO: Enable labels for Data entity view fields
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.IDataEntityViewField))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.IDataEntityView))]
     class ShowTheLabelMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -86,7 +87,22 @@ namespace SSD365VSAddIn.ShowTheLabel
                         var axEntityField = selectedItem as IDataEntityViewField;
                         edtLabelInfo = this.getDataEntityFieldLabel(axEntityField, edtLabelInfo);
                     }
-
+                    else if(selectedItem is IDataEntityView)
+                    {
+                        var dataEntity = selectedItem as IDataEntityView;
+                        if (String.IsNullOrEmpty(edtLabelInfo.Label) == true
+                                    && String.IsNullOrEmpty(dataEntity.Label) == false)
+                        {
+                            // find the label here
+                            edtLabelInfo.Label = dataEntity.Label;
+                        }
+                        if (String.IsNullOrEmpty(edtLabelInfo.HelpLabel) == true
+                            && String.IsNullOrEmpty(dataEntity.DeveloperDocumentation) == false)
+                        {
+                            // find the help label here
+                            edtLabelInfo.HelpLabel = dataEntity.DeveloperDocumentation;
+                        }
+                    }
 
                     edtLabelInfo.DecypherLabels();
                     System.Windows.Forms.MessageBox.Show("Label: " + edtLabelInfo.Label + Environment.NewLine + "Help: " + edtLabelInfo.HelpLabel);
@@ -100,26 +116,104 @@ namespace SSD365VSAddIn.ShowTheLabel
 
         #endregion
 
-        protected EdtLabelInfo getDataEntityFieldLabel(IDataEntityViewField tableField, EdtLabelInfo labelInfo)
+        protected EdtLabelInfo getDataEntityFieldLabel(IDataEntityViewField field, EdtLabelInfo labelInfo)
         {
 
             if (String.IsNullOrEmpty(labelInfo.Label) == true
-                && String.IsNullOrEmpty(tableField.Label) == false)
+                && String.IsNullOrEmpty(field.Label) == false)
             {
                 // find the label here
-                labelInfo.Label = tableField.Label;
+                labelInfo.Label = field.Label;
             }
             if (String.IsNullOrEmpty(labelInfo.HelpLabel) == true
-                && String.IsNullOrEmpty(tableField.HelpText) == false)
+                && String.IsNullOrEmpty(field.HelpText) == false)
             {
                 // find the help label here
-                labelInfo.HelpLabel = tableField.HelpText;
+                labelInfo.HelpLabel = field.HelpText;
             }
 
             if(labelInfo.RequiresDigging())
             {
-                // This means we need to find the underlying table / field and find the label from there
-                
+                if(field.DataEntityViewExtension != null)
+                {
+                    var extensionEntity = field.DataEntityViewExtension.RootElement as DataEntityView;
+                }
+                else if (field is DataEntityViewUnmappedField)
+                {
+                    DataEntityViewUnmappedField unmapeddField = field as DataEntityViewUnmappedField;
+                    AxEdt axEdt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(unmapeddField.ExtendedDataType);
+                    labelInfo = this.getEdtBaseLabel(axEdt, labelInfo);
+
+                    if(labelInfo.RequiresDigging()
+                        && field is DataEntityViewUnmappedFieldEnum)
+                    {
+                        var unmapeddFieldEnum = field as DataEntityViewUnmappedFieldEnum;
+
+                        labelInfo = this.getEnumLabel(unmapeddFieldEnum.EnumType, labelInfo);
+                    }
+
+                }
+                    // This means we need to find the underlying table / field and find the label from there
+                else if (field is DataEntityViewMappedField)
+                {
+                    string tableName = string.Empty;
+                    var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+                    var mappedField = field as DataEntityViewMappedField;
+                    if (field.DataEntityViewExtension != null)
+                    {
+                        // Find the dataEntityView based on the name
+                        var entityName = field.DataEntityViewExtension.Name;
+                        entityName = entityName.Substring(0, entityName.IndexOf(".") - 1);
+                        var dataEntity = metaModelService.GetDataEntityView(entityName);
+                        dataEntity.ViewMetadata.DataSources.ToList().ForEach(ds =>
+                        {
+                            var ee = ds.DataSources.GetEnumerator();
+                            while (ee.MoveNext())
+                            {
+                                if (ee.Current.Name.Equals(mappedField.DataSource, StringComparison.InvariantCultureIgnoreCase))
+                                {
+                                    tableName = ee.Current.Table;
+                                    break;
+                                }
+                            }
+                        });
+                    }
+                    else
+                    {
+                        var dataSources = field.DataEntity.DataContractViewMetadata.DataContractDataSources;
+                        var dsEnum = dataSources.VisualChildren.GetEnumerator();
+                        while (dsEnum.MoveNext())
+                        {
+                            QueryRootDataSource ds = dsEnum.Current as QueryRootDataSource;
+                            if (ds.Name.Equals(mappedField.DataSource, StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                tableName = ds.Table;
+                                //Tables.TableHelper.GetFirstExtension
+                                // var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
+
+                                break; // we dont need to continue the while loop of the data sources anymore
+                            }
+                        }
+                    }
+                    var table = metaModelService.GetTable(tableName);
+
+                    var tableField = table.Fields.Where(f => f.Name.Equals(mappedField.DataField)).FirstOrDefault();
+
+                    if (labelInfo.RequiresDigging()
+                        && String.IsNullOrEmpty(tableField.ExtendedDataType) == false)
+                    {
+                        AxEdt axEdt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(tableField.ExtendedDataType);
+                        labelInfo = this.getEdtBaseLabel(axEdt, labelInfo);
+                    }
+
+                    if (labelInfo.RequiresDigging()
+                        && tableField is AxTableFieldEnum)
+                    {
+                        var tableFieldEnum = tableField as AxTableFieldEnum;
+                        labelInfo = this.getEnumLabel(tableFieldEnum.EnumType, labelInfo);
+                    }
+                }
             }
             //if (labelInfo.RequiresDigging()
             //    && String.IsNullOrEmpty(tableField.ExtendedDataType) == false)
@@ -197,6 +291,28 @@ namespace SSD365VSAddIn.ShowTheLabel
                         // find the help label here
                         labelInfo.HelpLabel = axEnum.HelpText;
                     }
+                }
+            }
+
+            return labelInfo;
+        }
+
+        protected EdtLabelInfo getEnumLabel(string enumTypeName, EdtLabelInfo labelInfo)
+        {
+            var axEnum = Common.CommonUtil.GetModelSaveService().GetEnum(enumTypeName);
+            if (axEnum != null)
+            {
+                if (String.IsNullOrEmpty(labelInfo.Label) == true
+                                && String.IsNullOrEmpty(axEnum.Label) == false)
+                {
+                    // find the label here
+                    labelInfo.Label = axEnum.Label;
+                }
+                if (String.IsNullOrEmpty(labelInfo.HelpLabel) == true
+                    && String.IsNullOrEmpty(axEnum.HelpText) == false)
+                {
+                    // find the help label here
+                    labelInfo.HelpLabel = axEnum.HelpText;
                 }
             }
 
