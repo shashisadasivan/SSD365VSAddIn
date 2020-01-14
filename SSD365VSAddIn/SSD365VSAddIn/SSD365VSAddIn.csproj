@@ -132,6 +132,13 @@
     <Compile Include="Labels\LabelFactory.cs" />
     <Compile Include="Labels\LabelFactory_IEdtBase.cs" />
     <Compile Include="Labels\LabelFactory_IEdtEnum.cs" />
+    <Compile Include="Labels\LabelForm\LabelCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Labels\LabelForm\LabelCreatorForm.Designer.cs">
+      <DependentUpon>LabelCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Labels\LabelForm\LabelCreatorFormMainMenuAddIn.cs" />
     <Compile Include="Labels\LabelHelper.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
@@ -166,6 +173,9 @@
     <EmbeddedResource Include="AddinResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AddinResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Labels\LabelForm\LabelCreatorForm.resx">
+      <DependentUpon>LabelCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\ModelSettingsUI.resx">
       <DependentUpon>ModelSettingsUI.cs</DependentUpon>

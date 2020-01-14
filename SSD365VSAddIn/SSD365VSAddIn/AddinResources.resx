@@ -142,6 +142,9 @@
   <data name="LabelCodeCreatedMainMenuAddIn" xml:space="preserve">
     <value>Create label in code (SS D365)</value>
   </data>
+  <data name="LabelCreator" xml:space="preserve">
+    <value>Label creator (SS D365)</value>
+  </data>
   <data name="LabelCreatorMainMenuAddIn" xml:space="preserve">
     <value>Create label for properties (SS D365)</value>
   </data>
