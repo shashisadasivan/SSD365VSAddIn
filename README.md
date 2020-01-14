@@ -49,7 +49,7 @@ The files are stored in the same folder where the DLL's are referenced by visual
 The labels to update are in the settings form, so that not all languages are updated. (possible bug when multiple file id are used)
 
 ## Create Code extension
-Right click a Table, Class, Data entity, Form to create a class extension for it
+Right click a Table, Class, Data entity, Form, Form data source to create a class extension for it
 
 [Create class extension](https://github.com/shashisadasivan/SSD365VSAddIn/wiki/Create-Class-Extension)
 
@@ -59,7 +59,9 @@ Create extensions for Tables, Data entities, Forms, Base Enums and Security Duty
 ## Create Labels
 Right click the element and choose Create label for properties (Fields, FieldGroups)
 Currently this will add the label to the first label file (all languages) of the current model 
-* Table / Table Extensions
+
+You can also create labels directly by opening the "Dynamics D365 > Addins > Create Labels (SS D365)"
+This form will create a label and copy the Label Id to the clipboard.
 
 [![Add labels to a Table](http://img.youtube.com/vi/Kv_dlCehPI4/0.jpg)](https://www.youtube.com/watch?v=Kv_dlCehPI4)
 
@@ -104,6 +106,7 @@ This will show the label and the help text of the element
 Currenty works for 
   - Extended data types (shows the label and the help text)
   - Table field
+  - Data entitiy field
 
 ## Create EDT from table field
 Right click a field on the table and select **Create EDT (SS D365)**
