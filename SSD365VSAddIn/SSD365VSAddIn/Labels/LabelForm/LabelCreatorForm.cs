@@ -16,6 +16,7 @@ namespace SSD365VSAddIn.Labels.LabelForm
         public LabelCreatorForm()
         {
             InitializeComponent();
+            this.lblResult.Text = String.Empty;
         }
 
         private void btnFindLabel_Click(object sender, EventArgs e)
