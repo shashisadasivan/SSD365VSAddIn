@@ -14,17 +14,29 @@ namespace SSD365VSAddIn.ClassesUtil
             AxClass axClass = null;
 
             var metaModelService = Common.CommonUtil.GetModelSaveService();
-
-            var classNameExt = metaModelService.GetClassNames().ToList()
-                                            .Where(searchClass =>
-                                             searchClass.ToLowerInvariant().Contains(className.ToLowerInvariant())
-                                             &&
-                                             metaModelService.GetClass(searchClass)
-                                                                                .Declaration.ToLowerInvariant()
-                                                                                .Contains(extensionOfStr.ToLowerInvariant())
+            //TODO: only search within model
+            var classNameExts = metaModelService.GetClassNames().ToList()
+                                            .Where(searchClass => searchClass.ToLowerInvariant().Contains(className.ToLowerInvariant())
+                                             && metaModelService.GetClass(searchClass).Declaration.ToLowerInvariant().Contains(extensionOfStr.ToLowerInvariant())
                                             )
-                                            .FirstOrDefault();
-            if(String.IsNullOrEmpty(classNameExt) == false)
+                                            .ToList();
+
+            string classNameExt = String.Empty;
+            var currentModel = Common.CommonUtil.GetCurrentModel();
+            foreach (var classNameE in classNameExts)
+            {
+                // Determine if the model this class belongs to is a part of the current project model
+                var modelInfo = metaModelService.GetClassModelInfo(classNameE).ToList()
+                    .Where(modelInfoCur => modelInfoCur.Module.Equals(currentModel.Module, StringComparison.InvariantCultureIgnoreCase))
+                    .FirstOrDefault();
+                if(modelInfo != null)
+                {
+                    classNameExt = classNameE;
+                    break;
+                }
+            }
+
+            if (String.IsNullOrEmpty(classNameExt) == false)
             {
                 axClass = metaModelService.GetClass(classNameExt);
             }

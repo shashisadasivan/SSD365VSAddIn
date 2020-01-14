@@ -24,6 +24,7 @@
     [DesignerMenuExportMetadata(AutomationNodeType =typeof(ITable))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntityView))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFormDataSource))]
     class ClassExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -71,19 +72,7 @@
                     var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
                     var metaModelService = Common.CommonUtil.GetModelSaveService();
 
-                    //var metadataType = selectedElement.GetMetadataType() ;
-
                     // Create a class with the same name + _Extension and add it to the project
-                    // ClassName
-                    //string baseClassName = selectedElement.Name + "_Extension";
-                    //string className = baseClassName;
-                    //int numClassesFound = 0;
-                    //while (metaModelService.GetClass(className) != null)
-                    //{
-                    //    numClassesFound++;
-                    //    className = baseClassName + numClassesFound.ToString();
-                    //}
-
                     string className = Common.CommonUtil.GetNextClassExtensionName(selectedElement.Name);
 
 
@@ -101,6 +90,7 @@
                     {
                         intrinsicStr = "formStr";
                     }
+                    
                     Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass;
 
                     string extensionOfStr = $"ExtensionOf({intrinsicStr}({selectedElement.Name}))";
@@ -119,6 +109,10 @@
                     metaModelService.CreateClass(extensionClass, modelSaveInfo);
                     Common.CommonUtil.AddElementToProject(extensionClass);
                 }
+                else if(e.SelectedElement is IFormDataSource)
+                {
+                    this.createFormDSExtension(e.SelectedElement as IFormDataSource);
+                }
             }
             catch (Exception ex)
             {
@@ -126,6 +120,32 @@
             }
         }
         #endregion
-        
+
+        public void createFormDSExtension(IFormDataSource formDataSource)
+        {
+            // Find current model
+            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            string className = Common.CommonUtil.GetNextClassExtensionName(formDataSource.Name);
+            string intrinsicStr = "formdatasourcestr";
+
+            string extensionOfStr = $"ExtensionOf({intrinsicStr}({formDataSource.RootElement.Name},{formDataSource.Name}))";
+            Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass = ClassHelper.GetExistingExtensionClass(formDataSource.Name, extensionOfStr);
+            if (extensionClass == null)
+            {
+                extensionClass = new AxClass()
+                {
+                    Name = className
+                };
+
+                extensionClass.SourceCode.Declaration = $"[{extensionOfStr}]\npublic final class {className}\n{{\n\n}}";
+            }
+
+            metaModelService.CreateClass(extensionClass, modelSaveInfo);
+            Common.CommonUtil.AddElementToProject(extensionClass);
+        }
     }
+
+
 }
