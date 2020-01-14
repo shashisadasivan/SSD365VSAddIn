@@ -14,7 +14,7 @@ namespace SSD365VSAddIn.ClassesUtil
             AxClass axClass = null;
 
             var metaModelService = Common.CommonUtil.GetModelSaveService();
-            //TODO: only search within model
+            //This searches across all models
             var classNameExts = metaModelService.GetClassNames().ToList()
                                             .Where(searchClass => searchClass.ToLowerInvariant().Contains(className.ToLowerInvariant())
                                              && metaModelService.GetClass(searchClass).Declaration.ToLowerInvariant().Contains(extensionOfStr.ToLowerInvariant())
