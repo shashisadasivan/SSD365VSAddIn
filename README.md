@@ -13,7 +13,6 @@ These can only be done from the designer windows of the source objects
   * [Create Maintain and Inquire Privilege from Menu item](#create-maintain-and-inquire-privilege-from-menu-item)
   * [Create Display menu item from a Form](#create-display-menu-item-from-a-form)
   * [Create Form from a Table](#create-form-from-a-table)
-  * [Add element to the current project](#add-element-to-the-current-project)
   * [Show the Label](#show-the-label)
   * [Create EDT from table field](#create-edt-from-table-field)
   
@@ -94,10 +93,6 @@ Open the form, right click the Form name (left of designer) and select the AddIn
 
 ## Create Form from a Table
 Open the table, Right click the Table name in the designer and select the AddIn **Create Form (SS D365)**
-
-## Add element to the current project
-Open an element in designer mode, Right click and select **Add to Project (SS D365)**
-This will add the element to the current project as long as the element belongs to the project
 
 ## Show the Label
 Show the label of an element regardless if the label is defined on this element or its extended data type
