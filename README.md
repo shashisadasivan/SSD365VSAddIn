@@ -114,6 +114,7 @@ The these files are stored in the Folder Templates (under AxClass). A text file 
 This makes it customizable & you can add your own tempaltes over in the folder
 The Add in is available under *Dynamics 365 > Add Ins > Create from template*
 See [Issue #31](https://github.com/shashisadasivan/SSD365VSAddIn/issues/31) on this progress
+Currently this only suppots AxClass & AxMenuItemAction objects in the template
 
 
 # Experimental features
