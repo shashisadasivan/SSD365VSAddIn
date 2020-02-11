@@ -15,6 +15,7 @@ These can only be done from the designer windows of the source objects
   * [Create Form from a Table](#create-form-from-a-table)
   * [Show the Label](#show-the-label)
   * [Create EDT from table field](#create-edt-from-table-field)
+  * [Create from template](#create-from-template)
   
 * [Experimental features](#experimental-features)
   * [Add missing references](#add-missing-references)
