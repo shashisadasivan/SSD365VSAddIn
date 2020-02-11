@@ -13,9 +13,9 @@ These can only be done from the designer windows of the source objects
   * [Create Maintain and Inquire Privilege from Menu item](#create-maintain-and-inquire-privilege-from-menu-item)
   * [Create Display menu item from a Form](#create-display-menu-item-from-a-form)
   * [Create Form from a Table](#create-form-from-a-table)
-  * [Add element to the current project](#add-element-to-the-current-project)
   * [Show the Label](#show-the-label)
   * [Create EDT from table field](#create-edt-from-table-field)
+  * [Create from template](#create-from-template)
   
 * [Experimental features](#experimental-features)
   * [Add missing references](#add-missing-references)
@@ -95,10 +95,6 @@ Open the form, right click the Form name (left of designer) and select the AddIn
 ## Create Form from a Table
 Open the table, Right click the Table name in the designer and select the AddIn **Create Form (SS D365)**
 
-## Add element to the current project
-Open an element in designer mode, Right click and select **Add to Project (SS D365)**
-This will add the element to the current project as long as the element belongs to the project
-
 ## Show the Label
 Show the label of an element regardless if the label is defined on this element or its extended data type
 Right click an element and select **Show the Label (SS D365)**
@@ -111,6 +107,15 @@ Currenty works for
 ## Create EDT from table field
 Right click a field on the table and select **Create EDT (SS D365)**
 This will create a EDT of that type, move the label & help label from the field to the EDT, apply the EDT name to the Field Extended data type property.
+
+## Create from template
+Tempaltes are a set of objects which are created with this Addin. Templates are defined using the XML files stored in the Metadata folder in the model. This add in utilizes the same XML files that you may want to use as templates allowing you to replace keywords.
+The these files are stored in the Folder Templates (under AxClass). A text file dictates what keywords need to be replaced in the file.
+This makes it customizable & you can add your own tempaltes over in the folder
+The Add in is available under *Dynamics 365 > Add Ins > Create from template*
+See [Issue #31](https://github.com/shashisadasivan/SSD365VSAddIn/issues/31) on this progress
+Currently this only suppots AxClass & AxMenuItemAction objects in the template
+
 
 # Experimental features
 
