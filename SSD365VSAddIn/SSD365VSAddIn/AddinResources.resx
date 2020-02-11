@@ -133,6 +133,9 @@
   <data name="CreateExtension" xml:space="preserve">
     <value>Create extension (SS D365)</value>
   </data>
+  <data name="CreateFromTemplate" xml:space="preserve">
+    <value>Create from template (SS D365)</value>
+  </data>
   <data name="DesignerAddinCaption" xml:space="preserve">
     <value>SS D365 VSAddIn </value>
   </data>

@@ -106,6 +106,15 @@ namespace SSD365VSAddIn {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create from template (SS D365).
+        /// </summary>
+        internal static string CreateFromTemplate {
+            get {
+                return ResourceManager.GetString("CreateFromTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SS D365 VSAddIn .
         /// </summary>
         internal static string DesignerAddinCaption {

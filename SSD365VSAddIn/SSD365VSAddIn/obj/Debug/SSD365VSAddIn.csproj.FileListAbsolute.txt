@@ -150,3 +150,5 @@ C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.cspro
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.dll
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.Labels.LabelForm.LabelCreatorForm.resources
+C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
+C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate.CreateFromTemplateForm.resources

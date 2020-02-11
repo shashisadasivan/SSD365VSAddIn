@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>MyClassController</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[SysOperationJournaledParametersAttribute(true)]
+class MyClassController extends SysOperationServiceController
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>main</Name>
+				<Source><![CDATA[
+    public static void main(Args _args)
+    {
+        MyClassController controller =
+            MyClassController::construct();
+        controller.parmArgs(_args);
+        controller.startOperation();
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    public static MyClassController construct(
+        SysOperationExecutionMode _executionMode =
+            SysOperationExecutionMode::Synchronous)
+    {
+        MyClassController controller =
+            new MyClassController();
+        controller.parmExecutionMode(_executionMode);
+        return controller;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    public void new()
+    {
+        super(classStr(MyClassService),
+            methodStr(MyClassService, run),
+            SysOperationExecutionMode::Synchronous);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
