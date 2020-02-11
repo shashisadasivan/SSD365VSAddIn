@@ -107,6 +107,14 @@ Currenty works for
 Right click a field on the table and select **Create EDT (SS D365)**
 This will create a EDT of that type, move the label & help label from the field to the EDT, apply the EDT name to the Field Extended data type property.
 
+## Create from template
+Tempaltes are a set of objects which are created with this Addin. Templates are defined using the XML files stored in the Metadata folder in the model. This add in utilizes the same XML files that you may want to use as templates allowing you to replace keywords.
+The these files are stored in the Folder Templates (under AxClass). A text file dictates what keywords need to be replaced in the file.
+This makes it customizable & you can add your own tempaltes over in the folder
+The Add in is available under *Dynamics 365 > Add Ins > Create from template*
+See [Issue #31](https://github.com/shashisadasivan/SSD365VSAddIn/issues/31) on this progress
+
+
 # Experimental features
 
 ## Add missing references
