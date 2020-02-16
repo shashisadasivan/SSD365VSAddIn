@@ -15,11 +15,11 @@ namespace SSD365VSAddIn.AddToProject
     /// <summary>
     /// Creates Display menu item for the selected Form design
     /// </summary>
-    [Export(typeof(IDesignerMenu))] // enable this
+    //[Export(typeof(IDesignerMenu))] // enable this
     // If you need to specify any other element, change this AutomationNodeType value.
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
-    [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.IRootElement))] // enable this
-    [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.IRootExtensionElement))] // enable this
+    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.IRootElement))] // enable this
+    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.IRootExtensionElement))] // enable this
     public class AddToProjectMenuAddIn : DesignerMenuBase
     {
         #region Member variables
