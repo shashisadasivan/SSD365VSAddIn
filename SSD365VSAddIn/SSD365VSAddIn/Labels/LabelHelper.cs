@@ -109,9 +109,15 @@ namespace SSD365VSAddIn.Labels
                 //string labelId = $"{elementName}{propertyName}";
 
                 string labelId = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(labelText)
-                                    .Replace(" ", "") // remove spaces
-                                    .Replace("%", "P") // Replace %1 with P1 or %2 with P2 etc
-                                    .Replace("_", "");
+                                    .Replace(" ", "");
+
+                // #35 replace chars with short text
+                var replaceableChars = LabelHelper.GetReplaceableLabelChars();
+                foreach (var key in replaceableChars.Keys)
+                {
+                    labelId = labelId.Replace(key, replaceableChars[key]);
+                } 
+                
                 if (Regex.IsMatch(labelId.Substring(0, 1), @"\d")) // label id cannot start with a number
                 {
                     labelId = "Label" + labelId;
@@ -366,6 +372,31 @@ namespace SSD365VSAddIn.Labels
             labelControllerToAdd.Save();
 
         }
+
+        protected static Dictionary<string, string> GetReplaceableLabelChars()
+        {
+            Dictionary<string, string> replaceableChars = new Dictionary<string, string>();
+            replaceableChars.Add("#", "Hash");
+            replaceableChars.Add("@", "At");
+            replaceableChars.Add("!", "Excl");
+            replaceableChars.Add("$", "Dollar");
+            replaceableChars.Add("^", "Exp");
+            replaceableChars.Add("&", "Amp");
+            replaceableChars.Add("*", "Star");
+            replaceableChars.Add("+", "Plus");
+            replaceableChars.Add("-", "Dash");
+            replaceableChars.Add("|", "Pipe");
+            replaceableChars.Add(@"\", "BSlash");
+            replaceableChars.Add("/", "FSlash");
+            replaceableChars.Add("=", "Equal");
+            replaceableChars.Add("_", "Undescore");
+            replaceableChars.Add("~", "Tilde");
+            replaceableChars.Add("%", "P");
+
+
+            return replaceableChars;
+        }
+            
     }
 
     /// <summary>
