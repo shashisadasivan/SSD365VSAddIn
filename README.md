@@ -27,7 +27,7 @@ These can only be done from the designer windows of the source objects
 - Download all the dll files from the folder [OutputDlls](OutputDlls)
 - Create a new folder e.g. c:\D365CustomAddIns
 - Copy the dll files downloaded into the new folder created
-- Close Visual studio & edit the file: C:\Users\<currentUser>\Documents\Visual Studio 2015\Settings\DefaultConfig.xml
+- Close Visual studio & edit the file: C:\Users\<currentUser>\Documents\Visual Studio 2015\Settings\DynamicsDevConfig.xml
 - Edit the following to the xml file
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
