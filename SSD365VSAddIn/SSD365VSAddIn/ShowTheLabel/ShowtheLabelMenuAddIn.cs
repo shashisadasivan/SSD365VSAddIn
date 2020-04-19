@@ -11,6 +11,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 
 namespace SSD365VSAddIn.ShowTheLabel
 {
@@ -24,6 +25,7 @@ namespace SSD365VSAddIn.ShowTheLabel
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables.BaseField))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.IDataEntityViewField))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.DataEntityViews.IDataEntityView))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus.IMenuElementMenuItem))]
     class ShowTheLabelMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -72,22 +74,22 @@ namespace SSD365VSAddIn.ShowTheLabel
 
                     EdtLabelInfo edtLabelInfo = new EdtLabelInfo();
 
-                    if(selectedItem is IEdtBase)
+                    if (selectedItem is IEdtBase)
                     {
-                        var axEdt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(selectedItem.Name); 
+                        var axEdt = Common.CommonUtil.GetModelSaveService().GetExtendedDataType(selectedItem.Name);
                         edtLabelInfo = this.getEdtBaseLabel(axEdt, edtLabelInfo);
-                    }       
-                    else if(selectedItem is BaseField)
+                    }
+                    else if (selectedItem is BaseField)
                     {
                         var axBaseField = selectedItem as BaseField;
                         edtLabelInfo = this.getTableFieldLabel(axBaseField, edtLabelInfo);
                     }
-                    else if(selectedItem is IDataEntityViewField)
+                    else if (selectedItem is IDataEntityViewField)
                     {
                         var axEntityField = selectedItem as IDataEntityViewField;
                         edtLabelInfo = this.getDataEntityFieldLabel(axEntityField, edtLabelInfo);
                     }
-                    else if(selectedItem is IDataEntityView)
+                    else if (selectedItem is IDataEntityView)
                     {
                         var dataEntity = selectedItem as IDataEntityView;
                         if (String.IsNullOrEmpty(edtLabelInfo.Label) == true
@@ -102,6 +104,12 @@ namespace SSD365VSAddIn.ShowTheLabel
                             // find the help label here
                             edtLabelInfo.HelpLabel = dataEntity.DeveloperDocumentation;
                         }
+                    }
+                    else if (selectedItem is IMenuElementMenuItem)
+                    {
+                        var iMenuElement= selectedItem as IMenuElementMenuItem;
+                        //TODO: #32 get the menuitem name and then the menu element from the AOT
+                        //edtLabelInfo.Label = iMenu.Label;
                     }
 
                     edtLabelInfo.DecypherLabels();

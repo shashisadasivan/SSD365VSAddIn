@@ -3,6 +3,7 @@ using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.BaseTypes;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Classes;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
@@ -26,6 +27,8 @@ namespace SSD365VSAddIn.ExtensionCommand
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IBaseEnum))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntity))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
+    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenu))]
     class CreateExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -85,6 +88,10 @@ namespace SSD365VSAddIn.ExtensionCommand
                 {
                     DataEntity.DataEntityHelper.CreateExtension(e.SelectedElement as IDataEntity);
                     //DataTypes.BaseEnumHelper.CreateExtension(e.SelectedElement as IBaseEnum);
+                }
+                else if (e.SelectedElement is IMenuItem)
+                {
+                    MenuItems.MenuItemCreator.CreateExtension(e.SelectedElement as IMenuItem);
                 }
                 else
                 {

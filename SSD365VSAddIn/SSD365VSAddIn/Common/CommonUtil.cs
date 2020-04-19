@@ -173,6 +173,59 @@ namespace SSD365VSAddIn.Common
             return objectName;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="menuItemType"></param>
+        /// <returns></returns>
+        internal static string GetNextMenuItemExtension(string name, int menuItemType)
+        {
+            string objectName = GetObjectExtensionName(name, 0);
+
+            
+            // Find current model
+            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            // Create a Menu item extension with the same name + _Extension and add it to the project
+            int numFound = 0;
+            Microsoft.Dynamics.AX.Metadata.Core.MetaModel.INamedObject iMenuItemExt;
+            do
+            {
+                iMenuItemExt = null;
+                objectName = GetObjectExtensionName(name, numFound);
+                // Check if object exists
+                switch (menuItemType)
+                {
+                    case 0: // Action
+                        iMenuItemExt = metaModelService.GetMenuItemActionExtension(objectName);
+                        break;
+                    case 1: // Display
+                        iMenuItemExt = metaModelService.GetMenuItemDisplayExtension(objectName);
+                        break;
+                    case 3: // Output
+                    default:
+                        iMenuItemExt = metaModelService.GetMenuItemOutputExtension(objectName);
+                        break;
+                }
+                
+
+            } while (iMenuItemExt != null);
+            //if (menuItemType == 0)
+            //{
+            //    while (metaModelService.GetMenuItemActionExtension(objectName) != null)
+            //    {
+            //        numFound++;
+            //        objectName = GetObjectExtensionName(name, numFound);
+            //        //objectName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension + numFound.ToString();
+            //    }
+            //}
+
+            return objectName;
+            
+        }
+
         internal static string GetNextTableExtension(string name)
         {
             string objectName = GetObjectExtensionName(name, 0);

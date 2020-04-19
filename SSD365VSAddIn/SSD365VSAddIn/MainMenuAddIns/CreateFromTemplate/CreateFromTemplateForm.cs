@@ -37,7 +37,6 @@ namespace SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate
                 templateFolderMap.Add(dirName, templateFolder);
                 this.templatesListBox.Items.Add(dirName);
             }
-
         }
 
         private List<string> GetTemplateFolders()
@@ -72,10 +71,11 @@ namespace SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate
                 replaceableText.ForEach(r => replaceableTextValues.Add(new TemplateRepleacableText()
                 {
                     ReplaceableText = r,
-                    ReplacedText = String.Empty
                 }));
             }
+
             this.templateRepleacableTextBindingSource.DataSource = replaceableTextValues;
+            //templateReplaceableTextGridView.Refresh();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -136,9 +136,16 @@ namespace SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate
             // 2. Apply any renames to it
             foreach (var replaceableTextValue in replaceableTextValues)
             {
+                // A. Replace the case sensitive search first
                 if (String.IsNullOrWhiteSpace(replaceableTextValue.ReplacedText) == false)
                 {
                     fileData = fileData.Replace(replaceableTextValue.ReplaceableText, replaceableTextValue.ReplacedText);
+                }
+                // B. Replace case insesitive search
+                if(String.IsNullOrWhiteSpace(replaceableTextValue.ReplacedOtherCaseText) == false)
+                {
+                    var regex = new System.Text.RegularExpressions.Regex(replaceableTextValue.ReplaceableText, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                    fileData = regex.Replace(fileData, replaceableTextValue.ReplacedOtherCaseText);
                 }
             }
             File.WriteAllText(tempFile, fileData);

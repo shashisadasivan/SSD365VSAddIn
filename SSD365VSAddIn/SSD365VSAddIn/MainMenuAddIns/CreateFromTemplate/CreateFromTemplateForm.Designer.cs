@@ -39,6 +39,7 @@
             this.templateRepleacableTextBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.replaceableTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.replacedTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReplacedOtherCaseText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.templateReplaceableTextGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.templateRepleacableTextBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +98,8 @@
             this.templateReplaceableTextGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.templateReplaceableTextGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.replaceableTextDataGridViewTextBoxColumn,
-            this.replacedTextDataGridViewTextBoxColumn});
+            this.replacedTextDataGridViewTextBoxColumn,
+            this.ReplacedOtherCaseText});
             this.templateReplaceableTextGridView.DataSource = this.templateRepleacableTextBindingSource;
             this.templateReplaceableTextGridView.Location = new System.Drawing.Point(185, 118);
             this.templateReplaceableTextGridView.Name = "templateReplaceableTextGridView";
@@ -136,12 +138,23 @@
             this.replaceableTextDataGridViewTextBoxColumn.HeaderText = "ReplaceableText";
             this.replaceableTextDataGridViewTextBoxColumn.Name = "replaceableTextDataGridViewTextBoxColumn";
             this.replaceableTextDataGridViewTextBoxColumn.ReadOnly = true;
+            this.replaceableTextDataGridViewTextBoxColumn.ToolTipText = "Case sensitive search is done to replace this with replacable text, otherwise rep" +
+    "lace other case";
             // 
             // replacedTextDataGridViewTextBoxColumn
             // 
             this.replacedTextDataGridViewTextBoxColumn.DataPropertyName = "ReplacedText";
-            this.replacedTextDataGridViewTextBoxColumn.HeaderText = "ReplacedText";
+            this.replacedTextDataGridViewTextBoxColumn.HeaderText = "Replace with";
             this.replacedTextDataGridViewTextBoxColumn.Name = "replacedTextDataGridViewTextBoxColumn";
+            this.replacedTextDataGridViewTextBoxColumn.ToolTipText = "This will replace the text in replacable text";
+            // 
+            // ReplacedOtherCaseText
+            // 
+            this.ReplacedOtherCaseText.DataPropertyName = "ReplacedOtherCaseText";
+            this.ReplacedOtherCaseText.HeaderText = "Replace other case with";
+            this.ReplacedOtherCaseText.Name = "ReplacedOtherCaseText";
+            this.ReplacedOtherCaseText.ToolTipText = "If the case insensitive replacable text is found, then this will be replaced for " +
+    "that";
             // 
             // CreateFromTemplateForm
             // 
@@ -183,5 +196,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn replaceableTextDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn replacedTextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReplacedOtherCaseText;
     }
 }

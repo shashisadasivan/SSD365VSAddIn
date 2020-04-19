@@ -9,6 +9,7 @@ namespace SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate
     class TemplateRepleacableText
     {
         public string ReplaceableText { get; set; }
-        public string ReplacedText { get; set; }
+        public string ReplacedText { get; set; } = String.Empty;
+        public string ReplacedOtherCaseText { get; set; } = String.Empty;
     }
 }

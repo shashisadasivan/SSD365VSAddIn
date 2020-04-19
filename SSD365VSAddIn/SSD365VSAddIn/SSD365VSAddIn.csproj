@@ -152,6 +152,8 @@
     <Compile Include="MainMenuAddIns\CreateFromTemplate\CreateFromTemplateMainMenuAddIn.cs" />
     <Compile Include="MainMenuAddIns\CreateFromTemplate\TemplateRepleacableText.cs" />
     <Compile Include="MainMenuAddIns\SettingsMainMenuAddIn.cs" />
+    <Compile Include="MenuItems\MenuItemHelper.cs" />
+    <Compile Include="MenuItems\MenuItemCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AddinResources.Designer.cs">
       <AutoGen>True</AutoGen>
