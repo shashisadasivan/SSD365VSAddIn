@@ -28,7 +28,7 @@ namespace SSD365VSAddIn.ExtensionCommand
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IBaseEnum))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntity))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
-    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenu))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus.IMenu))]
     class CreateExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -92,6 +92,10 @@ namespace SSD365VSAddIn.ExtensionCommand
                 else if (e.SelectedElement is IMenuItem)
                 {
                     MenuItems.MenuItemCreator.CreateExtension(e.SelectedElement as IMenuItem);
+                }
+                else if (e.SelectedElement is Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus.IMenu)
+                {
+                    Menus.MenuCreator.CreateExtension(e.SelectedElement as Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus.IMenu);
                 }
                 else
                 {

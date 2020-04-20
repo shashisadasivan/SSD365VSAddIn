@@ -174,14 +174,14 @@ namespace SSD365VSAddIn.Common
         }
 
         /// <summary>
-        /// 
+        /// Get te next extension name
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="menuItemType"></param>
-        /// <returns></returns>
+        /// <param name="name">name of extension</param>
+        /// <param name="menuItemType">0 = Action, 1 = Display, 3 and over is Output</param>
+        /// <returns>Extension name to create</returns>
         internal static string GetNextMenuItemExtension(string name, int menuItemType)
         {
-            string objectName = GetObjectExtensionName(name, 0);
+            string objectName;// = GetObjectExtensionName(name, 0);
 
             
             // Find current model
@@ -209,21 +209,34 @@ namespace SSD365VSAddIn.Common
                         iMenuItemExt = metaModelService.GetMenuItemOutputExtension(objectName);
                         break;
                 }
-                
-
+                numFound++;
             } while (iMenuItemExt != null);
-            //if (menuItemType == 0)
-            //{
-            //    while (metaModelService.GetMenuItemActionExtension(objectName) != null)
-            //    {
-            //        numFound++;
-            //        objectName = GetObjectExtensionName(name, numFound);
-            //        //objectName = modelSettings.Prefix + name + modelSettings.Suffix + Constants.DOT + modelSettings.Extension + numFound.ToString();
-            //    }
-            //}
+           
+            return objectName;
+        }
+
+        internal static string GetNextMenuExtension(string name)
+        {
+            string objectName;// = GetObjectExtensionName(name, 0);
+
+
+            // Find current model
+            var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+
+            // Create a Menu item extension with the same name + _Extension and add it to the project
+            int numFound = 0;
+            Microsoft.Dynamics.AX.Metadata.Core.MetaModel.INamedObject iMenuExt;
+            do
+            {
+                iMenuExt = null;
+                objectName = GetObjectExtensionName(name, numFound);
+                // Check if object exists
+                iMenuExt = metaModelService.GetMenuExtension(objectName);
+                numFound++;
+            } while (iMenuExt != null);
 
             return objectName;
-            
         }
 
         internal static string GetNextTableExtension(string name)
