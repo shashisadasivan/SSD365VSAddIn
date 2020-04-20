@@ -26,7 +26,7 @@ These can only be done from the designer windows of the source objects
 **Updated installation instructions** works for non admin users
 - Download all the dll files from the folder [OutputDlls](OutputDlls)
 - Create a new folder e.g. c:\D365CustomAddIns
-- Copy the dll files downloaded into the new folder created
+- Copy the dll files downloaded into the new folder created (Make sure to unblock the file from the properties)
 - Close Visual studio & edit the file: C:\Users\<currentUser>\Documents\Visual Studio 2015\Settings\DynamicsDevConfig.xml
 - Edit the following to the xml file
 ```xml
