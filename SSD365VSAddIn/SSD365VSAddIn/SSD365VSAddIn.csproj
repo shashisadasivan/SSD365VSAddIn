@@ -180,6 +180,7 @@
     <Compile Include="Tables\TableFieldEDTCreatorMenuAddIn.cs" />
     <Compile Include="Tables\TableFormCreatorMenuAddIn.cs" />
     <Compile Include="Tables\TableHelper.cs" />
+    <Compile Include="Views\ViewHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddinResources.resx">

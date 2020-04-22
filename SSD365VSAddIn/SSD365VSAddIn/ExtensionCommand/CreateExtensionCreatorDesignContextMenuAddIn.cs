@@ -6,6 +6,7 @@ using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Menus;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Security;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Views;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace SSD365VSAddIn.ExtensionCommand
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IView))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IBaseEnum))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntity))]
@@ -75,6 +77,10 @@ namespace SSD365VSAddIn.ExtensionCommand
                 else if (e.SelectedElement is ITable)
                 {
                     Tables.TableHelper.CreateTableExtension(e.SelectedElement as ITable);
+                }
+                else if (e.SelectedElement is IView)
+                {
+                    Views.ViewHelper.CreateExtension(e.SelectedElement as IView);
                 }
                 else if (e.SelectedElement is IForm)
                 {
