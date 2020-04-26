@@ -127,6 +127,7 @@
     <Compile Include="Forms\FormHelper.cs" />
     <Compile Include="Forms\FormsFillPatternMenuItemAddIn.cs" />
     <Compile Include="Forms\FormsUtilMenuItemAddin.cs" />
+    <Compile Include="FrameworkExtentions\ObjectExtension.cs" />
     <Compile Include="Labels\LabelCodeCreatedMainMenuAddIn.cs" />
     <Compile Include="Labels\LabelCreatorMainMenuAddIn.cs" />
     <Compile Include="Labels\LabelFactory.cs" />

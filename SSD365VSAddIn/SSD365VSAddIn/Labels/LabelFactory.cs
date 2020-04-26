@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SSD365VSAddIn.FrameworkExtentions;
 
 namespace SSD365VSAddIn.Labels
 {
@@ -342,32 +343,56 @@ namespace SSD365VSAddIn.Labels
                 if(formControl != null)
                 {
                     formControl.HelpText = this.GetLabel(formControl.HelpText); // most elements has a help text
-                    
-                    if (formControl is IFormActionPaneControl)
+                    string textValue = formControl.GetPropertyValueSS<String>("Text");
+                    if(!String.IsNullOrEmpty(textValue))
                     {
-                        var formActionPaneControl = formControl as IFormActionPaneControl;
-                        formActionPaneControl.Caption = this.GetLabel(formActionPaneControl.Caption);
+                        formControl.SetPropertyValueSS("Text", this.GetLabel(textValue));
                     }
-                    else if(formControl is IFormGroupControl)
-                    {
-                        var formGroupControl = formControl as IFormGroupControl;
-                        formGroupControl.Caption = this.GetLabel(formGroupControl.Caption);
-                    }
-                    else if (formControl is IFormGridControl)
-                    {
-                        var formGridControl = formControl as IFormGridControl;
-                        // nothing in the grid to change any text for
-                    }
-                    else if (formControl is IFormStringControl)
-                    {
-                        var formStringControl = formControl as IFormStringControl;
-                        formStringControl.Text = this.GetLabel(formStringControl.Text);
-                        formStringControl.Label = this.GetLabel(formStringControl.Label);
-                        // nothing in the grid to change any text for
-                    }
-                    // quick filter control ? - is only recognized as a FormControl
-                    // TODO: #2 other types of controls ?
 
+                    string labelValue = formControl.GetPropertyValueSS<String>("Label");
+                    if (!String.IsNullOrEmpty(labelValue))
+                    {
+                        formControl.SetPropertyValueSS("Label", this.GetLabel(labelValue));
+                    }
+
+                    //string helpTextValue = formControl.GetPropertyValueSS<String>("HelpText");
+                    //if (!String.IsNullOrEmpty(labelValue))
+                    //{
+                    //    formControl.SetPropertyValueSS("HelpText", this.GetLabel(helpTextValue));
+                    //}
+
+                    string captionValue = formControl.GetPropertyValueSS<String>("Caption");
+                    if (!String.IsNullOrEmpty(captionValue))
+                    {
+                        formControl.SetPropertyValueSS("Caption", this.GetLabel(captionValue));
+                    }
+
+                    string exportValue = formControl.GetPropertyValueSS<String>("ExportLabel");
+                    if (!String.IsNullOrEmpty(exportValue))
+                    {
+                        formControl.SetPropertyValueSS("ExportLabel", this.GetLabel(exportValue));
+                    }
+
+                    if (formControl.FormControlExtension != null && formControl.FormControlExtension.ExtensionProperties != null)
+                    {
+                        var extprops = formControl.FormControlExtension.ExtensionProperties.GetEnumerator();
+                        while (extprops.MoveNext())
+                        {
+                            var extProperty = extprops.Current as ExtensionProperty;
+
+                            if (extProperty.Name.Equals("PlaceholderText", StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                extProperty.Value = this.GetLabel(extProperty.Value);
+                                //formControl.SetPropertyValueSS("PlaceholderText", this.GetLabel(placeholderTextValue));
+                            }
+                            else if (extProperty.Name.Equals("ExportLabel", StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                extProperty.Value = this.GetLabel(extProperty.Value); ;
+                            }
+                        }
+                    }
+
+                    // If the control has children (grid, groups, etc) then run through them as well
                     if (formControl is IFormControlWithChildren)
                     {
                         var formControlWithChildren = formControl as IFormControlWithChildren;
