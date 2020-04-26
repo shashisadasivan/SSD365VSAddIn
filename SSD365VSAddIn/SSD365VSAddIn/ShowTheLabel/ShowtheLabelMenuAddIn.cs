@@ -108,8 +108,24 @@ namespace SSD365VSAddIn.ShowTheLabel
                     else if (selectedItem is IMenuElementMenuItem)
                     {
                         var iMenuElement= selectedItem as IMenuElementMenuItem;
-                        //TODO: #32 get the menuitem name and then the menu element from the AOT
-                        //edtLabelInfo.Label = iMenu.Label;
+                        if (iMenuElement.MenuItemType == Microsoft.Dynamics.AX.Metadata.Core.MetaModel.MenuItemType.Display)
+                        {
+                            var menuItem = Common.CommonUtil.GetModelSaveService().GetMenuItemDisplay(iMenuElement.MenuItemName);
+                            edtLabelInfo.Label = menuItem.Label;
+                            edtLabelInfo.HelpLabel = menuItem.HelpText;
+                        }
+                        else if (iMenuElement.MenuItemType == Microsoft.Dynamics.AX.Metadata.Core.MetaModel.MenuItemType.Action)
+                        {
+                            var menuItem = Common.CommonUtil.GetModelSaveService().GetMenuItemAction(iMenuElement.MenuItemName);
+                            edtLabelInfo.Label = menuItem.Label;
+                            edtLabelInfo.HelpLabel = menuItem.HelpText;
+                        }
+                        else if (iMenuElement.MenuItemType == Microsoft.Dynamics.AX.Metadata.Core.MetaModel.MenuItemType.Output)
+                        {
+                            var menuItem = Common.CommonUtil.GetModelSaveService().GetMenuItemOutput(iMenuElement.MenuItemName);
+                            edtLabelInfo.Label = menuItem.Label;
+                            edtLabelInfo.HelpLabel = menuItem.HelpText;
+                        }
                     }
 
                     edtLabelInfo.DecypherLabels();
