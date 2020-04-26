@@ -143,6 +143,7 @@
     <Compile Include="Labels\LabelHelper.cs" />
     <Compile Include="MainMenuAddIn.cs" />
     <Compile Include="DesignerContextMenuAddIn.cs" />
+    <Compile Include="MainMenuAddIns\AddInfoBreakpointMainMenuAddIn.cs" />
     <Compile Include="MainMenuAddIns\Build\BuildAddReferenceMainMenuAddIn.cs" />
     <Compile Include="MainMenuAddIns\CreateFromTemplate\CreateFromTemplateForm.cs">
       <SubType>Form</SubType>
