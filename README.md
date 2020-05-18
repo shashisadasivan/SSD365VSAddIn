@@ -2,6 +2,8 @@
 Extensions to enhance the development experience, mostly with just the mouse.
 These can only be done from the designer windows of the source objects
 
+__Version support__: 10.0.10 and higher. If you want to install this for a system prior to 10.0.10, then see the __How to install__ section
+
 * [How to install the extension](#how-to-install-the-extension)
 * [Features](#features)
   * [Settings based object creation](#settings-based-object-creation)
@@ -24,7 +26,8 @@ These can only be done from the designer windows of the source objects
 # How to install the extension
 
 **Updated installation instructions** works for non admin users
-- Download all the dll files from the folder [OutputDlls](OutputDlls)
+- Download all the dll files from the folder [OutputDlls](OutputDlls) 
+  If you are installing on a version prior to 10.0.10, then grab the contents from the file PriorTo10.0.10.zip located in the folder
 - Create a new folder e.g. c:\D365CustomAddIns
 - Copy the dll files downloaded into the new folder created (Make sure to unblock the file from the properties)
 - Close Visual studio & edit the file: C:\Users\<currentUser>\Documents\Visual Studio 2015\Settings\DynamicsDevConfig.xml
@@ -35,7 +38,6 @@ These can only be done from the designer windows of the source objects
 	<AddInPaths xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
 		<d2p1:string>C:\D365CustomAddins</d2p1:string>
 	</AddInPaths>
- 
 </DynamicsDevConfig>
 ```
 **Note**: This AddIn works based off the settings of your model. Create / Open a project and select **Dynamics 365 > Addins > Model settings (SS D365)** this will create a settings file for this model required for the operation of most of the features
