@@ -26,7 +26,7 @@ namespace SSD365VSAddIn.Forms
 
             // Find current model
             //Create menu item in the right model
-            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
+            //var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
 
 
             //Create an extension object

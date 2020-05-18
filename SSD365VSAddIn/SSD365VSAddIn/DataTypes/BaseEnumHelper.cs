@@ -28,8 +28,6 @@ namespace SSD365VSAddIn.DataTypes
 
             // Find current model
             //Create menu item in the right model
-            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-
 
             //Create an extension object
             axExtension = new AxEnumExtension() { Name = name };

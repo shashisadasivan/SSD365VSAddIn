@@ -95,9 +95,10 @@ namespace SSD365VSAddIn.Forms
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 
             //Create menu item in the right model
-            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-            var metaModelService = metaModelProviders.CurrentMetaModelService;
-
+            //var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
+            //var metaModelService = metaModelProviders.CurrentMetaModelService;
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
+            
             metaModelService.CreateMenuItemDisplay(menuItemDisplay, modelSaveInfo);
 
             // Add the menu item display to the active project

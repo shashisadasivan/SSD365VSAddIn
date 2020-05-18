@@ -197,9 +197,9 @@
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 
             //Create item in the right model
-            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-            var metaModelService = metaModelProviders.CurrentMetaModelService;
-
+            //var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
+            //var metaModelService = metaModelProviders.CurrentMetaModelService;
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
             metaModelService.CreateSecurityPrivilege(axSecurityPrivMaint, modelSaveInfo);
             //metaModelService.CreateClass(axClass, saveInfo);
 

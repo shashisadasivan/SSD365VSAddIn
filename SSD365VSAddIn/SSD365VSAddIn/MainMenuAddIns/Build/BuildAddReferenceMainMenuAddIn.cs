@@ -242,11 +242,12 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
         public void BuildSolution()
         {
             //Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider
-            var metaModelProviders = ServiceLocator.GetService(typeof(Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider)) as Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider;
-            if(metaModelProviders !=null)
+            //var metaModelProviders = ServiceLocator.GetService(typeof(Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider)) as Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider;
+            var metaModelProviders = Common.CommonUtil.GetMetaModelProviders();
+            if (metaModelProviders !=null)
             {
                 //TODO: #24 somehow refresh the models
-                metaModelProviders.ModelManifest.RefreshModels();
+                metaModelProviders.CurrentMetadataProvider.ModelManifest.RefreshModels();
             }
 
             //TODO: #24 somehow do a rebuild instead of a clean & build

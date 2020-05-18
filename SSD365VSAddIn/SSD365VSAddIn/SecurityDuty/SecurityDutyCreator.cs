@@ -35,9 +35,10 @@ namespace SSD365VSAddIn.SecurityDuty
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 
             //Create menu item in the right model
-            var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-            var metaModelService = metaModelProviders.CurrentMetaModelService;
+            //var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
+            //var metaModelService = metaModelProviders.CurrentMetaModelService;
 
+            var metaModelService = Common.CommonUtil.GetModelSaveService();
             metaModelService.CreateSecurityDuty(duty, modelSaveInfo);
 
             // Addd to project

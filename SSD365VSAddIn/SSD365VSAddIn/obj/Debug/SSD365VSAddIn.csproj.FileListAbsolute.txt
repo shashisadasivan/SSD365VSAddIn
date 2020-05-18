@@ -152,3 +152,15 @@ C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.Labels.LabelForm.LabelCreatorForm.resources
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
 C:\Repos\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate.CreateFromTemplateForm.resources
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.AddinResources.resources
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.Labels.LabelForm.LabelCreatorForm.resources
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate.CreateFromTemplateForm.resources
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.Settings.ModelSettingsUI.resources
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csproj.GenerateResource.Cache
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.csprojResolveAssemblyReference.cache
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.dll
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\SSD365VSAddIn.pdb
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Newtonsoft.Json.dll
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\bin\Debug\Newtonsoft.Json.xml
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.dll
+C:\GitHub\SSD365VSAddIn\SSD365VSAddIn\SSD365VSAddIn\obj\Debug\SSD365VSAddIn.pdb

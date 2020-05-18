@@ -149,9 +149,10 @@ namespace SSD365VSAddIn.Tables
                 var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 
                 //Create menu item in the right model
-                var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
-                var metaModelService = metaModelProviders.CurrentMetaModelService;
+                //var metaModelProviders = ServiceLocator.GetService(typeof(IMetaModelProviders)) as IMetaModelProviders;
+                //var metaModelService = metaModelProviders.CurrentMetaModelService;
 
+                var metaModelService = Common.CommonUtil.GetModelSaveService();
                 metaModelService.CreateExtendedDataType(edtToCreate, modelSaveInfo);
 
                 //Update the table field with the EDT, also remove any labels from the field

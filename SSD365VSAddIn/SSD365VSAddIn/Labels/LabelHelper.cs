@@ -48,9 +48,9 @@ namespace SSD365VSAddIn.Labels
 
             // Get the list of label files from that model
             var metaModelProvider = Common.CommonUtil.GetModelSaveService();
-
-            var metaModelProviders = Microsoft.Dynamics.Framework.Tools.MetaModel.Core.ServiceLocator.GetService(typeof(Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders)) as Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders;
-            var metaModelService = metaModelProviders.CurrentMetaModelService;
+            var metaModelProviders = Common.CommonUtil.GetMetaModelProviders();
+            //var metaModelProviders = Microsoft.Dynamics.Framework.Tools.MetaModel.Core.ServiceLocator.GetService(typeof(Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders)) as Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders;
+            //var metaModelService = metaModelProviders.CurrentMetaModelService;
 
             IList<string> labelFiles = metaModelProviders.CurrentMetadataProvider.LabelFiles.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name);
 
