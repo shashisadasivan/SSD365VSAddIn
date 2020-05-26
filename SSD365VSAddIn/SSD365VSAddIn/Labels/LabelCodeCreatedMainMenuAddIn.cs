@@ -2,6 +2,7 @@
 using Microsoft.Dynamics.Framework.Tools.Extensibility;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Classes;
+using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Tables;
 //using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
 using System;
@@ -17,6 +18,7 @@ namespace SSD365VSAddIn.Labels
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IClassItem))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntity))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ITable))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
     class LabelCodeCreatedMainMenuAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -111,6 +113,18 @@ namespace SSD365VSAddIn.Labels
                     totalLabelsConverted += labelsConverted;
                 });
                 Common.CommonUtil.GetModelSaveService().UpdateClass(axClass, Common.CommonUtil.GetCurrentModelSaveInfo());
+            }
+            else if(selectedElement is IForm)
+            {
+                var axForm = Common.CommonUtil.GetModelSaveService().GetForm(selectedElement.Name);
+                axForm.Methods.ToList().ForEach(method =>
+                {
+                    int labelsConverted = 0;
+                    method.Source = this.convertToLabelInSourceCode(method.Source, out labelsConverted);
+                    totalLabelsConverted += labelsConverted;
+                });
+
+                Common.CommonUtil.GetModelSaveService().UpdateForm(axForm, Common.CommonUtil.GetCurrentModelSaveInfo());
             }
         }
 
