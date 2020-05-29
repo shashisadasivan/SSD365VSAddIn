@@ -101,14 +101,19 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
             for (int i = 1; i <= errorItemsDte.Count; i++)
             {
                 var errorItem = errorItemsDte.Item(i);
-                if(errorItem.ErrorLevel == EnvDTE80.vsBuildErrorLevel.vsBuildErrorLevelHigh
-                    && errorItem.Description.Contains("does not denote a class, a table, or an extended data type"))
+                if(errorItem.ErrorLevel == EnvDTE80.vsBuildErrorLevel.vsBuildErrorLevelHigh)
+                    // && errorItem.Description.Contains("does not denote a class, a table, or an extended data type"))
                     // The name 'ABCPercentA' does not denote a class, a table, or an extended data type
                 {
                     //System.Windows.Forms.MessageBox.Show($"Error found: {errorItem.ErrorLevel}; {errorItem.Description}");
-                    
+
                     //now find the element - check if it is an EDT, Table, Class
-                    string elementName = this.GetElementNameFromError(errorItem.Description);
+                    //string elementName = this.GetElementNameFromError(errorItem.Description);
+                    string elementName = this.DoesReferenceErrorExist(errorItem.Description);
+                    if (String.IsNullOrEmpty(elementName))
+                        continue;
+
+
                     var moduleNameToReference = this.GetModuleFromElement(elementName);
                     if(String.IsNullOrEmpty(moduleNameToReference))
                     {
@@ -153,9 +158,68 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
             return moduleReferenceAdded;
         }
 
+        private string DoesReferenceErrorExist(string errorMsg)
+        {
+            string objectStr = this.FindObjectFromRegEx(errorMsg, ".*The name '(.*)' does not denote a class, a table, or an extended data type.*", "$1");
+            if (String.IsNullOrEmpty(objectStr) == false)
+                return objectStr;
+            objectStr = this.FindObjectFromRegEx(errorMsg, ".*The underlying type '(.*)' or its base type for table '.*' field '.*' does not exist.*", "$1");
+            if (String.IsNullOrEmpty(objectStr) == false)
+                return objectStr;
+
+            //System.Text.RegularExpressions.Regex regEx = new System.Text.RegularExpressions.Regex("The name '(.*)' does not denote a class, a table, or an extended data type");
+            //var match = regEx.Match(errorMsg);
+            //Console.WriteLine(match.Success.ToString());
+            //if (match.Success)
+            //{
+            //    string value = match.Result("$1").Trim();
+            //    return value;
+            //}
+
+            //if (errorMsg.Contains("does not denote a class, a table, or an extended data type"))
+            //{
+            //    string elementName = String.Empty;
+
+            //    int quote1, quote2;
+            //    quote1 = errorMsg.IndexOf("'", 0);
+            //    quote2 = errorMsg.IndexOf("'", quote1 + 1);
+            //    if (quote1 > 0 && quote2 > quote1)
+            //    {
+            //        elementName = errorMsg.Substring(quote1 + 1, quote2 - quote1 - 1);
+            //    }
+
+            //    return elementName;
+            //}
+
+            //regEx = new System.Text.RegularExpressions.Regex("The underlying type '(.*)' or its base type for table '.*' field '.*' does not exist");
+            //match = regEx.Match(errorMsg);
+            //Console.WriteLine(match.Success.ToString());
+            //if (match.Success)
+            //{
+            //    string value = match.Result("$1").Trim();
+            //    return value;
+            //}
+
+            return String.Empty;
+        }
+
+        private string FindObjectFromRegEx(string errorMsg, string regExString, string replacement)
+        {
+            System.Text.RegularExpressions.Regex regEx = new System.Text.RegularExpressions.Regex(regExString);
+            var match = regEx.Match(errorMsg);
+            Console.WriteLine(match.Success.ToString());
+            if (match.Success)
+            {
+                string value = match.Result(replacement).Trim();
+                return value;
+            }
+
+            return String.Empty;
+        }
         /// <summary>
         /// Get the element name from the error message
         /// Error message is like: The name 'ABCPercentA' does not denote a class, a table, or an extended data type
+        /// Error The underlying type 'DOMReasonCodeId ' or its base type for table 'MyTable' field 'FieldString1' does not exist
         /// </summary>
         /// <param name="errorMsg">Error message with element name in it</param>
         /// <returns>Element name</returns>
@@ -250,7 +314,15 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
                 metaModelProviders.CurrentMetadataProvider.ModelManifest.RefreshModels();
             }
 
+            //var projectDTE = Common.CommonUtil.DTE.ActiveDocument.ProjectItem.ContainingProject;
+            //projectDTE.DTE.Solution.SolutionBuild.Clean(true);
+            //projectDTE.DTE.Solution.SolutionBuild.Build(true);
+            //projectDTE.DTE.ExecuteCommand("Build.RebuildSolution");
+
+
+
             //TODO: #24 somehow do a rebuild instead of a clean & build
+            //Common.CommonUtil.DTE.ExecuteCommand("Build.RebuildSolution");
             Common.CommonUtil.DTE.Solution.SolutionBuild.Clean(true);
             Common.CommonUtil.DTE.Solution.SolutionBuild.Build(true);
         }
