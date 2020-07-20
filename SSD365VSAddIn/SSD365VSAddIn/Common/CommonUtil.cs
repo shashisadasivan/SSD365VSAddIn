@@ -96,6 +96,17 @@ namespace SSD365VSAddIn.Common
             }
         }
 
+        internal static void DuplicateElementToProject(Microsoft.Dynamics.AX.Metadata.Core.MetaModel.INamedObject modelElement)
+        {
+            var vsProject = CommonUtil.GetCurrentProject();
+            if (vsProject != null)
+            {
+                vsProject.DuplicateModelElementsInProject(new List<MetadataReference>()
+                {
+                    new MetadataReference(modelElement.Name, modelElement.GetType())
+                });
+            }
+        }   
 
         /// <summary>
         /// Display any logs to the user
