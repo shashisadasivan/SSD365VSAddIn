@@ -13,6 +13,7 @@ namespace SSD365VSAddIn.Forms
 {
     [Export(typeof(IDesignerMenu))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms.IForm))]
+    //[DesignerMenuExportMetadata(AutomationNodeType = typeof(Microsoft.Dynamics.Framework.Tools.MetaModel.Automation.Forms.IFormDesign))]
     class FormsFillPatternMenuItemAddIn : DesignerMenuBase
     {
         #region Member variables
@@ -78,6 +79,56 @@ namespace SSD365VSAddIn.Forms
             {
                 Microsoft.Dynamics.AX.Metadata.Patterns.PatternAnalyzer pa = new Microsoft.Dynamics.AX.Metadata.Patterns.PatternAnalyzer();
                 var patternResult = pa.TestPattern(axForm.Design, formDesignPattern);
+                if(patternResult.AnyViolations)
+                {
+                    //Check the sub nodes for the pattern
+                    foreach (var subNode in patternResult.Node.SubNodes)
+                    {
+                        if(subNode.RequireOne)
+                        {
+                            // check if the design has this node, else add it
+                            // Microsoft.Dynamics.AX.Metadata.MetaModel.AxFormActionPaneControl
+                            string violationMsg = "1";
+                            // Find the type of control to search for
+                            Type controlType = null;
+                            if(subNode.Type == "ActionPane")
+                            {
+                                controlType = typeof(AxFormActionPaneControl);
+                            }
+
+                            var controlsFound = axForm.Design.Controls.Where(c => c.GetType() == controlType);
+                            if(controlsFound.Count() == 0)
+                            {
+                                // Add the control to the form
+                                //Activator.CreateInstance(controlType);
+                                if(controlType == typeof(AxFormActionPaneControl))
+                                {
+                                    axForm.Design.AddControl(new AxFormActionPaneControl() { Name = subNode.FriendlyName });
+                                }
+                            }
+                            //foreach (var control in axForm.Design.Controls)
+                            //{
+                            //    if (control.GetType() == controlType) // == Microsoft.Dynamics.AX.Metadata.Core.MetaModel.FormControlType.ActionPane)
+                            //    {
+                            //        if (control is IPatternable)
+                            //        {
+                            //            // TODO: check further pattern analysis here
+                            //        }
+                            //        else
+                            //        {
+
+                            //        }
+                            //        break;
+                            //    }
+                            //}
+                            ////var nodeTypeObj = Object.crea subNode.Type
+                        }
+                    }
+                    foreach (var violation in patternResult.Violations)
+                    {
+                        string violationMsg = "1";
+                    }
+                }
             }
         }
     }
