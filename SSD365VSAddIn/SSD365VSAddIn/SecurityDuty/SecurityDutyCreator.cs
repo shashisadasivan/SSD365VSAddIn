@@ -31,6 +31,18 @@ namespace SSD365VSAddIn.SecurityDuty
             duty.Label = privilege.Label;
             duty.Description = privilege.Description;
 
+            if (Settings.FetchSettings.FindOrCreateSettings().SecurityLabelAutoCreate)
+            {
+                if (String.IsNullOrEmpty(duty.Label) == false)
+                {
+                    duty.Label = Labels.LabelHelper.FindOrCreateLabel(duty.Label);
+                }
+                if (String.IsNullOrEmpty(duty.Description) == false)
+                {
+                    duty.Description = Labels.LabelHelper.FindOrCreateLabel(duty.Description);
+                }
+            }
+            
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 

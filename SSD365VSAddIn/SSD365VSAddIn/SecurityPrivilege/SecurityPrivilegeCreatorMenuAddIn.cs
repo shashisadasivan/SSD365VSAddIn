@@ -130,7 +130,11 @@
                 label = new String(a);
             }
             axSecurityPriv.Label = label;
-
+            if (Settings.FetchSettings.FindOrCreateSettings().SecurityLabelAutoCreate)
+            {
+                axSecurityPriv.Label = Labels.LabelHelper.FindOrCreateLabel(axSecurityPriv.Label);
+            }
+              
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
 
@@ -191,7 +195,10 @@
                 label = new String(a);
             }
             axSecurityPrivMaint.Label = label;
-
+            if (Settings.FetchSettings.FindOrCreateSettings().SecurityLabelAutoCreate)
+            {
+                axSecurityPrivMaint.Label = Labels.LabelHelper.FindOrCreateLabel(axSecurityPrivMaint.Label);
+            }
 
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();

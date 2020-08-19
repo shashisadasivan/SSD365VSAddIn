@@ -16,5 +16,6 @@ namespace SSD365VSAddIn.Settings
         public string Extension { get; set; } = "Extension";
 
         public List<String> LabelsToUpdate { get; set; } = new List<string>();
+        public bool SecurityLabelAutoCreate { get; set; }
     }
 }

@@ -47,6 +47,7 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.textExtensionName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.chkSecurityLabelCreate = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -228,6 +229,17 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Extension name";
             // 
+            // chkSecurityLabelCreate
+            // 
+            this.chkSecurityLabelCreate.AutoSize = true;
+            this.chkSecurityLabelCreate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkSecurityLabelCreate.Location = new System.Drawing.Point(16, 143);
+            this.chkSecurityLabelCreate.Name = "chkSecurityLabelCreate";
+            this.chkSecurityLabelCreate.Size = new System.Drawing.Size(242, 17);
+            this.chkSecurityLabelCreate.TabIndex = 16;
+            this.chkSecurityLabelCreate.Text = "Automatically create labels on security objects";
+            this.chkSecurityLabelCreate.UseVisualStyleBackColor = true;
+            // 
             // ModelSettingsUI
             // 
             this.AcceptButton = this.btnOk;
@@ -235,6 +247,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(468, 459);
+            this.Controls.Add(this.chkSecurityLabelCreate);
             this.Controls.Add(this.textExtensionName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
@@ -280,5 +293,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox textExtensionName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chkSecurityLabelCreate;
     }
 }
