@@ -33,7 +33,8 @@ namespace SSD365VSAddIn.Settings
             modelSettings = FetchSettings.FindOrCreateSettings();
 
             // Get the list of labels in the current model
-            this.labelFiles = Labels.LabelHelper.GetLabelFiles();
+            //this.labelFiles = Labels.LabelHelper.GetLabelFiles();
+            this.labelFiles = Labels.LabelHelper.GetAllLabelFilesCurrentModel();
 
             this.BindData();
         }
@@ -62,6 +63,12 @@ namespace SSD365VSAddIn.Settings
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            if(this.ValidateLabels() == false)
+            {
+                MessageBox.Show("Labels cannot contain mixed files, only labels of the same language can be added");
+                return;
+            }
+
             modelSettings.Prefix = this.textPrefix.Text;
             modelSettings.Suffix = this.textSuffix.Text;
             modelSettings.Extension = this.textExtensionName.Text;
@@ -74,6 +81,30 @@ namespace SSD365VSAddIn.Settings
             // Save the model
             FetchSettings.SaveSettings(modelSettings);
             this.Close();
+        }
+
+        private Boolean ValidateLabels()
+        {
+            // You cant have 2 different label files in here. Only the same language for the label file
+            Boolean valid = true;
+
+            var selectedLabels = this.listBoxLangSelected.Items.Cast<string>().ToList();
+
+            if(selectedLabels.Count > 0)
+            {
+                var firstLabel = selectedLabels.First();
+                var labelFileId = Common.CommonUtil.GetMetaModelProviders().CurrentMetaModelService.GetLabelFile(firstLabel).LabelFileId;
+                selectedLabels.ForEach(label =>
+                {
+                    var curlableFileId = Common.CommonUtil.GetMetaModelProviders().CurrentMetaModelService.GetLabelFile(label).LabelFileId;
+                    if(curlableFileId.Equals(labelFileId) == false)
+                    {
+                        valid = false;
+                    }
+                });
+            }
+
+            return valid;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

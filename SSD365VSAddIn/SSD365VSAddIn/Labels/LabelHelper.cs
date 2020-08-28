@@ -37,10 +37,10 @@ namespace SSD365VSAddIn.Labels
         }
 
         /// <summary>
-        /// Gets a list of labels in the current model (without the language)
+        /// Gets the all label files for the current model
         /// </summary>
-        /// <returns>String list of label ids</returns>
-        public static IList<AxLabelFile> GetLabelFiles()
+        /// <returns></returns>
+        public static IList<AxLabelFile> GetAllLabelFilesCurrentModel()
         {
             List<AxLabelFile> labelFilesToUpdate = new List<AxLabelFile>();
             // Choose the current model
@@ -53,6 +53,67 @@ namespace SSD365VSAddIn.Labels
             //var metaModelService = metaModelProviders.CurrentMetaModelService;
 
             IList<string> labelFiles = metaModelProviders.CurrentMetadataProvider.LabelFiles.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name);
+
+            foreach (var labelFileNameToCheck in labelFiles)
+            {
+                var labelFileToCheck = metaModelProvider.GetLabelFile(labelFileNameToCheck);
+                labelFilesToUpdate.Add(labelFileToCheck);
+            }
+
+            return labelFilesToUpdate;
+        }
+
+        public static IList<AxLabelFile> GetLabelFilesFromModelSettings()
+        {
+            List<AxLabelFile> labelFilesToUpdate = new List<AxLabelFile>();
+            
+            // Choose the current model
+            var modelInfo = Common.CommonUtil.GetCurrentModel();
+
+            // Get the list of label files from that model
+            var metaModelProvider = Common.CommonUtil.GetModelSaveService();
+            var metaModelProviders = Common.CommonUtil.GetMetaModelProviders();
+
+            //var metaModelProviders = Microsoft.Dynamics.Framework.Tools.MetaModel.Core.ServiceLocator.GetService(typeof(Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders)) as Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders;
+            //var metaModelService = metaModelProviders.CurrentMetaModelService;
+
+            IList<string> labelFiles = metaModelProviders.CurrentMetadataProvider.LabelFiles.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name);
+
+
+            var modelSettings = Settings.FetchSettings.FindOrCreateSettings();
+            labelFiles = modelSettings.LabelsToUpdate;
+            foreach (var labelFile in labelFiles)
+            {
+                var labelFileToCheck = metaModelProvider.GetLabelFile(labelFile);
+                labelFilesToUpdate.Add(labelFileToCheck);
+            }
+            return labelFilesToUpdate;
+        }
+
+        /// <summary>
+        /// Gets a list of labels in the current model settings (without the language)
+        /// </summary>
+        /// <returns>String list of label ids</returns>
+        public static IList<AxLabelFile> GetLabelFiles()
+        {
+            List<AxLabelFile> labelFilesToUpdate = new List<AxLabelFile>();
+            // Choose the current model
+            var modelInfo = Common.CommonUtil.GetCurrentModel();
+
+            // Get the list of label files from that model
+            var metaModelProvider = Common.CommonUtil.GetModelSaveService();
+            var metaModelProviders = Common.CommonUtil.GetMetaModelProviders();
+
+            //var metaModelProviders = Microsoft.Dynamics.Framework.Tools.MetaModel.Core.ServiceLocator.GetService(typeof(Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders)) as Microsoft.Dynamics.Framework.Tools.Extensibility.IMetaModelProviders;
+            //var metaModelService = metaModelProviders.CurrentMetaModelService;
+
+            IList<string> labelFiles = metaModelProviders.CurrentMetadataProvider.LabelFiles.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name);
+            /* Use this to get all label files in system vs model
+            IList<string> labelFiles =
+                allModels == false
+                ? metaModelProviders.CurrentMetadataProvider.LabelFiles.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                : Common.CommonUtil.GetModelSaveService().GetLabelFileNames();
+            */
 
             var labelFileName = labelFiles.FirstOrDefault();
             if (labelFileName != null)
@@ -127,7 +188,8 @@ namespace SSD365VSAddIn.Labels
                 LabelControllerFactory factory = new LabelControllerFactory();
 
                 // Get the label edit controller
-                var labelFiles = LabelHelper.GetLabelFiles();
+                //var labelFiles = LabelHelper.GetLabelFiles();
+                var labelFiles = LabelHelper.GetLabelFilesFromModelSettings();
 
                 var labelFile = labelFiles.First();
 
@@ -215,14 +277,13 @@ namespace SSD365VSAddIn.Labels
             }
             else
             {
+                //TODO: we need to extract "ALL" Label files across the entire system to find the labels - Although, it should never come to this.
+                /*
                 labelFiles = LabelHelper.GetLabelFiles()
                                     .Where(l => l.LabelFileId.Equals(labelContent.LabelFileId, StringComparison.InvariantCultureIgnoreCase)
                                                 && l.LabelFileId.Contains("en-"))
                                     .ToList();
-
-                //labelFile = labelFiles
-                //                        .Where(l => l.LabelFileId.Equals(labelContent.LabelFileId, StringComparison.InvariantCultureIgnoreCase))
-                //                        .First();
+                */
             }
             if (labelFiles != null && labelFiles.Count() > 0)
             {
@@ -245,6 +306,7 @@ namespace SSD365VSAddIn.Labels
             return labelContent;
         }
 
+        /*
         public static LabelContent FindLabelGlobally_OLD(string labelIdText)
         {
             //string labelId = String.Empty;
@@ -300,49 +362,7 @@ namespace SSD365VSAddIn.Labels
             }
             return labelContent;
         }
-
-        [Obsolete("Use FindLabelGlobally instead", false)]
-        public static LabelContent FindLabel(string labelIdText)
-        {
-            //string labelId = String.Empty;
-            LabelContent labelContent = new LabelContent() { LabelIdForProperty = labelIdText };
-
-            if (labelIdText.StartsWith("@") == false)
-            {
-                return labelContent;
-            }
-
-            //var labelFileId
-            labelContent.LabelFileId = LabelHelper.GetLabelFileId(labelIdText);
-            labelContent.LabelId = labelContent.LabelIdForProperty.Substring(labelContent.LabelIdForProperty.IndexOf(":") + 1);
-
-            // Get the label factory
-            LabelControllerFactory factory = new LabelControllerFactory();
-
-            // Get the label edit controller
-            var labelFiles = LabelHelper.GetLabelFiles();
-
-            var labelFile = labelFiles
-                                    .Where(l => l.LabelFileId.Equals(labelContent.LabelFileId, StringComparison.InvariantCultureIgnoreCase))
-                                    .First();
-
-            if (labelFile != null)
-            {
-                LabelEditorController labelController = factory.GetOrCreateLabelController(labelFile, Common.CommonUtil.GetVSApplicationContext());
-                labelController.LabelSearchOption = SearchOption.MatchExactly;
-                labelController.IsMatchExactly = true;
-
-
-                var label = labelController.Labels.Where(l => l.ID.Equals(labelContent.LabelId, StringComparison.InvariantCultureIgnoreCase))
-                                    .First();
-                //if (label != null)
-                {
-                    labelContent.LabelDescription = label.Description;
-                    labelContent.LabelText = label.Text;
-                }
-            }
-            return labelContent;
-        }
+        */
 
         private static string GetLabelFileId(string labelId)
         {
