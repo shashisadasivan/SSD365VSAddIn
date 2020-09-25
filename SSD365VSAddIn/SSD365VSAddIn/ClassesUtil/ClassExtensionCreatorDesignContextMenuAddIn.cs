@@ -22,8 +22,10 @@
     // You can specify multiple DesignerMenuExportMetadata attributes to meet your needs
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IClassItem))]
     [DesignerMenuExportMetadata(AutomationNodeType =typeof(ITable))]
+    [DesignerMenuExportMetadata(AutomationNodeType =typeof(ITableExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IDataEntityView))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFormExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFormDataSource))]
     class ClassExtensionCreatorDesignContextMenuAddIn : DesignerMenuBase
     {
@@ -72,30 +74,42 @@
                     var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
                     var metaModelService = Common.CommonUtil.GetModelSaveService();
 
-                    // Create a class with the same name + _Extension and add it to the project
-                    string className = Common.CommonUtil.GetNextClassExtensionName(selectedElement.Name);
-
+                    string elementName = selectedElement.Name;
 
                     string intrinsicStr = String.Empty;
                     if(selectedElement is ITable
-                        || selectedElement is IDataEntityView)
+                        || selectedElement is IDataEntityView
+                        || selectedElement is ITableExtension)
                     {
                         intrinsicStr = "tableStr";
+                        if (selectedElement is ITableExtension)
+                        {
+                            // we need to take out everything after and including the . 
+                            elementName = elementName.Substring(0, elementName.IndexOf("."));
+                        }
                     }
                     else if(selectedElement is IClassItem)
                     {
                         intrinsicStr = "classStr";
                     }
-                    else if(selectedElement is IForm)
+                    else if(selectedElement is IForm || selectedElement is IFormExtension)
                     {
                         intrinsicStr = "formStr";
+                        if(selectedElement is IFormExtension)
+                        {
+                            // we need to take out everything after and including the . 
+                            elementName = elementName.Substring(0, elementName.IndexOf("."));
+                        }
                     }
                     
-                    Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass;
+                    // Create a class with the same name + _Extension and add it to the project
+                    string className = Common.CommonUtil.GetNextClassExtensionName(elementName);
 
-                    string extensionOfStr = $"ExtensionOf({intrinsicStr}({selectedElement.Name}))";
+                    //Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass;
+
+                    string extensionOfStr = $"ExtensionOf({intrinsicStr}({elementName}))";
                     // Find an existing class where the extension is already used
-                    extensionClass = ClassHelper.GetExistingExtensionClass(selectedElement.Name, extensionOfStr);
+                    var extensionClass = ClassHelper.GetExistingExtensionClass(elementName, extensionOfStr);
                     if (extensionClass == null)
                     {
                         extensionClass = new AxClass()
@@ -111,7 +125,7 @@
                 }
                 else if(e.SelectedElement is IFormDataSource)
                 {
-                    this.createFormDSExtension(e.SelectedElement as IFormDataSource);
+                    this.CreateFormDSExtension(e.SelectedElement as IFormDataSource);
                 }
             }
             catch (Exception ex)
@@ -121,7 +135,7 @@
         }
         #endregion
 
-        public void createFormDSExtension(IFormDataSource formDataSource)
+        public void CreateFormDSExtension(IFormDataSource formDataSource)
         {
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
