@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace SSD365VSAddIn.MainMenuAddIns
 {
     //TODO: #34 error returns when Breakpoints.Add called "Multiple locations specified for new breakpoint". Might be thefile wasnt found
-    //[Export(typeof(IMainMenu))]
+    // [Export(typeof(IMainMenu))]
     public class AddInfoBreakpointMainMenuAddIn : MainMenuBase
     {
         /// <summary>
@@ -63,7 +63,12 @@ namespace SSD365VSAddIn.MainMenuAddIns
 
         public void SetBreakpoint()
         {
-            DTE.Debugger.Breakpoints.Add("add", @"K:\AosService\PackagesLocalDirectory\ApplicationPlatform\ApplicationPlatform\AxClass\Info.xml", 1);
+            //DTE.Debugger.Breakpoints.Add("", @"K:\AosService\PackagesLocalDirectory\ApplicationPlatform\ApplicationPlatform\AxClass\Info.xml", 333, 1, "", dbgBreakpointConditionType.dbgBreakpointConditionTypeWhenTrue, "", "", 0, "", 0, dbgHitCountType.dbgHitCountTypeNone);
+            //DTE.Debugger.Breakpoints.Add("", @"K:\AosService\PackagesLocalDirectory\ApplicationPlatform\ApplicationPlatform\AxClass\Info.xml");// , 333, 1, "", dbgBreakpointConditionType.dbgBreakpointConditionTypeWhenTrue, "", "", 0, "", 0, dbgHitCountType.dbgHitCountTypeNone);
+            //DTE.Debugger.Breakpoints.Add("", @"AxClass_Info.xml");// , 333, 1, "", dbgBreakpointConditionType.dbgBreakpointConditionTypeWhenTrue, "", "", 0, "", 0, dbgHitCountType.dbgHitCountTypeNone);
+            DTE.Debugger.Breakpoints.Add("", @"K:\AosService\PackagesLocalDirectory\bin\XppSource\ApplicationPlatform\AxClass_Info.xpp", 1, 1, "", dbgBreakpointConditionType.dbgBreakpointConditionTypeWhenTrue, "X++", "", 4);
+
+
         }
     }
 }

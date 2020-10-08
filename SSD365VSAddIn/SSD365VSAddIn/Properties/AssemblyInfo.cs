@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SS D365 VS AddIn")]
-[assembly: AssemblyDescription("Visual studio addin for Dynamics 365 Finance and utilities")]
+[assembly: AssemblyDescription("Visual studio addin for Dynamics 365 Finance and More")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Shashi Sadasivan")]
 [assembly: AssemblyProduct("SSD365VSAddIn")]
