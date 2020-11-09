@@ -141,10 +141,13 @@
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
             var metaModelService = Common.CommonUtil.GetModelSaveService();
 
-            string className = Common.CommonUtil.GetNextClassExtensionName(formDataSource.Name);
             string intrinsicStr = "formdatasourcestr";
 
-            string extensionOfStr = $"ExtensionOf({intrinsicStr}({formDataSource.RootElement.Name},{formDataSource.Name}))";
+            string rootElementName = formDataSource.RootElement.Name.Substring(0, formDataSource.RootElement.Name.IndexOf("."));
+            string className = $"{rootElementName}_{formDataSource.Name}";
+            className = Common.CommonUtil.GetNextClassExtensionName(className);
+
+            string extensionOfStr = $"ExtensionOf({intrinsicStr}({rootElementName},{formDataSource.Name}))";
             Microsoft.Dynamics.AX.Metadata.MetaModel.AxClass extensionClass = ClassHelper.GetExistingExtensionClass(formDataSource.Name, extensionOfStr);
             if (extensionClass == null)
             {
