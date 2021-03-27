@@ -166,7 +166,9 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
             objectStr = this.FindObjectFromRegEx(errorMsg, ".*The underlying type '(.*)' or its base type for table '.*' field '.*' does not exist.*", "$1");
             if (String.IsNullOrEmpty(objectStr) == false)
                 return objectStr;
-
+            objectStr = this.FindObjectFromRegEx(errorMsg, ".*Path: .* '(.*)' does not exist.*", "$1");
+            if (String.IsNullOrEmpty(objectStr) == false)
+                return objectStr;
             //System.Text.RegularExpressions.Regex regEx = new System.Text.RegularExpressions.Regex("The name '(.*)' does not denote a class, a table, or an extended data type");
             //var match = regEx.Match(errorMsg);
             //Console.WriteLine(match.Success.ToString());
@@ -250,7 +252,20 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
         /// <returns>Module name of the givent element name</returns>
         private string GetModuleFromElement(string elementName)
         {
-            
+            // Check if this is an Enum
+            var baseEnum = Common.CommonUtil.GetModelSaveService()
+                            .GetEnum(elementName);
+            if(baseEnum != null)
+            {
+                var modelInfo = Common.CommonUtil.GetModelSaveService()
+                    .GetEnumModelInfo(elementName)
+                    .FirstOrDefault();
+                if(modelInfo != null)
+                {
+                    return modelInfo.Name;
+                }
+                return null;
+            }
             // Check if this is an EDT
             var edt = Common.CommonUtil.GetModelSaveService()
                             .GetExtendedDataType(elementName);
@@ -311,6 +326,8 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
             if (metaModelProviders !=null)
             {
                 //TODO: #24 somehow refresh the models
+                //Refresh doesnt help anymore, requires to "Update model references" and step through the wizard (Packages should already be marked)
+                //Some reason VS doesnt pick it up that the refreneces have been added
                 metaModelProviders.CurrentMetadataProvider.ModelManifest.RefreshModels();
             }
 
