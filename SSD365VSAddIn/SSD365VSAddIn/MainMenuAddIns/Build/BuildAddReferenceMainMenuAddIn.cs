@@ -320,16 +320,21 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
         /// </summary>
         public void BuildSolution()
         {
+            //Update the model (This is done in the update model wizard)
+            DesignMetaModelService.Instance.UpdateModel(Common.CommonUtil.GetCurrentModel());
             //Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider
             //var metaModelProviders = ServiceLocator.GetService(typeof(Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider)) as Microsoft.Dynamics.AX.Metadata.Providers.IMetadataProvider;
             var metaModelProviders = Common.CommonUtil.GetMetaModelProviders();
             if (metaModelProviders !=null)
             {
-                //TODO: #24 somehow refresh the models
+                //Refresh the models
                 //Refresh doesnt help anymore, requires to "Update model references" and step through the wizard (Packages should already be marked)
                 //Some reason VS doesnt pick it up that the refreneces have been added
                 metaModelProviders.CurrentMetadataProvider.ModelManifest.RefreshModels();
             }
+
+            // Restart the XPPAgent
+            ((CoreUtility.ServiceProvider.GetService(typeof(IAgentWrapperService))) as IAgentWrapperService).RestartXppcAgent();
 
             //var projectDTE = Common.CommonUtil.DTE.ActiveDocument.ProjectItem.ContainingProject;
             //projectDTE.DTE.Solution.SolutionBuild.Clean(true);
@@ -338,10 +343,34 @@ namespace SSD365VSAddIn.MainMenuAddIns.Build
 
 
 
-            //TODO: #24 somehow do a rebuild instead of a clean & build
+            //Do a rebuild instead of a clean & build
             //Common.CommonUtil.DTE.ExecuteCommand("Build.RebuildSolution");
-            Common.CommonUtil.DTE.Solution.SolutionBuild.Clean(true);
-            Common.CommonUtil.DTE.Solution.SolutionBuild.Build(true);
+            //Common.CommonUtil.DTE.Solution.SolutionBuild.Clean(true);
+            //Common.CommonUtil.DTE.Solution.SolutionBuild.Build(true);
+            try
+            { 
+            Common.CommonUtil.DTE.ExecuteCommand("Build.RebuildSelection");
+            }
+            catch
+            {
+                // Sometimes the build is already running or the build is not available. Havent been able to figure out how to avoid  / wait for the build
+            }
+            /*
+            long maxTimeToWaitMilliseconds = 20 * 1000;
+            System.Diagnostics.Stopwatch st = new System.Diagnostics.Stopwatch();
+            st.Start();
+
+            while(Common.CommonUtil.DTE.StatusBar.Text != "Ready"
+                && st.ElapsedMilliseconds <= maxTimeToWaitMilliseconds)
+            {
+                // Hopefully this will wait for the build to finish
+                System.Threading.Thread.Sleep(100);
+            }
+
+            st.Stop();
+            st = null;
+            */
+            //Common.CommonUtil.DTE.ExecuteCommand("Build.RebuildSolution");
         }
     }
 }
