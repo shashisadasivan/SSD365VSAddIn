@@ -26,4 +26,29 @@ foreach ($file in $files)
     Unblock-File $file
 }
 
-#TODO: Edit the config file "C:\Users\<username>\Documents\Visual Studio Dynamics 365\DynamicsDevConfig.xml" and add an entry for the above folder
+#Edit the config file "C:\Users\<username>\Documents\Visual Studio Dynamics 365\DynamicsDevConfig.xml" and add an entry for the above folder
+
+$D365VSConfigFile = "$env:USERPROFILE\Documents\Visual Studio Dynamics 365\DynamicsDevConfig.xml"
+If(!(test-path $addinPath))
+{
+    throw "Please enter the path into configuration manually"
+}
+
+$AddPathToConfig = $true
+
+foreach ($element in $XMLDocument.DynamicsDevConfig.AddInPaths.string)
+{
+    if($element.Equals($addinPath))
+    {
+        $AddPathToConfig = $false
+    }
+}
+
+if($AddPathToConfig.Equals($true))
+{
+    $configStr = $XMLDocument.CreateElement("d2p1", "string", "http://schemas.microsoft.com/2003/10/Serialization/Arrays")
+    $configstr.InnerText = $addinPath
+    $XMLDocument.DynamicsDevConfig.AddInPaths.AppendChild($configStr)
+    $XmlDocument.Save($D365VSConfigFile)
+}
+
