@@ -25,7 +25,12 @@ __Version support__: 10.0.10 and higher. If you want to install this for a syste
   
 # How to install the extension
 
-**Updated installation instructions** works for non admin users
+**Option 1: Run from powershell script**
+  ```Powershell
+  Invoke-WebRequest https://raw.githubusercontent.com/shashisadasivan/SSD365VSAddIn/master/Misc/install.ps1
+  ```
+  
+**Option 2: Mannual installation** (works for non admin users)
 - Download all the dll files from the folder [OutputDlls](OutputDlls) 
   If you are installing on a version prior to 10.0.10, then grab the contents from the file PriorTo10.0.10.zip located in the folder
 - Create a new folder e.g. c:\D365CustomAddIns
