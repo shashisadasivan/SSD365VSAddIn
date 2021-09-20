@@ -66,9 +66,10 @@ namespace SSD365VSAddIn.Tables
 
                     if (selectedMenuItem is ITable)
                     {
-                        ITable axForm = selectedMenuItem as ITable;
+                        ITable axTable = selectedMenuItem as ITable;
 
-                        this.createForm(axForm);
+                        var axForm = this.createForm(axTable);
+                        axTable.FormRef = axForm;
                     }
                     else
                         return;
@@ -91,6 +92,9 @@ namespace SSD365VSAddIn.Tables
                 Design = new AxFormDesign() { Caption = table.Label }
             };
             axForm.DataSources.Add(new AxFormDataSourceRoot() { Table = table.Name, Name = table.Name });
+
+            axForm.Design.DataSource = table.Name;
+            axForm.Design.TitleDataSource = table.Name;
 
             // Find current model
             var modelSaveInfo = Common.CommonUtil.GetCurrentModelSaveInfo();
