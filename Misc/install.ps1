@@ -25,7 +25,7 @@ foreach ($file in $files)
     Invoke-WebRequest $download -Out $file
     Unblock-File $file
 }
-
+Write-Host "Adding path to configuration"
 #Edit the config file "C:\Users\<username>\Documents\Visual Studio Dynamics 365\DynamicsDevConfig.xml" and add an entry for the above folder
 
 $D365VSConfigFile = "$env:USERPROFILE\Documents\Visual Studio Dynamics 365\DynamicsDevConfig.xml"
@@ -35,6 +35,7 @@ If(!(test-path $addinPath))
 }
 
 $AddPathToConfig = $true
+[xml]$XMLDocument = Get-Content $D365VSConfigFile
 
 foreach ($element in $XMLDocument.DynamicsDevConfig.AddInPaths.string)
 {
