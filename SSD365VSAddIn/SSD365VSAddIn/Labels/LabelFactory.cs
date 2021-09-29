@@ -47,6 +47,10 @@ namespace SSD365VSAddIn.Labels
             {
                 labelFactory = new LabelFactory_Form();
             }
+            else if (selectedElement is IFormExtension)
+            {
+                labelFactory = new LabelFactory_Form();
+            }
             else if (selectedElement is ISecurityDuty)
             {
                 labelFactory = new LabelFactory_ISecurityDuty();
@@ -345,6 +349,105 @@ namespace SSD365VSAddIn.Labels
                     formControl.HelpText = this.GetLabel(formControl.HelpText); // most elements has a help text
                     string textValue = formControl.GetPropertyValueSS<String>("Text");
                     if(!String.IsNullOrEmpty(textValue))
+                    {
+                        formControl.SetPropertyValueSS("Text", this.GetLabel(textValue));
+                    }
+
+                    string labelValue = formControl.GetPropertyValueSS<String>("Label");
+                    if (!String.IsNullOrEmpty(labelValue))
+                    {
+                        formControl.SetPropertyValueSS("Label", this.GetLabel(labelValue));
+                    }
+
+                    //string helpTextValue = formControl.GetPropertyValueSS<String>("HelpText");
+                    //if (!String.IsNullOrEmpty(labelValue))
+                    //{
+                    //    formControl.SetPropertyValueSS("HelpText", this.GetLabel(helpTextValue));
+                    //}
+
+                    string captionValue = formControl.GetPropertyValueSS<String>("Caption");
+                    if (!String.IsNullOrEmpty(captionValue))
+                    {
+                        formControl.SetPropertyValueSS("Caption", this.GetLabel(captionValue));
+                    }
+
+                    string exportValue = formControl.GetPropertyValueSS<String>("ExportLabel");
+                    if (!String.IsNullOrEmpty(exportValue))
+                    {
+                        formControl.SetPropertyValueSS("ExportLabel", this.GetLabel(exportValue));
+                    }
+
+                    if (formControl.FormControlExtension != null && formControl.FormControlExtension.ExtensionProperties != null)
+                    {
+                        var extprops = formControl.FormControlExtension.ExtensionProperties.GetEnumerator();
+                        while (extprops.MoveNext())
+                        {
+                            var extProperty = extprops.Current as ExtensionProperty;
+
+                            if (extProperty.Name.Equals("PlaceholderText", StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                extProperty.Value = this.GetLabel(extProperty.Value);
+                                //formControl.SetPropertyValueSS("PlaceholderText", this.GetLabel(placeholderTextValue));
+                            }
+                            else if (extProperty.Name.Equals("ExportLabel", StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                extProperty.Value = this.GetLabel(extProperty.Value); ;
+                            }
+                        }
+                    }
+
+                    // If the control has children (grid, groups, etc) then run through them as well
+                    if (formControl is IFormControlWithChildren)
+                    {
+                        var formControlWithChildren = formControl as IFormControlWithChildren;
+                        if (formControlWithChildren != null && formControlWithChildren.FormControls != null)
+                        {
+                            this.RunEnumerator(formControlWithChildren.FormControls);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    public class LabelFactory_FormExtension : LabelFactory
+    {
+        IFormExtension iForm;
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            this.iForm = selectedElement as IFormExtension;
+        }
+
+        public override void ApplyLabel()
+        {
+            //check if table is in current model
+            var tableExists = Common.CommonUtil.GetMetaModelProviders()
+                                .CurrentMetadataProvider
+                                .Tables.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                .Where(t => t.Equals(this.iForm.Name))
+                                .FirstOrDefault();
+
+            if (string.IsNullOrEmpty(tableExists) == false)
+            {
+                this.iForm.FormDesign.Caption = this.GetLabel(this.iForm.FormDesign.Caption);
+
+                this.RunEnumerator(this.iForm.FormDesign.VisualChildren);
+            }
+
+        }
+
+        private void RunEnumerator(System.Collections.IEnumerable formControls)
+        {
+            foreach (var item in formControls)
+            {
+                var formControl = item as IFormControl;
+                if (formControl != null)
+                {
+                    formControl.HelpText = this.GetLabel(formControl.HelpText); // most elements has a help text
+                    string textValue = formControl.GetPropertyValueSS<String>("Text");
+                    if (!String.IsNullOrEmpty(textValue))
                     {
                         formControl.SetPropertyValueSS("Text", this.GetLabel(textValue));
                     }
