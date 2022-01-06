@@ -155,22 +155,28 @@
             //Create Security privilege
             AxSecurityPrivilege axSecurityPrivMaint = new AxSecurityPrivilege() { Name = selectedMenuItem.Name + suffix };
 
-            axSecurityPrivMaint.EntryPoints.Add(
-                                new AxSecurityEntryPointReference()
-                                {
-                                    ObjectType = entryPointType,
-                                    ObjectName = selectedMenuItem.Name,
-                                    Name = selectedMenuItem.Name,
-                                    Grant = new Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrant()
-                                    {
-                                        Delete = suffix.Equals("Maintain") 
-                                                    ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow 
+            var entryPoint = new AxSecurityEntryPointReference()
+            {
+                ObjectType = entryPointType,
+                ObjectName = selectedMenuItem.Name,
+                Name = selectedMenuItem.Name,
+                Grant = new Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrant()
+                {
+                    Delete = suffix.Equals("Maintain")
+                                                    ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
                                                     : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset,
-                                        Read = suffix.Equals("View")
+                    Read = suffix.Equals("View")
                                                     ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
                                                     : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset
-                                    }
-                                });
+                }
+            };
+
+            if (selectedMenuItem.ObjectType == Microsoft.Dynamics.AX.Metadata.Core.MetaModel.MenuItemObjectType.Form)
+            {
+                entryPoint.Forms.Add(new AxSecurityEntryPointReferenceForm() { Name = selectedMenuItem.Object });
+            }
+            axSecurityPrivMaint.EntryPoints.Add(entryPoint);
+           
 
             // Assign the correct label on this by addint maintain or view in the label, copy the base label from the menu item
             string label = selectedMenuItem.Label;

@@ -29,6 +29,7 @@ namespace SSD365VSAddIn.Labels
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItem))]
     //[DesignerMenuExportMetadata(AutomationNodeType = typeof(IMenuItemExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(IForm))]
+    [DesignerMenuExportMetadata(AutomationNodeType = typeof(IFormExtension))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityDuty))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityPrivilege))]
     [DesignerMenuExportMetadata(AutomationNodeType = typeof(ISecurityRole))]
@@ -50,7 +51,7 @@ namespace SSD365VSAddIn.Labels
         {
             get
             {
-                return AddinResources.LabelCreatorMainMenuAddIn;
+                return AddinResources.LabelCreatorForProperties;
             }
         }
 

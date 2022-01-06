@@ -153,9 +153,9 @@ namespace SSD365VSAddIn {
         /// <summary>
         ///   Looks up a localized string similar to Create label for properties (SS D365).
         /// </summary>
-        internal static string LabelCreatorMainMenuAddIn {
+        internal static string LabelCreatorForProperties {
             get {
-                return ResourceManager.GetString("LabelCreatorMainMenuAddIn", resourceCulture);
+                return ResourceManager.GetString("LabelCreatorForProperties", resourceCulture);
             }
         }
         

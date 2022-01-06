@@ -49,7 +49,7 @@ namespace SSD365VSAddIn.Labels
             }
             else if (selectedElement is IFormExtension)
             {
-                labelFactory = new LabelFactory_Form();
+                labelFactory = new LabelFactory_FormExtention();
             }
             else if (selectedElement is ISecurityDuty)
             {
@@ -312,6 +312,34 @@ namespace SSD365VSAddIn.Labels
         }
     }
 
+    public class LabelFactory_FormExtention : LabelFactory_Form
+    {
+        IFormExtension iFormExtension;
+
+        public override void setElementType(IRootElement selectedElement)
+        {
+            this.iFormExtension = selectedElement as IFormExtension;
+        }
+
+        public override void ApplyLabel()
+        {
+            //check if table is in current model
+            var tableExists = Common.CommonUtil.GetMetaModelProviders()
+                                .CurrentMetadataProvider
+                                .FormExtensions.ListObjectsForModel(Common.CommonUtil.GetCurrentModel().Name)
+                                .Where(t => t.Equals(this.iFormExtension.Name))
+                                .FirstOrDefault();
+
+            if (string.IsNullOrEmpty(tableExists) == false)
+            {
+                this.iFormExtension.FormDesign.Caption = this.GetLabel(this.iFormExtension.FormDesign.Caption);
+
+                this.RunEnumerator(this.iFormExtension.FormDesign.VisualChildren);
+            }
+
+        }
+    }
+
     public class LabelFactory_Form : LabelFactory
     {
         IForm iForm;
@@ -339,7 +367,7 @@ namespace SSD365VSAddIn.Labels
 
         }
 
-        private void RunEnumerator(System.Collections.IEnumerable formControls)
+        protected void RunEnumerator(System.Collections.IEnumerable formControls)
         {
             foreach (var item in formControls)
             {

@@ -148,7 +148,7 @@
   <data name="LabelCreator" xml:space="preserve">
     <value>Label creator (SS D365)</value>
   </data>
-  <data name="LabelCreatorMainMenuAddIn" xml:space="preserve">
+  <data name="LabelCreatorForProperties" xml:space="preserve">
     <value>Create label for properties (SS D365)</value>
   </data>
   <data name="MainMenuAddInCaption" xml:space="preserve">
