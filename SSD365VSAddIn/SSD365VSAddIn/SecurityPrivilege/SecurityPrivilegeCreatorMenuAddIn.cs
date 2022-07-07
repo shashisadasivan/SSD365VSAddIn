@@ -165,6 +165,18 @@
                     Delete = suffix.Equals("Maintain")
                                                     ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
                                                     : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset,
+                    Correct = suffix.Equals("Maintain")
+                                                    ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
+                                                    : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset,
+                    Create = suffix.Equals("Maintain")
+                                                    ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
+                                                    : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset,
+                    //Invoke = suffix.Equals("Maintain")
+                    //                                ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
+                    //                                : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset,
+                    Update = suffix.Equals("Maintain")
+                                                    ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
+                                                    : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset,
                     Read = suffix.Equals("View")
                                                     ? Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Allow
                                                     : Microsoft.Dynamics.AX.Metadata.Core.MetaModel.AccessGrantPermission.Unset
