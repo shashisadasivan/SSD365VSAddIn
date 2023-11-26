@@ -45,6 +45,18 @@ namespace SSD365VSAddIn.Settings
             this.textSuffix.Text = modelSettings.Suffix;
             this.textExtensionName.Text = modelSettings.Extension;
             this.chkSecurityLabelCreate.Checked = modelSettings.SecurityLabelAutoCreate;
+            this.chkCamelCaseLabels.Checked = modelSettings.UseCamelCaseForLabels;
+            this.chkCreateIfLabelEmpty.Checked = modelSettings.CreateLabelsForEmptyProperties;
+            this.chkRecreateLabelsForSys.Checked = modelSettings.RecreateSysLabels;
+
+            var allowedLabelsType = modelSettings.allowedLabels.GetType();
+
+            clbAllowedLabels.Items.Clear();
+
+            foreach (var property in allowedLabelsType.GetProperties())
+            {
+                clbAllowedLabels.Items.Add(property.Name, (bool)property.GetValue(modelSettings.allowedLabels));
+            }
 
             // make sure that the label files selected are still valid
             var selectedLabels = this.modelSettings.LabelsToUpdate.Intersect(this.labelFiles.Select(l => l.Name))
@@ -73,6 +85,16 @@ namespace SSD365VSAddIn.Settings
             modelSettings.Suffix = this.textSuffix.Text;
             modelSettings.Extension = this.textExtensionName.Text;
             modelSettings.SecurityLabelAutoCreate = this.chkSecurityLabelCreate.Checked;
+            modelSettings.UseCamelCaseForLabels = this.chkCamelCaseLabels.Checked;
+            modelSettings.CreateLabelsForEmptyProperties = this.chkCreateIfLabelEmpty.Checked;
+            modelSettings.RecreateSysLabels = this.chkRecreateLabelsForSys.Checked;
+
+            var allowedLabelsType = modelSettings.allowedLabels.GetType();
+
+            foreach (var property in allowedLabelsType.GetProperties())
+            {
+                property.SetValue(modelSettings.allowedLabels, clbAllowedLabels.CheckedItems.Contains(property.Name));
+            }
 
             //Add languages to update
             modelSettings.LabelsToUpdate.Clear();

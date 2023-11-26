@@ -48,6 +48,10 @@
             this.textExtensionName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chkSecurityLabelCreate = new System.Windows.Forms.CheckBox();
+            this.chkCamelCaseLabels = new System.Windows.Forms.CheckBox();
+            this.chkCreateIfLabelEmpty = new System.Windows.Forms.CheckBox();
+            this.chkRecreateLabelsForSys = new System.Windows.Forms.CheckBox();
+            this.clbAllowedLabels = new System.Windows.Forms.CheckedListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +117,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.listBoxLangAvailable);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(2, 166);
+            this.panel1.Location = new System.Drawing.Point(2, 320);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(465, 227);
             this.panel1.TabIndex = 10;
@@ -187,7 +191,7 @@
             // 
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.btnOk);
-            this.panel2.Location = new System.Drawing.Point(2, 412);
+            this.panel2.Location = new System.Drawing.Point(2, 553);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(465, 42);
             this.panel2.TabIndex = 11;
@@ -240,13 +244,58 @@
             this.chkSecurityLabelCreate.Text = "Automatically create labels on security objects";
             this.chkSecurityLabelCreate.UseVisualStyleBackColor = true;
             // 
+            // chkCamelCaseLabels
+            // 
+            this.chkCamelCaseLabels.AutoSize = true;
+            this.chkCamelCaseLabels.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkCamelCaseLabels.Location = new System.Drawing.Point(16, 176);
+            this.chkCamelCaseLabels.Name = "chkCamelCaseLabels";
+            this.chkCamelCaseLabels.Size = new System.Drawing.Size(147, 17);
+            this.chkCamelCaseLabels.TabIndex = 17;
+            this.chkCamelCaseLabels.Text = "Use camel case for labels";
+            this.chkCamelCaseLabels.UseVisualStyleBackColor = true;
+            // 
+            // chkCreateIfLabelEmpty
+            // 
+            this.chkCreateIfLabelEmpty.AutoSize = true;
+            this.chkCreateIfLabelEmpty.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkCreateIfLabelEmpty.Location = new System.Drawing.Point(16, 208);
+            this.chkCreateIfLabelEmpty.Name = "chkCreateIfLabelEmpty";
+            this.chkCreateIfLabelEmpty.Size = new System.Drawing.Size(199, 17);
+            this.chkCreateIfLabelEmpty.TabIndex = 18;
+            this.chkCreateIfLabelEmpty.Text = "Create label even if property is empty";
+            this.chkCreateIfLabelEmpty.UseVisualStyleBackColor = true;
+            // 
+            // chkRecreateLabelsForSys
+            // 
+            this.chkRecreateLabelsForSys.AutoSize = true;
+            this.chkRecreateLabelsForSys.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkRecreateLabelsForSys.Location = new System.Drawing.Point(16, 241);
+            this.chkRecreateLabelsForSys.Name = "chkRecreateLabelsForSys";
+            this.chkRecreateLabelsForSys.Size = new System.Drawing.Size(211, 17);
+            this.chkRecreateLabelsForSys.TabIndex = 19;
+            this.chkRecreateLabelsForSys.Text = "Recreate labels for SYS labels in model";
+            this.chkRecreateLabelsForSys.UseVisualStyleBackColor = true;
+            // 
+            // clbAllowedLabels
+            // 
+            this.clbAllowedLabels.FormattingEnabled = true;
+            this.clbAllowedLabels.Location = new System.Drawing.Point(297, 13);
+            this.clbAllowedLabels.Name = "clbAllowedLabels";
+            this.clbAllowedLabels.Size = new System.Drawing.Size(170, 289);
+            this.clbAllowedLabels.TabIndex = 20;
+            // 
             // ModelSettingsUI
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(468, 459);
+            this.ClientSize = new System.Drawing.Size(471, 589);
+            this.Controls.Add(this.clbAllowedLabels);
+            this.Controls.Add(this.chkRecreateLabelsForSys);
+            this.Controls.Add(this.chkCreateIfLabelEmpty);
+            this.Controls.Add(this.chkCamelCaseLabels);
             this.Controls.Add(this.chkSecurityLabelCreate);
             this.Controls.Add(this.textExtensionName);
             this.Controls.Add(this.label2);
@@ -294,5 +343,9 @@
         private System.Windows.Forms.TextBox textExtensionName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chkSecurityLabelCreate;
+        private System.Windows.Forms.CheckBox chkCamelCaseLabels;
+        private System.Windows.Forms.CheckBox chkCreateIfLabelEmpty;
+        private System.Windows.Forms.CheckBox chkRecreateLabelsForSys;
+        private System.Windows.Forms.CheckedListBox clbAllowedLabels;
     }
 }

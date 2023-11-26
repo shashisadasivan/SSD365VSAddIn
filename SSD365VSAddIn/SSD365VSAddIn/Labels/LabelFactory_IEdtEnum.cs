@@ -17,14 +17,14 @@ namespace SSD365VSAddIn.Labels
                                        .FirstOrDefault();
             if (String.IsNullOrEmpty(edtEnumExists) == false)
             {
-                this.iBaseEnum.Label = this.GetLabel(this.iBaseEnum.Label);
-                this.iBaseEnum.Help = this.GetLabel(this.iBaseEnum.Help);
+                this.iBaseEnum.Label = this.GetLabel(this.iBaseEnum.Label, "BaseEnum", "Label");
+                this.iBaseEnum.Help = this.GetLabel(this.iBaseEnum.Help, "BaseEnum", "Help");
 
                 // now add the labels for the elements
                 foreach (var item in this.iBaseEnum.BaseEnumValues)
                 {
                     BaseEnumValue enumValue = item as BaseEnumValue;
-                    enumValue.Label = this.GetLabel(enumValue.Label);
+                    enumValue.Label = this.GetLabel(enumValue.Label, "BaseEnumValue", "Label", enumValue.Name);
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace SSD365VSAddIn.Labels
                 foreach (var item in this.iBaseEnumExtension.BaseEnumValues)
                 {
                     BaseEnumValue enumValue = item as BaseEnumValue;
-                    enumValue.Label = this.GetLabel(enumValue.Label);
+                    enumValue.Label = this.GetLabel(enumValue.Label, "BaseEnumExtensionValue", "Label", enumValue.Name);
                 }
             }
         }
