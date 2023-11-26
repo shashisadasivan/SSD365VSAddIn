@@ -37,14 +37,10 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\..\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte80.dll</HintPath>
-    </Reference>
+    <Reference Include="envdte90, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.Dynamics.AX.Metadata">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.AX.Metadata.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.AX.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Dynamics.AX.Metadata.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -52,45 +48,52 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.AX.Metadata.Patterns">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.AX.Metadata.Patterns.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.AX.Metadata.Patterns.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.AX.Server.Core">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.AX.Server.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.AX.Server.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.AX.Xpp.AxShared">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.AX.Xpp.AxShared.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.AX.Xpp.AxShared.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.AX.Xpp.Support">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.AX.Xpp.Support.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.AX.Xpp.Support.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.BuildTasks">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.AutomationObjects.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.AutomationObjects.17.0.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.LabelEditor">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.Framework.Tools.LabelEditor.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.BuildTasks.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.BuildTasks.17.0.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.Framework.Tools.MetaModel.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.Configuration.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.Configuration.17.0.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>K:\AosService\PackagesLocalDirectory\bin\Microsoft.Dynamics.Framework.Tools.MetaModel.Core.dll</HintPath>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.Core.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.Core.17.0.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSupport">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.Framework.Tools.ProjectSupport.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.Extensibility.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.Extensibility.17.0.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSystem">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\dzdgue0e.r4k\Microsoft.Dynamics.Framework.Tools.ProjectSystem.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.LabelEditor.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.LabelEditor.17.0.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.MetaModel.17.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.Core.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.MetaModel.Core.17.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSupport.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.ProjectSupport.17.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSystem.17.0">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\j30535fu.rdl\Microsoft.Dynamics.Framework.Tools.ProjectSystem.17.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -195,7 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.2</Version>
+      <Version>9.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
