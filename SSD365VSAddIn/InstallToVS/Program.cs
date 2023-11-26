@@ -41,7 +41,7 @@ namespace InstallToVS
                 targetPath = Path.Combine(extensionFolderName, DllName2);
                 File.Copy(sourcePath, targetPath, true);
 
-                Console.WriteLine("Setup finished! Close and enjoy!");
+                Console.WriteLine("Setup finished");
 
             }
             catch (Exception ee)
@@ -49,8 +49,6 @@ namespace InstallToVS
                 Console.Error.WriteLine(ee);
                 Console.Error.WriteLine("Seems that an issue prevented me from doing my job :(");
             }
-
-            Console.ReadLine();
         }
         private static string FindExtensionFolder()
         {

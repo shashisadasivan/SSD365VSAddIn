@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSD365VSAddIn", "SSD365VSAddIn\SSD365VSAddIn.csproj", "{DBFC4BC7-AD18-4771-9E5F-0CD66A938D5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallToVS", "InstallToVS\InstallToVS.csproj", "{2470C9A5-2F02-4BF3-8C13-1BEB08707476}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DBFC4BC7-AD18-4771-9E5F-0CD66A938D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBFC4BC7-AD18-4771-9E5F-0CD66A938D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBFC4BC7-AD18-4771-9E5F-0CD66A938D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2470C9A5-2F02-4BF3-8C13-1BEB08707476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2470C9A5-2F02-4BF3-8C13-1BEB08707476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2470C9A5-2F02-4BF3-8C13-1BEB08707476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2470C9A5-2F02-4BF3-8C13-1BEB08707476}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
