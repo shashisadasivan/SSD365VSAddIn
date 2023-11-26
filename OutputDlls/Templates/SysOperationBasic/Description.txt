@@ -1,1 +1,0 @@
-Creates sysoperation based classes (Controller, Data Contract, Service) along with a menu item
