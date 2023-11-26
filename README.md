@@ -27,7 +27,7 @@ __Version support__: 10.0.10 and higher. If you want to install this for a syste
 
 **Option 1: Run from powershell script**
   ```Powershell
-  iex (iwr "https://raw.githubusercontent.com/shashisadasivan/SSD365VSAddIn/master/Misc/install.ps1").Content
+  iex (iwr "https://raw.githubusercontent.com/shadowchamber/SSD365VSAddIn/master/Misc/install.ps1").Content
   ```
   
 **Option 2: Mannual installation** (works for non admin users)

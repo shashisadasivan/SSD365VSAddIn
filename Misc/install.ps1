@@ -1,4 +1,4 @@
-$repo = "shashisadasivan/SSD365VSAddIn"
+$repo = "shadowchamber/SSD365VSAddIn"
 $releases = "https://api.github.com/repos/$repo/releases"
 #Enter the Flder where you want the files to be downloaded
 $addinPath = "C:\d365_VS_AddIns" 
