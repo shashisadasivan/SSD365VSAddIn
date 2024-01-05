@@ -1,6 +1,6 @@
 # Visual studio add-in for dynamics 365 finance and operations
 Extensions to enhance the development experience, mostly with just the mouse.
-These can only be done from the designer windows of the source objects
+These can only be done from the designer windows of the source objects.
 
 __Version support__: 10.0.10 and higher. If you want to install this for a system prior to 10.0.10, then see the __How to install__ section
 
