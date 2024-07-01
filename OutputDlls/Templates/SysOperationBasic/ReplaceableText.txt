@@ -1,5 +1,0 @@
-MyClass
-My Class
-MyName
-myName
-WhatsThat

@@ -11,6 +11,7 @@ using Microsoft.Dynamics.Framework.Tools.Extensibility;
 using Microsoft.Dynamics.Framework.Tools.MetaModel.Core;
 using Microsoft.Dynamics.Framework.Tools.ProjectSystem;
 using Microsoft.Dynamics.AX.Server.Core.Service;
+using EnvDTE80;
 
 namespace SSD365VSAddIn.Common
 {
@@ -22,7 +23,7 @@ namespace SSD365VSAddIn.Common
         /// <summary>
         /// Get teh DTE object
         /// </summary>
-        internal static DTE DTE => CoreUtility.ServiceProvider.GetService(typeof(DTE)) as DTE;
+        internal static DTE2 DTE => CoreUtility.ServiceProvider.GetService(typeof(DTE2)) as DTE2;
         
         /// <summary>
         /// Current VS project

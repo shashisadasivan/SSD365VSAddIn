@@ -37,10 +37,8 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\..\..\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte80.dll</HintPath>
+    <Reference Include="envdte80, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\envdte80.17.10.40170\lib\net472\envdte80.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.Dynamics.AX.Metadata">
@@ -68,30 +66,50 @@
       <HintPath>K:\AosService\PackagesLocalDirectory\bin\Microsoft.Dynamics.AX.Xpp.Support.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.AutomationObjects.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.AutomationObjects.17.0.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.BuildTasks">
       <HintPath>K:\AosService\PackagesLocalDirectory\bin\Microsoft.Dynamics.Framework.Tools.BuildTasks.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.LabelEditor">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\Extensions\0oosnyyp.34a\Microsoft.Dynamics.Framework.Tools.LabelEditor.dll</HintPath>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.Configuration.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.Configuration.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel">
-      <HintPath>K:\AosService\PackagesLocalDirectory\bin\Microsoft.Dynamics.Framework.Tools.MetaModel.dll</HintPath>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.Core.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.Core.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>K:\AosService\PackagesLocalDirectory\bin\Microsoft.Dynamics.Framework.Tools.MetaModel.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSupport">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\Extensions\0oosnyyp.34a\Microsoft.Dynamics.Framework.Tools.ProjectSupport.dll</HintPath>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.Extensibility.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.Extensibility.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSystem">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\Extensions\0oosnyyp.34a\Microsoft.Dynamics.Framework.Tools.ProjectSystem.dll</HintPath>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.LabelEditor.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.LabelEditor.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.MetaModel.17.0.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.Core.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.MetaModel.Core.17.0.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSupport.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.ProjectSupport.17.0.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSystem.17.0">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.ProjectSystem.17.0.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.10.40170\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -195,6 +213,7 @@
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SSD365VSAddIn.MainMenuAddIns.CreateFromTemplate.TemplateRepleacableText.datasource" />
     <None Include="Properties\DataSources\SSD365VSAddIn.Settings.ModelSettings.datasource" />
