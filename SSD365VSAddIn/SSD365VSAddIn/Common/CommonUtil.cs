@@ -23,7 +23,7 @@ namespace SSD365VSAddIn.Common
         /// <summary>
         /// Get teh DTE object
         /// </summary>
-        internal static DTE2 DTE => CoreUtility.ServiceProvider.GetService(typeof(DTE2)) as DTE2;
+        internal static DTE2 DTE => CoreUtility.ServiceProvider.GetService(typeof(DTE)) as DTE2;
         
         /// <summary>
         /// Current VS project
