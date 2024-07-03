@@ -3,6 +3,7 @@ Extensions to enhance the development experience, mostly with just the mouse.
 These can only be done from the designer windows of the source objects
 
 __Version support__: 10.0.10 and higher. If you want to install this for a system prior to 10.0.10, then see the __How to install__ section
+
 __VS 2019__: For VS2019, select the VS2019 branch and follow details from there and manually install
 
 __Support for VS2022 added__
