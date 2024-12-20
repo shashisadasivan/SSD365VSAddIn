@@ -47,7 +47,14 @@ namespace SSD365VSAddIn.Common
         /// <returns>VSApplicationContext</returns>
         internal static Microsoft.Dynamics.Framework.Tools.Labels.VSApplicationContext GetVSApplicationContext()
         {
-            var context = new Microsoft.Dynamics.Framework.Tools.Labels.VSApplicationContext(CommonUtil.DTE.DTE);
+            if(DTE == null)
+            {
+                throw new InvalidOperationException("DTE is not initialized");
+            }
+            // Create a service provider from the DTE object
+            IServiceProvider serviceProvider = new Microsoft.VisualStudio.Shell.ServiceProvider(DTE as Microsoft.VisualStudio.OLE.Interop.IServiceProvider);
+            // Create the context based ont he service provider
+            var context = new Microsoft.Dynamics.Framework.Tools.Labels.VSApplicationContext(serviceProvider);
             return context;
         }
 

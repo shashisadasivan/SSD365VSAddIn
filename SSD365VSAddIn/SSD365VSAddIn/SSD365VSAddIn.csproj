@@ -33,12 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Reference Include="envdte, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\PublicAssemblies\envdte.dll</HintPath>
     </Reference>
     <Reference Include="envdte80, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\envdte80.17.10.40170\lib\net472\envdte80.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\PublicAssemblies\envdte80.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.Dynamics.AX.Metadata">
@@ -67,7 +68,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.AutomationObjects.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.AutomationObjects.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.AutomationObjects.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.BuildTasks">
@@ -75,40 +76,42 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.Configuration.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.Configuration.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.Configuration.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.Core.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.Core.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.Core.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.Extensibility.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.Extensibility.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.Extensibility.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.LabelEditor.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.LabelEditor.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.LabelEditor.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.MetaModel.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.MetaModel.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.MetaModel.Core.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.MetaModel.Core.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.MetaModel.Core.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSupport.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.ProjectSupport.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.ProjectSupport.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Dynamics.Framework.Tools.ProjectSystem.17.0">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\evslr1m4.vij\Microsoft.Dynamics.Framework.Tools.ProjectSystem.17.0.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\r14op0sw.ult\Microsoft.Dynamics.Framework.Tools.ProjectSystem.17.0.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.VisualStudio.Interop.17.10.40170\lib\net472\Microsoft.VisualStudio.Interop.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Framework, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="netstandard" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -241,7 +244,7 @@
     <PostBuildEvent>echo "----"
 echo "--&gt; Copy to Outputdlls"
 echo "Copy all DLLs"
-copy $(TargetDir)\*.dll $(ProjectDir)..\..\OutputDlls\
+copy $(TargetDir)\*.dll $(SolutionDir)..\OutputDlls\
 echo "&lt;-- Copy Complete"</PostBuildEvent>
   </PropertyGroup>
 </Project>
