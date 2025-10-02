@@ -30,7 +30,7 @@ __Support for VS2022 added__
 
 **Option 1: Run from powershell script**
   ```Powershell
-  iex (iwr "https://raw.githubusercontent.com/shashisadasivan/SSD365VSAddIn/master/Misc/install.ps1").Content
+  iex (iwr "https://raw.githubusercontent.com/shashisadasivan/SSD365VSAddIn/master/Misc/install.ps1" -UseBasicParsing).Content
   ```
   
 **Option 2: Mannual installation** (works for non admin users)
@@ -138,3 +138,4 @@ See [Issue #24](https://github.com/shashisadasivan/SSD365VSAddIn/issues/24) on t
 This is an experimental feature
 Converts a existing class which implements a RunBaseBatch to SysOperation.
 Currently creates a contract class for the given RunBaseBatch class based on the dialog method
+
