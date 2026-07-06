@@ -28,10 +28,17 @@ foreach ($file in $files)
 Write-Host "Adding path to configuration"
 #Edit the config file "C:\Users\<username>\Documents\Visual Studio Dynamics 365\DynamicsDevConfig.xml" and add an entry for the above folder
 
-$D365VSConfigFile = "$env:USERPROFILE\Documents\Visual Studio Dynamics 365\DynamicsDevConfig.xml"
-If(!(test-path $addinPath))
+$configRelativePath = "Visual Studio Dynamics 365\DynamicsDevConfig.xml"
+$documentsPath = [Environment]::GetFolderPath([Environment+SpecialFolder]::MyDocuments)
+
+$D365VSConfigFile = @(
+    Join-Path $documentsPath $configRelativePath
+    Join-Path $env:USERPROFILE "Documents\$configRelativePath"
+) | Where-Object { Test-Path $_ } | Select-Object -First 1
+
+If(!$D365VSConfigFile)
 {
-    throw "Please enter the path into configuration manually"
+    throw "DynamicsDevConfig.xml was not found. Please enter the add-in path into the configuration manually: $addinPath"
 }
 
 $AddPathToConfig = $true
